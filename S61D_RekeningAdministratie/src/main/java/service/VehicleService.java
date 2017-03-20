@@ -7,6 +7,7 @@ package service;
 
 import dao.VehicleDAO;
 import domain.Vehicle;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
@@ -21,6 +22,14 @@ public class VehicleService {
     
     public Vehicle createNewVehicle(Vehicle vehicle){
         return vehicleDAO.createNewVehicle(vehicle);
+    }
+
+    public Vehicle addVehicleToDriver(Vehicle vehicle) {
+        return vehicleDAO.addVehicleToDriver(vehicle);
+    }
+    
+    public List<Vehicle> getVehicleByOwner(int id){
+        return vehicleDAO.getVehicleByOwner(id);
     }
     
 }

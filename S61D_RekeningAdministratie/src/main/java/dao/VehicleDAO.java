@@ -6,6 +6,7 @@
 package dao;
 
 import domain.Vehicle;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -30,6 +31,15 @@ public class VehicleDAO {
         em.flush();
         return em.find(Vehicle.class, vehicle.getLicensePlate());
     }   
-         
+    
+    public Vehicle addVehicleToDriver(Vehicle vehicle){
+        Vehicle tempResult = em.find(Vehicle.class, vehicle.getLicensePlate());
+        tempResult = vehicle;
+        em.merge(tempResult);
+        return em.find(Vehicle.class, vehicle.getLicensePlate());
+    }
+    public List<Vehicle> getVehicleByOwner(int id){
+        return em.createQuery("select v from Vehicle v where v.owner.id = :id").setParameter(":id", id).getResultList();
+    }
     
 }
