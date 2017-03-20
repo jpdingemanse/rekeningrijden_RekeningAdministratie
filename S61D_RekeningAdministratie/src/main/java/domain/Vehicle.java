@@ -18,6 +18,8 @@ import javax.persistence.ManyToOne;
 public class Vehicle implements Serializable{
     @Id
     private String licensePlate;
+    
+
     @ManyToOne
     private Driver owner;
 

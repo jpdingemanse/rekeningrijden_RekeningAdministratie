@@ -23,8 +23,9 @@ public class DriverService {
     public Driver createNewDriver(Driver driver){
         return driverDao.createNewDriver(driver);
     }
-    
-    public Driver addVehicleToDriver(Driver driver){
-        return driverDao.addVehicleToDriver(driver);
+
+    public Driver getDriver(int id) {
+        return driverDao.getDriver(id);
     }
+    
 }
