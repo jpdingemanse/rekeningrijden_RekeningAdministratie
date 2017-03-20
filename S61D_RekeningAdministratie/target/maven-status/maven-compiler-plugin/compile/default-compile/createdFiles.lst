@@ -1,8 +1,6 @@
-dao\GroupDAO.class
 boudary\rest\VehicleResource.class
 domain\User_.class
 domain\Driver_.class
-domain\Group.class
 service\VehicleService.class
 dao\DriverDAO.class
 domain\invoice.class
@@ -17,4 +15,3 @@ domain\User.class
 boudary\rest\JARSconfig.class
 domain\Vehicle_.class
 service\DriverService.class
-domain\Group_.class
