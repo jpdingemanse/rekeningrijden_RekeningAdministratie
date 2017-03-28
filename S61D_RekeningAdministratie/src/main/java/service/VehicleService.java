@@ -23,4 +23,7 @@ public class VehicleService {
         return vehicleDAO.createNewVehicle(vehicle);
     }
     
+    public Vehicle addTrackerToVehicle(Vehicle vehicle){
+        return vehicleDAO.addTrackerToVehicle(vehicle);
+    }
 }

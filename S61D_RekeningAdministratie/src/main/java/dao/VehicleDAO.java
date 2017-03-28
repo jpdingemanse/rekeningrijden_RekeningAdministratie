@@ -31,5 +31,8 @@ public class VehicleDAO {
         return em.find(Vehicle.class, vehicle.getLicensePlate());
     }   
          
-    
+    public Vehicle addTrackerToVehicle(Vehicle vehicle){
+        em.merge(vehicle);
+        return em.find(Vehicle.class, vehicle.getLicensePlate());
+    }
 }

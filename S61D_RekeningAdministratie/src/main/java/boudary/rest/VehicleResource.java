@@ -29,4 +29,11 @@ public class VehicleResource {
     public Vehicle createVehicle(Vehicle vehicle){
         return vehicleService.createNewVehicle(vehicle);
     }
+    
+    @POST
+    @Path("AddTrackerToVehicle")
+    @Consumes("application/json")
+    public Vehicle addTrackerToVehicle(Vehicle vehicle){
+        return vehicleService.addTrackerToVehicle(vehicle);
+    }
 }

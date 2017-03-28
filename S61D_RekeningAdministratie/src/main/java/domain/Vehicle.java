@@ -8,7 +8,9 @@ package domain;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -20,12 +22,16 @@ public class Vehicle implements Serializable{
     private String licensePlate;
     @ManyToOne
     private Driver owner;
+    @OneToOne
+    @JoinColumn(name = "trackerId")
+    private Tracker tracker;
 
     public Vehicle() {
     }
 
-    public Vehicle(String licensePlate) {
+    public Vehicle(String licensePlate, Tracker tracker) {
         this.licensePlate = licensePlate;
+        this.tracker = tracker;
     }
 
     public String getLicensePlate() {
@@ -42,6 +48,14 @@ public class Vehicle implements Serializable{
 
     public void setOwner(Driver owner) {
         this.owner = owner;
+    }
+
+    public Tracker getTracker() {
+        return tracker;
+    }
+
+    public void setTracker(Tracker tracker) {
+        this.tracker = tracker;
     }
     
     
