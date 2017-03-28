@@ -51,7 +51,6 @@ public class Driver implements Serializable {
         this.password = password;
         this.houseNumber = houseNumber;
         this.phoneNumber = phoneNumber;
-        this.allVehicle = new ArrayList<>();
     }
 
     public int getId() {
@@ -134,17 +133,7 @@ public class Driver implements Serializable {
         this.phoneNumber = phoneNumber;
     }
 
-    public List<Vehicle> getAllVehicle() {
-        return allVehicle;
-    }
-
-    public void setAllVehicle(List<Vehicle> allVehicle) {
-        this.allVehicle = allVehicle;
-    }
-
-    public void AddVehicle(Vehicle vehicle) {
-        this.allVehicle.add(vehicle);
-    }
+    
     
     
 }

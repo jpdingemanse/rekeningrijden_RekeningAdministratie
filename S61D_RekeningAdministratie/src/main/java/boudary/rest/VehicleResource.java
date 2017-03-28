@@ -5,12 +5,16 @@
  */
 package boudary.rest;
 
+
 import domain.Vehicle;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import service.VehicleService;
 
 /**
@@ -35,5 +39,16 @@ public class VehicleResource {
     @Consumes("application/json")
     public Vehicle addTrackerToVehicle(Vehicle vehicle){
         return vehicleService.addTrackerToVehicle(vehicle);
+    }
+    @Path("AddVehicleToDriver")
+    @Consumes("application/json")
+    public Vehicle addVehicleToDriver(Vehicle vehicle){
+        return vehicleService.addVehicleToDriver(vehicle);
+    }
+    
+    @GET
+    @Path("GetAllVehicle/{id}")
+    public List<Vehicle> getAllVehicle(@PathParam("id")int id){
+        return vehicleService.getVehicleByOwner(id);
     }
 }

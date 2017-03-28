@@ -20,6 +20,8 @@ import javax.persistence.OneToOne;
 public class Vehicle implements Serializable{
     @Id
     private String licensePlate;
+    
+
     @ManyToOne
     private Driver owner;
     @OneToOne
@@ -34,6 +36,10 @@ public class Vehicle implements Serializable{
         this.tracker = tracker;
     }
 
+    public Vehicle(String licensePlate) {
+        this.licensePlate = licensePlate;
+    }
+    
     public String getLicensePlate() {
         return licensePlate;
     }

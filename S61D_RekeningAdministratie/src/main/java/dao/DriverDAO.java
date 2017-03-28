@@ -7,6 +7,7 @@ package dao;
 
 import domain.Driver;
 import domain.Vehicle;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -29,9 +30,11 @@ public class DriverDAO {
         em.flush();
         return em.find(Driver.class, driver.getId());
     }
-    
-    public Driver addVehicleToDriver(Driver driver){
-        em.merge(driver);
-        return em.find(Driver.class, driver.getId());
+
+    public Driver getDriver(int id) {
+        Driver result = em.find(Driver.class, id);
+        return result;
     }
+    
+    
 }

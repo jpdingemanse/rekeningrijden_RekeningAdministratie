@@ -5,10 +5,16 @@
  */
 package dao;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 /**
  *
  * @author lino_
  */
 public class InvoiceDAO {
+    @PersistenceContext
+    EntityManager em;
+    
     
 }

@@ -4,6 +4,7 @@ domain\User_.class
 domain\Driver_.class
 domain\Group.class
 service\VehicleService.class
+util\Init.class
 domain\invoice.class
 dao\InvoiceDAO.class
 domain\Vehicle.class
