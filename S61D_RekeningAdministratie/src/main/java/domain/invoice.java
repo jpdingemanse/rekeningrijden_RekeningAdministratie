@@ -23,13 +23,15 @@ public class invoice implements Serializable {
     
     private double totalPrice;
     private int totalDistant;
+    private long timeCreated;
 
     public invoice() {
     }
 
-    public invoice(double totalPrice, int totalDistant) {
+    public invoice(double totalPrice, int totalDistant, long timeCreated) {
         this.totalPrice = totalPrice;
         this.totalDistant = totalDistant;
+        this.timeCreated = timeCreated;
     }
     
     
