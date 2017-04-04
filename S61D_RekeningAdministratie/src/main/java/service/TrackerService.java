@@ -7,12 +7,14 @@ package service;
 
 import dao.TrackerDAO;
 import domain.Tracker;
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 /**
  *
  * @author victo
  */
+@Stateless
 public class TrackerService {
     @Inject
     TrackerDAO trackerDAO;

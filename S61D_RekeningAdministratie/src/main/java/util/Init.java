@@ -19,7 +19,6 @@ import javax.inject.Inject;
  *
  * @author lino_
  */
-@Startup
 @Singleton
 public class Init {
     @Inject
