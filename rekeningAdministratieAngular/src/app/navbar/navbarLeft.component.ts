@@ -2,9 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'navbar-Left',
-  templateUrl: './navbarLeft.html',
-  styleUrls: ['./../app.component.css']
+  templateUrl: './navbarLeft.html'
 })
-export class navbarLeft {
+export class NavbarLeftComponent {
   title = 'app works!';
 }
