@@ -32,4 +32,10 @@ public class VehicleService {
         return vehicleDAO.getVehicleByOwner(id);
     }
     
+    public List<Vehicle> getAllVehicles()
+    {
+        return vehicleDAO.getAllVehicles();
+    }
+    
 }
+

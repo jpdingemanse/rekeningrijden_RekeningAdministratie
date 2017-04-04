@@ -10,6 +10,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 
 
@@ -41,6 +42,11 @@ public class VehicleDAO {
     }
     public List<Vehicle> getVehicleByOwner(int id){
         return em.createQuery("select v from Vehicle v where v.owner.id = :id").setParameter("id", id).getResultList();
+    }
+    
+     public List<Vehicle> getAllVehicles(){
+        return em.createQuery("select v from Vehicle").getResultList();
+        
     }
     
 }
