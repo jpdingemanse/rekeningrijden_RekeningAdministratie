@@ -11,7 +11,8 @@ import { NavbarTopComponent } from './navbar/navbarTop.component';
 import { NavbarLeftComponent } from './navbar/navbarLeft.component';
 import { HomePageComponent } from './home/home.component';
 import { GebruikerPageComponent } from './gebruiker/gebruiker.component';
-import { GebruikerTableComponent } from './gebruiker/gebruikertable.component';
+
+import {DriverService } from './rest/driver.Service';
 
 @NgModule({
   declarations: [
@@ -19,8 +20,7 @@ import { GebruikerTableComponent } from './gebruiker/gebruikertable.component';
     NavbarTopComponent,
     NavbarLeftComponent,
     HomePageComponent,
-    GebruikerPageComponent,
-    GebruikerTableComponent
+    GebruikerPageComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +29,9 @@ import { GebruikerTableComponent } from './gebruiker/gebruikertable.component';
     Routing,
     ModalModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    DriverService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
