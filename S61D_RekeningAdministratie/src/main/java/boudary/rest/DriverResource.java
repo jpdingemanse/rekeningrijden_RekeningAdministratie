@@ -41,7 +41,7 @@ public class DriverResource {
     
     @GET
     @Path("GetDriverByName/{name}/{lastname}")
-    public List<Driver> getDriverByName(@PathParam("name")String name, String lastName){
+    public List<Driver> getDriverByName(@PathParam("name")String name, @PathParam("lastname")String lastName){
         return driverService.getDriverByName(name, lastName);
     }
     

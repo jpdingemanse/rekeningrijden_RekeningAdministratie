@@ -1,7 +1,19 @@
-export class Vehicle {
-    constructor(
-        public licenseplate: string
-    ) {
+import { Driver } from "app/domain/driver";
 
+export class Vehicle {
+    public licensePlate: string;
+    public autorisatieCode: string;
+    public owner : Driver
+    constructor() {}
+
+    setDriver(driver : Driver){
+        this.owner = driver;
+    }
+    setLicensePlate(licensePlate : string){
+        this.licensePlate = licensePlate;
+    }
+    setautorisatieCode(autorisatieCode : string){
+        this.autorisatieCode = autorisatieCode;
+        
     }
 }

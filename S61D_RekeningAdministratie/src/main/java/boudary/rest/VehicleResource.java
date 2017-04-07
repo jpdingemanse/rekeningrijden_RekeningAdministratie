@@ -48,9 +48,22 @@ public class VehicleResource {
         return vehicleService.addVehicleToDriver(vehicle);
     }
     
+    @POST
+    @Path("UpdateAuthorisatieCode")
+    @Consumes("application/json")
+    public Vehicle updateAuthorisatieCode(Vehicle vehicle){
+        return vehicleService.updateAutorisatieCode(vehicle);
+    }
+    
     @GET
     @Path("GetAllVehicle/{id}")
     public List<Vehicle> getAllVehicle(@PathParam("id")int id){
         return vehicleService.getVehicleByOwner(id);
+    }
+    
+    @GET
+    @Path("GetVehicleByLicensePlate/{licensePlate}")
+    public Vehicle getVehicleByLicensePlate(@PathParam("licensePlate")String licensePlate){
+        return vehicleService.getVehicleByLicensePlate(licensePlate);
     }
 }

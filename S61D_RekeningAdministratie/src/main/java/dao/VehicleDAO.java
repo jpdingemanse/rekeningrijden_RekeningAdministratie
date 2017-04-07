@@ -10,6 +10,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 
 
@@ -45,6 +46,19 @@ public class VehicleDAO {
         return em.find(Vehicle.class, vehicle.getLicensePlate());
     }
     public List<Vehicle> getVehicleByOwner(int id){
-        return em.createQuery("select v from Vehicle v where v.owner.id = :id").setParameter("id", id).getResultList();
+        Query qeury = em.createNamedQuery("vehicle.getByOwnerId").setParameter("id", id);
+        return qeury.getResultList();
+    }
+
+    public Vehicle getVehicleByLicensePlate(String licensePlate) {
+        Vehicle result = em.find(Vehicle.class, licensePlate);
+        return result;
+    }
+
+    public Vehicle updateAuthorisatieCode(Vehicle vehicle) {
+        Vehicle tempResult = em.find(Vehicle.class, vehicle.getLicensePlate());
+        tempResult.setAutorisatieCode(vehicle.getAutorisatieCode());
+        em.merge(tempResult);
+        return em.find(Vehicle.class, vehicle.getLicensePlate());
     }
 }

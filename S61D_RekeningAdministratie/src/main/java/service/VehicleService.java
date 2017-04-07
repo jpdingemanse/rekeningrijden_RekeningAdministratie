@@ -35,4 +35,12 @@ public class VehicleService {
     public Vehicle addTrackerToVehicle(Vehicle vehicle){
         return vehicleDAO.addTrackerToVehicle(vehicle);
     }
+
+    public Vehicle getVehicleByLicensePlate(String licensePlate) {
+        return vehicleDAO.getVehicleByLicensePlate(licensePlate);
+    }
+
+    public Vehicle updateAutorisatieCode(Vehicle vehicle) {
+        return vehicleDAO.updateAuthorisatieCode(vehicle);
+    }
 }

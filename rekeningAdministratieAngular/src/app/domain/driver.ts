@@ -1,6 +1,7 @@
 import { Vehicle } from './vehicle';
 export class Driver {
     constructor(
+        public id: number,
         public name: string,
         public lastname: string,
         public postalCode: string,

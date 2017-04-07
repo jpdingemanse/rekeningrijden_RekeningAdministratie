@@ -4,15 +4,20 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { Routing } from './routes/routing.component';
-import { ModalModule } from 'ng2-bootstrap';
+import { ModalModule, TabsModule } from 'ng2-bootstrap';
 
 import { AppComponent } from './app.component';
 import { NavbarTopComponent } from './navbar/navbarTop.component';
 import { NavbarLeftComponent } from './navbar/navbarLeft.component';
 import { HomePageComponent } from './home/home.component';
 import { GebruikerPageComponent } from './gebruiker/gebruiker.component';
+import { VehiclePageComponent } from './vehicle/vehicle.component';
 
-import {DriverService } from './rest/driver.Service';
+import { VehicleDialogComponent } from './dialog/vehicleDialog.component';
+import { VehicleEditDialogComponent } from './dialog/vehicleEditDialog.components';
+
+import { DriverService } from './rest/driver.Service';
+import { VehicleService } from './rest/vehicle.service';
 import { TarievenPageComponent } from "app/tarieven/tarieven.component";
 
 @NgModule({
@@ -22,17 +27,22 @@ import { TarievenPageComponent } from "app/tarieven/tarieven.component";
     NavbarLeftComponent,
     HomePageComponent,
     GebruikerPageComponent,
-    TarievenPageComponent
+    TarievenPageComponent,
+    VehicleDialogComponent,
+    VehiclePageComponent,
+    VehicleEditDialogComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     Routing,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    TabsModule.forRoot()
   ],
   providers: [
-    DriverService
+    DriverService,
+    VehicleService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,4 +1,4 @@
-import { Component} from '@angular/core'
+import { Component, ViewChild } from '@angular/core'
 
 import { DriverService } from './../rest/driver.Service';
 import { Driver } from './../domain/driver';
@@ -9,7 +9,11 @@ import { Driver } from './../domain/driver';
     styleUrls: ['./../app.component.css']
 })
 export class GebruikerPageComponent {
-    driver : Driver[];
+    @ViewChild('carModal')
+    bgModel;
+
+    selectedDriver : Driver;
+    driverList : Driver[];
 
     constructor(private driverService : DriverService){}
 
@@ -17,12 +21,14 @@ export class GebruikerPageComponent {
         let result  = value.split(' '); 
         if(result.length > 1){
             this.driverService.getDriverByFullName(result[0], result[1])
-                                .then(value => this.driver = value)
-                                .then(() => console.log(this.driver));
+                                .then(value => this.driverList = value)
         }
         else{
             console.log(value);
         }
-        
+    }
+    onclickSelectDriver(value : Driver){
+        this.selectedDriver = value;
+        this.bgModel.show();
     }
 }
