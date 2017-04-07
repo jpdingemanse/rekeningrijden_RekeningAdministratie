@@ -8,6 +8,7 @@ package service;
 import dao.DriverDAO;
 import domain.Driver;
 import domain.Vehicle;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
@@ -26,6 +27,10 @@ public class DriverService {
 
     public Driver getDriver(int id) {
         return driverDao.getDriver(id);
+    }
+
+    public List<Driver> getDriverByName(String name, String lastName) {
+       return driverDao.getDriverByName(name, lastName);
     }
     
 }

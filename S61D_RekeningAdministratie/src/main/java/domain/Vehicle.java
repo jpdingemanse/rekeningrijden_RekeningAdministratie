@@ -24,16 +24,8 @@ public class Vehicle implements Serializable{
 
     @ManyToOne
     private Driver owner;
-    @OneToOne
-    @JoinColumn(name = "trackerId")
-    private Tracker tracker;
 
     public Vehicle() {
-    }
-
-    public Vehicle(String licensePlate, Tracker tracker) {
-        this.licensePlate = licensePlate;
-        this.tracker = tracker;
     }
 
     public Vehicle(String licensePlate) {
@@ -54,14 +46,6 @@ public class Vehicle implements Serializable{
 
     public void setOwner(Driver owner) {
         this.owner = owner;
-    }
-
-    public Tracker getTracker() {
-        return tracker;
-    }
-
-    public void setTracker(Tracker tracker) {
-        this.tracker = tracker;
     }
     
     

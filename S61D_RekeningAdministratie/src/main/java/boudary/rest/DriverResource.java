@@ -5,7 +5,6 @@
  */
 package boudary.rest;
 
-import dao.DriverDAO;
 import domain.Driver;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -38,6 +37,12 @@ public class DriverResource {
     @Path("GetDriver/{id}")
     public Driver getDriver(@PathParam("id")int id){
         return driverService.getDriver(id);
+    }
+    
+    @GET
+    @Path("GetDriverByName/{name}/{lastname}")
+    public List<Driver> getDriverByName(@PathParam("name")String name, String lastName){
+        return driverService.getDriverByName(name, lastName);
     }
     
     
