@@ -13,6 +13,7 @@ import { HomePageComponent } from './home/home.component';
 import { GebruikerPageComponent } from './gebruiker/gebruiker.component';
 
 import {DriverService } from './rest/driver.Service';
+import { TarievenPageComponent } from "app/tarieven/tarieven.component";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {DriverService } from './rest/driver.Service';
     NavbarTopComponent,
     NavbarLeftComponent,
     HomePageComponent,
-    GebruikerPageComponent
+    GebruikerPageComponent,
+    TarievenPageComponent
   ],
   imports: [
     BrowserModule,

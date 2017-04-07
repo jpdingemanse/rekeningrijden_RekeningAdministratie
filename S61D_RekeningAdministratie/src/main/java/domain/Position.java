@@ -16,7 +16,7 @@ public class Position implements Serializable{
     private double lat;
     private double lon;
     
-    public Position(String pos, double lat, double lon){
+    public Position(String pos, double lon, double lat){
         this.position = pos;
         this.lat = lat;
         this.lon = lon;

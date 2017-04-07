@@ -32,4 +32,5 @@ domain/invoice_.class
 domain/invoice.class
 dao/TrackerDAO.class
 util/Init.class
+domain/Movement.class
 domain/Tracker.class
