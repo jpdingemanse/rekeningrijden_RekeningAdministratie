@@ -12,6 +12,7 @@ import { NavbarLeftComponent } from './navbar/navbarLeft.component';
 import { HomePageComponent } from './home/home.component';
 import { GebruikerPageComponent } from './gebruiker/gebruiker.component';
 import { GebruikerTableComponent } from './gebruiker/gebruikertable.component';
+import { TarievenPageComponent } from "app/tarieven/tarieven.component";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { GebruikerTableComponent } from './gebruiker/gebruikertable.component';
     NavbarLeftComponent,
     HomePageComponent,
     GebruikerPageComponent,
-    GebruikerTableComponent
+    GebruikerTableComponent,
+    TarievenPageComponent
   ],
   imports: [
     BrowserModule,

@@ -23,14 +23,16 @@ public class Rate implements Serializable{
     private int id;
     private double rate;
     private String region;
+    private String currency;
     private List<Position> border;
     
     public Rate(){}
 
-    public Rate(double rate, String region, List<Position> border) {
+    public Rate(double rate, String region,String currency  ,List<Position> border) {
         this.rate = rate;
         this.region = region;
         this.border = border;
+        this.currency = currency;
     }
     
     public int getId() {
@@ -39,6 +41,14 @@ public class Rate implements Serializable{
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
     }
     
     public double getRate() {
