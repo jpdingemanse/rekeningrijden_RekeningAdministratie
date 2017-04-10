@@ -6,22 +6,57 @@
 package domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 /**
  *
  * @author ruthgervandeneikhof
  */
+@Entity
 public class Position implements Serializable{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String position;
     private double lat;
     private double lon;
+    @ManyToMany(mappedBy = "border")
+    private List<Rate> rates;
+
+    public Position() {
+    }
     
     public Position(String pos, double lon, double lat){
         this.position = pos;
         this.lat = lat;
         this.lon = lon;
+        this.rates = new ArrayList<>();
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public List<Rate> getRates() {
+        return rates;
+    }
+
+    public void setRates(List<Rate> rates) {
+        this.rates = rates;
+    }
+    
+    
+    
     public String getPosition() {
         return position;
     }

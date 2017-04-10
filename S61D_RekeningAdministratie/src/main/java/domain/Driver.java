@@ -6,7 +6,6 @@
 package domain;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -31,6 +30,7 @@ public class Driver implements Serializable {
     private int id;
     
     private String name;
+    private String ican;
     private String lastname;
     private String postalCode;
     private String city;
@@ -46,8 +46,9 @@ public class Driver implements Serializable {
     public Driver() {
     }
 
-    public Driver(String name, String lastname, String postalCode, String city, String email, String username, String password, String houseNumber, String phoneNumber) {
+    public Driver(String name, String ican,String lastname, String postalCode, String city, String email, String username, String password, String houseNumber, String phoneNumber) {
         this.name = name;
+        this.ican = ican;
         this.lastname = lastname;
         this.postalCode = postalCode;
         this.city = city;
@@ -66,6 +67,14 @@ public class Driver implements Serializable {
         this.id = id;
     }
 
+    public String getIcan() {
+        return ican;
+    }
+
+    public void setIcan(String ican) {
+        this.ican = ican;
+    }
+    
     public String getName() {
         return name;
     }

@@ -6,13 +6,18 @@ import javax.persistence.metamodel.ListAttribute;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
+<<<<<<< HEAD
 @Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2017-04-10T11:27:33")
+=======
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2017-04-10T10:58:27")
+>>>>>>> origin/Feature
 @StaticMetamodel(Driver.class)
 public class Driver_ { 
 
     public static volatile SingularAttribute<Driver, String> password;
     public static volatile SingularAttribute<Driver, String> phoneNumber;
     public static volatile SingularAttribute<Driver, String> city;
+    public static volatile SingularAttribute<Driver, String> ican;
     public static volatile ListAttribute<Driver, Vehicle> allVehicle;
     public static volatile SingularAttribute<Driver, String> postalCode;
     public static volatile SingularAttribute<Driver, String> name;
