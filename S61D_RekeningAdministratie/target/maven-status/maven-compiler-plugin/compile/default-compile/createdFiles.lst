@@ -1,7 +1,6 @@
-domain/Group_.class
-domain/Group.class
 domain/Driver_.class
 domain/Driver.class
+domain/Movement_.class
 boudary/rest/TrackerResource.class
 boudary/rest/BeaconResource.class
 boudary/rest/DriverResource.class
@@ -21,7 +20,7 @@ boudary/rest/VehicleResource.class
 domain/User.class
 service/DriverService.class
 boudary/rest/RateResource.class
-dao/GroupDAO.class
+domain/Position_.class
 domain/Tracker_.class
 domain/Vehicle.class
 boudary/rest/JARSconfig.class

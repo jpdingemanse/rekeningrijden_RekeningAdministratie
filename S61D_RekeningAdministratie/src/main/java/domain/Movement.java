@@ -6,34 +6,44 @@
 package domain;
 
 import java.io.Serializable;
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /**
  *
  * @author ruthgervandeneikhof
  */
+@Entity
 public class Movement implements Serializable{
-    private List<Beacon> beacons;
-    private String date; // maand/jaar
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    private String datum; // maand/jaar
+    private String ican;
+
+    public Movement() {
+    }
     
-    public Movement(List<Beacon> beacons, String date){
-        this.beacons = beacons;
-        this.date = date;
+    public Movement(String date, String ican){
+        this.datum = date;
+        this.ican = ican;
     }
 
-    public List<Beacon> getBeacons() {
-        return beacons;
+    public String getIcan() {
+        return ican;
     }
 
-    public void setBeacons(List<Beacon> beacons) {
-        this.beacons = beacons;
+    public void setIcan(String ican) {
+        this.ican = ican;
     }
-
+    
     public String getDate() {
-        return date;
+        return datum;
     }
 
     public void setDate(String date) {
-        this.date = date;
+        this.datum = date;
     }   
 }

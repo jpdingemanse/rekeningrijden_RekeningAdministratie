@@ -25,7 +25,6 @@ import javax.persistence.NamedQuery;
 public class Vehicle implements Serializable{
     @Id
     private String licensePlate;
-//    private List<Movement> movements;
     private String autorisatieCode;
     @ManyToOne
     private Driver owner;
@@ -35,16 +34,7 @@ public class Vehicle implements Serializable{
 
     public Vehicle(String licensePlate) {
         this.licensePlate = licensePlate;
-//        this.movements = new ArrayList<>();
     }
-
-//    public List<Movement> getMovements() {
-//        return movements;
-//    }
-//
-//    public void setMovements(List<Movement> movements) {
-//        this.movements = movements;
-//    }
 
     public String getAutorisatieCode() {
         return autorisatieCode;
