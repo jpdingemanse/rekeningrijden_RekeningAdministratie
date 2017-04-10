@@ -6,9 +6,11 @@
 package boudary.rest;
 
 import domain.Rate;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import service.RateService;
@@ -28,5 +30,11 @@ public class RateResource {
     @Consumes("application/json")
     public Rate createNewRate(Rate rate){
         return rateService.createNewRate(rate);
+    }
+    
+    @GET
+    @Path("getAllRates")
+    public List<Rate> getAllRates(){
+        return rateService.getAllRates();
     }
 }

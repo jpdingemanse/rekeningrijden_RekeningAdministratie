@@ -7,6 +7,7 @@ package service;
 
 import dao.RateDAO;
 import domain.Rate;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
@@ -21,5 +22,9 @@ public class RateService {
     
     public Rate createNewRate(Rate rate){
         return rateDao.createNewRate(rate);
+    }
+    
+    public List<Rate> getAllRates(){
+        return rateDao.getAllRates();
     }
 }

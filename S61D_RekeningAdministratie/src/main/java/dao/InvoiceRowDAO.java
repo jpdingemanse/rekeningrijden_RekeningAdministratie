@@ -19,26 +19,31 @@ import javax.persistence.Query;
  * @author lino_
  */
 @Stateless
-public class InvoiceDAO {
+public class InvoiceRowDAO {
     @PersistenceContext
     EntityManager em;
     
+   
     
-    public InvoiceDAO()
+    public InvoiceRowDAO()
     {
         
     }
     
-      public Invoice createNewInvoice(Invoice invoice){
-        em.persist(invoice);
+    public InvoiceRow createNewInvoiceRow(InvoiceRow invoiceRow){
+        em.persist(invoiceRow);
         em.flush();
-        return em.find(Invoice.class, invoice.getId());
-    }  
-    public List<Invoice> getInvoicesByDriver(int id)
+        return em.find(InvoiceRow.class, invoiceRow.getId());
+     
+    } 
+    
+    public List<InvoiceRow> getInvoiceRowsByInvoice(int id)
     {
-        Query qeury = em.createNamedQuery("invoice.getInvoiceByDriver").setParameter("id", id);
+        Query qeury = em.createNamedQuery("invoicerow.getInvoiceRowByInvoce").setParameter("id", id);
         return qeury.getResultList();
     }
+    
+     
     
     
 }

@@ -6,6 +6,7 @@
 package dao;
 
 import domain.Rate;
+import java.util.List;
 import javax.annotation.PreDestroy;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -30,5 +31,9 @@ public class RateDAO {
     public void mergePosition(Rate rate) {
         em.merge(rate);
         em.flush();
+    }
+
+    public List<Rate> getAllRates() {
+        return em.createNamedQuery("Rate.getAllRates").getResultList();
     }
 }

@@ -20,6 +20,7 @@ import { TrackerDialogComponent } from './dialog/trackerDialog.component'
 import { DriverService } from './rest/driver.Service';
 import { VehicleService } from './rest/vehicle.service';
 import {TrackerService} from './rest/tracker.service';
+import { RateService } from './rest/rate.Service';
 import { TarievenPageComponent } from "app/tarieven/tarieven.component";
 
 
@@ -48,7 +49,8 @@ import { TarievenPageComponent } from "app/tarieven/tarieven.component";
   providers: [
     DriverService,
     VehicleService,
-    TrackerService
+    TrackerService,
+    RateService
   ],
   bootstrap: [AppComponent]
 })
