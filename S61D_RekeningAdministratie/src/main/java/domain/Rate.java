@@ -21,7 +21,8 @@ import javax.persistence.NamedQuery;
  */
 @Entity
 @NamedQueries({
-    @NamedQuery(name = "Rate.getAllRates", query="Select d from Rate d")
+    @NamedQuery(name = "Rate.getAllRates", query="Select d from Rate d"),
+    @NamedQuery(name = "Rate.getRateById", query="Select d from Rate d where d.id = :rateId")     
 }
 )
 public class Rate implements Serializable{

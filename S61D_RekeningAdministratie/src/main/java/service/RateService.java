@@ -24,6 +24,10 @@ public class RateService {
         return rateDao.createNewRate(rate);
     }
     
+    public Rate editRate(Rate rate){
+        return rateDao.editRate(rate);
+    }
+    
     public List<Rate> getAllRates(){
         return rateDao.getAllRates();
     }

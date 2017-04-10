@@ -7,7 +7,6 @@ package dao;
 
 import domain.Rate;
 import java.util.List;
-import javax.annotation.PreDestroy;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -33,6 +32,14 @@ public class RateDAO {
         em.flush();
     }
 
+    public Rate editRate(Rate rate) {
+        Rate r = (Rate)em.createNamedQuery("Rate.getRateById").setParameter("rateId", rate.getId()).getSingleResult();
+        r.setRate(rate.getRate());
+        em.merge(r);
+        em.flush();
+        return em.find(Rate.class, rate.getId());
+    }
+    
     public List<Rate> getAllRates() {
         return em.createNamedQuery("Rate.getAllRates").getResultList();
     }

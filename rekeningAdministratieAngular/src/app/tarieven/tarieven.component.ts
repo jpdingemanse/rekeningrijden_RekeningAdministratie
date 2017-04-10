@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, ViewChild } from '@angular/core'
 
 import { RateService } from './../rest/rate.Service';
 import { Rate } from './../domain/rate';
@@ -9,8 +9,11 @@ import { Rate } from './../domain/rate';
     styleUrls: ['./../app.component.css']
 })
 export class TarievenPageComponent implements OnInit {
-    rateList : Rate[];
-    selectedRate : Rate;
+    @ViewChild('rateEditModal')
+    bgModel;
+
+    private rateList : Rate[];
+    private selectedRate : Rate;
         ngOnInit(): void {
             this.rateService.getAllRates()
                             .then(value => this.rateList = value)
@@ -19,6 +22,9 @@ export class TarievenPageComponent implements OnInit {
 
     constructor(private rateService : RateService){}
 
-
+    onclickSelectedRate(value : Rate){
+        this.selectedRate = value;
+        this.bgModel.show();
+    }
 
 }
