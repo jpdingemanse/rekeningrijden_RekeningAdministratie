@@ -13,18 +13,20 @@
             <thead>
                 <th>Kenteken</th>
                 <th>Autorisatie Code</th>
+                <th>Tracker</th>
             </thead>
             <tbody>
                 <tr *ngFor="let v of vehicleList ">
                     <td>{{v.licensePlate}}</td>
                     <td>{{v.autorisatieCode}}</td>
+                    <td>{{v.tracker.id}}</td>
                 </tr>
             </tbody>
         </table>
     </div>
 </div>
 <div class="panel panel-default">
-    <h2>Nieuwe voertuig toevoegen</h2>
+    <h2>Nieuw voertuig toevoegen</h2>
     <div class="row">
         <div class="col-lg-8">
 
@@ -42,12 +44,14 @@
                 <thead>
                     <th>Kenteken</th>
                     <th>Autorisatie Code</th>
+                    <th>Tracker</th>
                     <th>Toevoegen</th>
                 </thead>
                 <tbody>
                     <tr *ngFor="let v of availableVehicleList">
                         <td>{{v.licensePlate}}</td>
                         <td>{{v.autorisatieCode}}</td>
+                        <td>{{v.tracker.id}}</td>
                         <td>
                             <p data-placement="top" data-toggle="tooltip" title="Invoegen"><button class="btn btn-success btn-xs" (click)="onclickAddDriverToVehicle(v)"><i class="fa fa-plus" aria-hidden="true"></i></button></p>
                         </td>

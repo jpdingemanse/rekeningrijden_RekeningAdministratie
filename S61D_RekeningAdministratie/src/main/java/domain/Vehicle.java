@@ -10,9 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -28,12 +30,16 @@ public class Vehicle implements Serializable{
     private String autorisatieCode;
     @ManyToOne
     private Driver owner;
+    @OneToOne
+    @JoinColumn(name = "trackerId")
+    private Tracker tracker;
 
     public Vehicle() {
     }
 
-    public Vehicle(String licensePlate) {
+    public Vehicle(String licensePlate, Tracker tracker) {
         this.licensePlate = licensePlate;
+        this.tracker = tracker;
     }
 
     public String getAutorisatieCode() {
@@ -61,5 +67,11 @@ public class Vehicle implements Serializable{
         this.owner = owner;
     }
     
-    
+    public Tracker getTracker() {
+        return tracker;
+    }
+
+    public void setTracker(Tracker tracker) {
+        this.tracker = tracker;
+    }
 }
