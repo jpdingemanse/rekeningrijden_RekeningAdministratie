@@ -1,19 +1,23 @@
 import { Driver } from "app/domain/driver";
+import { Tracker } from "app/domain/tracker";
 
 export class Vehicle {
     public licensePlate: string;
     public autorisatieCode: string;
-    public owner : Driver
-    constructor() {}
+    public owner: Driver;
+    public tracker: Tracker;
+    constructor() { }
 
-    setDriver(driver : Driver){
+    setDriver(driver: Driver) {
         this.owner = driver;
     }
-    setLicensePlate(licensePlate : string){
+    setLicensePlate(licensePlate: string) {
         this.licensePlate = licensePlate;
     }
-    setautorisatieCode(autorisatieCode : string){
+    setautorisatieCode(autorisatieCode: string) {
         this.autorisatieCode = autorisatieCode;
-        
+    }
+    setTracker(tracker: Tracker) {
+        this.tracker = tracker;
     }
 }

@@ -11,6 +11,7 @@ import dao.VehicleDAO;
 import domain.Driver;
 import domain.Position;
 import domain.Rate;
+import domain.Tracker;
 import domain.Vehicle;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,9 +47,9 @@ public class Init {
 //        pos.add(new Position("rechtso", 51.4, 5.56));
 //        Rate rate = rateDao.createNewRate(new Rate(1.50, "Eindhoven", "€", pos));
 //        rate = rateDao.createNewRate(new Rate(8.99, "", "€", pos));
-        Vehicle vehicle = vehicleDAO.createNewVehicle(new Vehicle("12-kb-345"));
-        Vehicle vehicle1 = vehicleDAO.createNewVehicle(new Vehicle("11-kb-345"));
-        Vehicle vehicle2 = vehicleDAO.createNewVehicle(new Vehicle("10-kb-345"));
+        Vehicle vehicle = vehicleDAO.createNewVehicle(new Vehicle("12-kb-345", new Tracker("1", 12, 13)));
+        Vehicle vehicle1 = vehicleDAO.createNewVehicle(new Vehicle("11-kb-345", new Tracker("2", 15, 15)));
+        Vehicle vehicle2 = vehicleDAO.createNewVehicle(new Vehicle("10-kb-345", new Tracker("3", 20, 20)));
         vehicle.setOwner(driver);
         vehicleDAO.addVehicleToDriver(vehicle);
     }
