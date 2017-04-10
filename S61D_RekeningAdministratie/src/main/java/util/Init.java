@@ -6,10 +6,14 @@
 package util;
 
 import dao.DriverDAO;
+import dao.InvoiceDAO;
+import dao.InvoiceRowDAO;
 import dao.RateDAO;
 import dao.TrackerDAO;
 import dao.VehicleDAO;
 import domain.Driver;
+import domain.Invoice;
+import domain.InvoiceRow;
 import domain.Position;
 import domain.Rate;
 import domain.Tracker;
@@ -40,6 +44,12 @@ public class Init {
 
     @Inject
     RateDAO rateDao;
+    
+     @Inject 
+    InvoiceRowDAO invoiceRowDAO;
+    
+    @Inject 
+    InvoiceDAO invoiceDAO;
 
     private ArrayList pos;
 
@@ -65,5 +75,13 @@ public class Init {
         Vehicle vehicle2 = vehicleDAO.createNewVehicle(new Vehicle("10-kb-345", new Tracker("3", 20, 20)));
         vehicle.setOwner(driver);
         vehicleDAO.addVehicleToDriver(vehicle);
+        
+        
+        Invoice invoice = new Invoice(250 ,22 ,221012 , driver,false);
+        invoice = invoiceDAO.createNewInvoice(invoice);
+        InvoiceRow invoiceRow = new InvoiceRow(20 ,"Test Test", invoice, vehicle);
+        
+       
+       invoiceRowDAO.createNewInvoiceRow(invoiceRow);
     }
 }

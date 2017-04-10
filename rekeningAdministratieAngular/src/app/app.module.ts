@@ -16,11 +16,15 @@ import { VehiclePageComponent } from './vehicle/vehicle.component';
 import { VehicleDialogComponent } from './dialog/vehicleDialog.component';
 import { VehicleEditDialogComponent } from './dialog/vehicleEditDialog.components';
 import { RateEditDialogComponent } from './dialog/rateEditDialog.component';
+import { TrackerDialogComponent } from './dialog/trackerDialog.component'
 
 import { DriverService } from './rest/driver.Service';
 import { VehicleService } from './rest/vehicle.service';
+import {TrackerService} from './rest/tracker.service';
 import { RateService } from './rest/rate.Service';
 import { TarievenPageComponent } from "app/tarieven/tarieven.component";
+
+
 
 @NgModule({
   declarations: [
@@ -33,7 +37,8 @@ import { TarievenPageComponent } from "app/tarieven/tarieven.component";
     VehicleDialogComponent,
     VehiclePageComponent,
     VehicleEditDialogComponent,
-    RateEditDialogComponent
+    RateEditDialogComponent,
+    TrackerDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +51,7 @@ import { TarievenPageComponent } from "app/tarieven/tarieven.component";
   providers: [
     DriverService,
     VehicleService,
+    TrackerService,
     RateService
   ],
   bootstrap: [AppComponent]

@@ -8,37 +8,38 @@ import { Vehicle } from './../domain/vehicle';
 @Injectable()
 export class VehicleService {
     private url = "http//192.168.24.46/S61D_RekeningAdministratie/api/Vehicle/";
-    private localurl = "http://localhost:8080/S61D_RekeningAdministratie/api/Vehicle/"; //"http://localhost:18410/S61D_RekeningAdministratie/api/Vehicle/";
+    private localurl = "http://localhost:8085/S61D_RekeningAdministratie/api/Vehicle/";
 
-    constructor(private http : Http){}
-    
-    getVehicleById(id : any): Promise<Vehicle []> {
+    constructor(private http: Http) { }
+
+    getVehicleById(id: any): Promise<Vehicle[]> {
         return this.http.get(this.localurl + "GetAllVehicle/" + id)
-                        .toPromise()
-                        .then(this.extractData);
+            .toPromise()
+            .then(this.extractData);
     }
-    
-    getVehicleByLicensePlate(value : string) :Promise<Vehicle> {
+
+    getVehicleByLicensePlate(value: string): Promise<Vehicle> {
         return this.http.get(this.localurl + "GetVehicleByLicensePlate/" + value)
-                        .toPromise()
-                        .then(this.extractData);
+            .toPromise()
+            .then(this.extractData);
     }
 
-    updateVehicleAutorisateCode(value: Vehicle) : Promise<Vehicle> {
+    updateVehicleAutorisateCode(value: Vehicle): Promise<Vehicle> {
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        return this.http.post(this.localurl + "UpdateAuthorisatieCode", JSON.stringify(value), {headers : headers})
-                        .toPromise()
-                        .then(this.extractData);
+        return this.http.post(this.localurl + "UpdateAuthorisatieCode", JSON.stringify(value), { headers: headers })
+            .toPromise()
+            .then(this.extractData);
     }
 
-    addVehicleToDriver(value : Vehicle) : Promise<Vehicle> {
+    addVehicleToDriver(value: Vehicle): Promise<Vehicle> {
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        return this.http.post(this.localurl + "AddVehicleToDriver", JSON.stringify(value), {headers : headers})
-                        .toPromise()
-                        .then(this.extractData);
+        return this.http.post(this.localurl + "AddVehicleToDriver", JSON.stringify(value), { headers: headers })
+            .toPromise()
+            .then(this.extractData);
     }
+
     private extractData(res: Response) {
         return res.json();
     }

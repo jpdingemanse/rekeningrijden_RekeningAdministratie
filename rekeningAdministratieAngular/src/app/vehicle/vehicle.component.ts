@@ -13,6 +13,9 @@ import { Vehicle } from './../domain/vehicle';
 export class VehiclePageComponent {
     @ViewChild('editAutorisatieCodeModal')
     bgModel;
+
+    @ViewChild('addTrackerCModal')
+    bgModelTracker;
     
     vehicleSelected : Vehicle;
     vehicleSearch : Vehicle;
@@ -37,7 +40,10 @@ export class VehiclePageComponent {
         this.vehicleSelected.setautorisatieCode(value);
         this.vehicleService.updateVehicleAutorisateCode(this.vehicleSelected)
                             .then(value => console.log(value));
-        
+    }
+
+    onclickShowTrackerModal(){
+        this.bgModelTracker.show();
     }
 
 

@@ -58,6 +58,7 @@ public class VehicleDAO {
     public Vehicle updateAuthorisatieCode(Vehicle vehicle) {
         Vehicle tempResult = em.find(Vehicle.class, vehicle.getLicensePlate());
         tempResult.setAutorisatieCode(vehicle.getAutorisatieCode());
+        tempResult.setTracker(vehicle.getTracker());
         em.merge(tempResult);
         return em.find(Vehicle.class, vehicle.getLicensePlate());
     }
