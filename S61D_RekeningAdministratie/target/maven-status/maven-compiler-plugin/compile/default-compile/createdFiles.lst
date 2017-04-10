@@ -4,7 +4,6 @@ boudary\rest\VehicleResource.class
 domain\User_.class
 domain\Driver_.class
 boudary\rest\BeaconResource.class
-domain\Group.class
 service\VehicleService.class
 util\Init.class
 domain\invoice.class
@@ -20,7 +19,6 @@ domain\Driver.class
 service\TrackerService.class
 dao\UserDAO.class
 boudary\rest\DriverResource.class
-domain\Group_.class
 domain\Movement.class
 dao\DriverDAO.class
 domain\Rate.class

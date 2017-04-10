@@ -6,6 +6,7 @@
 package domain;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
@@ -16,16 +17,19 @@ import javax.persistence.OneToOne;
  */
 @Entity
 public class Tracker implements Serializable {
+
     @Id
     String id;
-    double Latitude;
+    @Column(name = "Latitude", columnDefinition = "Double default '0'")
+    double latitude;
+    @Column(name = "Longitude", columnDefinition = "Double default '0'")
     double longitude;
     @OneToOne
-    private Driver driver;
+    private Vehicle vehicle;
 
     public Tracker(String id, double Latitude, double longitude) {
         this.id = id;
-        this.Latitude = Latitude;
+        this.latitude = Latitude;
         this.longitude = longitude;
     }
 
@@ -41,11 +45,11 @@ public class Tracker implements Serializable {
     }
 
     public double getLatitude() {
-        return Latitude;
+        return latitude;
     }
 
     public void setLatitude(double Latitude) {
-        this.Latitude = Latitude;
+        this.latitude = Latitude;
     }
 
     public double getLongitude() {
@@ -56,13 +60,12 @@ public class Tracker implements Serializable {
         this.longitude = longitude;
     }
 
-    public Driver getDriver() {
-        return driver;
+    public Vehicle getVehicle() {
+        return vehicle;
     }
 
-    public void setDriver(Driver driver) {
-        this.driver = driver;
+    public void setVehicle(Vehicle vehicle) {
+        this.vehicle = vehicle;
     }
-    
-    
+
 }
