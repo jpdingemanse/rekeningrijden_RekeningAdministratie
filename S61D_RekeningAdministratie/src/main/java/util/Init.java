@@ -54,7 +54,7 @@ public class Init {
         Rate rate = rateDao.createNewRate(new Rate(1.50, "Eindhoven", "€"));
         rate.addPosition(pos);
         rateDao.mergePosition(rate);
-        rate = rateDao.createNewRate(new Rate(8.99, "", "€"));
+        rate = rateDao.createNewRate(new Rate(8.99, "Limburg", "€"));
         rate.addPosition(pos);
         rateDao.mergePosition(rate);
         Tracker tracker = trackerDao.createNewTracker(new Tracker("1", 12, 13));

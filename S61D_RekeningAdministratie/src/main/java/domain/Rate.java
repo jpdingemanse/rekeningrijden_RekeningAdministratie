@@ -12,12 +12,18 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 /**
  *
  * @author ruthgervandeneikhof
  */
 @Entity
+@NamedQueries({
+    @NamedQuery(name = "Rate.getAllRates", query="Select d from Rate d")
+}
+)
 public class Rate implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

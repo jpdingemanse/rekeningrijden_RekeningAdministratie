@@ -1,5 +1,4 @@
-import { Vehicle } from './vehicle';
-export class Driver {
+export class Rate {
     constructor(
         public id: number,
         public ican: string,

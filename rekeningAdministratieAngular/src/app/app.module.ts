@@ -18,6 +18,7 @@ import { VehicleEditDialogComponent } from './dialog/vehicleEditDialog.component
 
 import { DriverService } from './rest/driver.Service';
 import { VehicleService } from './rest/vehicle.service';
+import { RateService } from './rest/rate.Service';
 import { TarievenPageComponent } from "app/tarieven/tarieven.component";
 
 @NgModule({
@@ -42,7 +43,8 @@ import { TarievenPageComponent } from "app/tarieven/tarieven.component";
   ],
   providers: [
     DriverService,
-    VehicleService
+    VehicleService,
+    RateService
   ],
   bootstrap: [AppComponent]
 })

@@ -38,6 +38,7 @@
             <table id="mytable" class="table table-bordred table-striped">
                 <thead>
                     <th>Naam</th>
+                    <th>Ican</th>
                     <th>Acthernaam</th>
                     <th>Postcode</th>
                     <th>Huisnummer</th>
@@ -52,6 +53,7 @@
                 <tbody >
                     <tr *ngFor="let d of driverList">
                         <td>{{d.name}}</td>
+                        <td>{{d.ican}}</td>
                         <td>{{d.lastname}}</td>
                         <td>{{d.postalCode}}</td>
                         <td>{{d.housernumber}}</td>

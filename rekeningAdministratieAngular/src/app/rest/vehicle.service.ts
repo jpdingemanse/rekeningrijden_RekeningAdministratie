@@ -8,7 +8,7 @@ import { Vehicle } from './../domain/vehicle';
 @Injectable()
 export class VehicleService {
     private url = "http//192.168.24.46/S61D_RekeningAdministratie/api/Vehicle/";
-    private localurl = "http://localhost:18410/S61D_RekeningAdministratie/api/Vehicle/";
+    private localurl = "http://localhost:8080/S61D_RekeningAdministratie/api/Vehicle/"; //"http://localhost:18410/S61D_RekeningAdministratie/api/Vehicle/";
 
     constructor(private http : Http){}
     
