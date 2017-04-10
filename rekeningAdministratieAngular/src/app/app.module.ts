@@ -15,10 +15,14 @@ import { VehiclePageComponent } from './vehicle/vehicle.component';
 
 import { VehicleDialogComponent } from './dialog/vehicleDialog.component';
 import { VehicleEditDialogComponent } from './dialog/vehicleEditDialog.components';
+import { TrackerDialogComponent } from './dialog/trackerDialog.component'
 
 import { DriverService } from './rest/driver.Service';
 import { VehicleService } from './rest/vehicle.service';
+import {TrackerService} from './rest/tracker.service';
 import { TarievenPageComponent } from "app/tarieven/tarieven.component";
+
+
 
 @NgModule({
   declarations: [
@@ -30,7 +34,8 @@ import { TarievenPageComponent } from "app/tarieven/tarieven.component";
     TarievenPageComponent,
     VehicleDialogComponent,
     VehiclePageComponent,
-    VehicleEditDialogComponent
+    VehicleEditDialogComponent,
+    TrackerDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +47,8 @@ import { TarievenPageComponent } from "app/tarieven/tarieven.component";
   ],
   providers: [
     DriverService,
-    VehicleService
+    VehicleService,
+    TrackerService
   ],
   bootstrap: [AppComponent]
 })

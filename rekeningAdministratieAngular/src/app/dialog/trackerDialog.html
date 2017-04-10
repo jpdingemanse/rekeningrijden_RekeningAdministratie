@@ -1,0 +1,22 @@
+<body>
+    <h2>Nieuw voertuig toevoegen</h2>
+    <br>
+    <div class="row">
+        <div class="col-lg-8">
+
+        </div>
+        <div class="row" style="margin-top: 20px;">
+            <div class="col-lg-5" style="margin-left: 15px;">
+                <input #textbox type="text" placeholder="Tracker id" />
+            </div>
+        </div>
+        <div class="row" style="margin-top: 5px">
+            <div class="col-lg-5" style="margin-left: 15px;">
+                <input #textboxVehicle type="text" placeholder="Kenteken" />
+            </div>
+        </div>
+        <div class="col-lg-2" style="margin-top: 20px;">
+            <button (click)="onclickAddTracker(textbox.value)">Voeg toe</button>
+        </div>
+    </div>
+</body>

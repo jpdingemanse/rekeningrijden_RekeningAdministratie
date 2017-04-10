@@ -1,4 +1,3 @@
-dao\GroupDAO.class
 boudary\rest\RateResource.class
 boudary\rest\VehicleResource.class
 domain\User_.class

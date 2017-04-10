@@ -8,8 +8,12 @@
 </div>
 <div class="panel panel-default">
     <div class="panel-body">
+        
         <div class="row">
-            <div class="col-lg-7"></div>
+            <div class="col-lg-5"></div>
+            <div class="col-lg-2">
+                <h6>Tracker invoegen</h6>
+            </div>
             <div class="col-lg-2">
                 <h6>Voertuig invoegen</h6>
             </div>
@@ -18,7 +22,10 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-7"></div>
+            <div class="col-lg-5"></div>
+            <div class="col-lg-2">
+                <button (click)="onclickShowTrackerModal()">Voeg toe</button>
+            </div>
             <div class="col-lg-2">
                 <button>Voeg toe</button>
             </div>
@@ -40,8 +47,9 @@
                         <thead>
                             <th>LicensePlate</th>
                             <th>AutorisatieCode</th>
-                            <th>Tracker</th>
+                            
                             <th>Eigenaar</th>
+                            <th>Tracker</th>
                             <th>Wijzig</th>
                             <th>Opslaan</th>
                         </thead>
@@ -91,6 +99,22 @@
                 </div>
                 <div class="modal-body">
                     <car-edit-dialog></car-edit-dialog>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div bsModal #addTrackerCModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title pull-left">Large modal</h4>
+                    <button type="button" class="close pull-right" (click)="addTrackerCModal.hide()" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <tracker-dialog></tracker-dialog>
                 </div>
             </div>
         </div>
