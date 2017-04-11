@@ -7,19 +7,19 @@ import { Vehicle } from './../domain/vehicle';
 
 @Injectable()
 export class VehicleService {
-    private url = "http//192.168.24.46/S61D_RekeningAdministratie/api/Vehicle/";
-    private localurl = "http://localhost:8085/S61D_RekeningAdministratie/api/Vehicle/";
+    private url = "http://192.168.24.46:8080/S61D_RekeningAdministratie/api/Vehicle/";
+    private localurl = "http://localhost:8080/S61D_RekeningAdministratie/api/Vehicle/";
 
     constructor(private http: Http) { }
 
     getVehicleById(id: any): Promise<Vehicle[]> {
-        return this.http.get(this.localurl + "GetAllVehicle/" + id)
+        return this.http.get(this.url + "GetAllVehicle/" + id)
             .toPromise()
             .then(this.extractData);
     }
 
     getVehicleByLicensePlate(value: string): Promise<Vehicle> {
-        return this.http.get(this.localurl + "GetVehicleByLicensePlate/" + value)
+        return this.http.get(this.url + "GetVehicleByLicensePlate/" + value)
             .toPromise()
             .then(this.extractData);
     }
@@ -27,7 +27,7 @@ export class VehicleService {
     updateVehicleAutorisateCode(value: Vehicle): Promise<Vehicle> {
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        return this.http.post(this.localurl + "UpdateAuthorisatieCode", JSON.stringify(value), { headers: headers })
+        return this.http.post(this.url + "UpdateAuthorisatieCode", JSON.stringify(value), { headers: headers })
             .toPromise()
             .then(this.extractData);
     }
@@ -35,7 +35,7 @@ export class VehicleService {
     addVehicleToDriver(value: Vehicle): Promise<Vehicle> {
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        return this.http.post(this.localurl + "AddVehicleToDriver", JSON.stringify(value), { headers: headers })
+        return this.http.post(this.url + "AddVehicleToDriver", JSON.stringify(value), { headers: headers })
             .toPromise()
             .then(this.extractData);
     }

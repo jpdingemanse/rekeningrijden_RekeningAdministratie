@@ -15,7 +15,6 @@ import { VehiclePageComponent } from './vehicle/vehicle.component';
 
 import { VehicleDialogComponent } from './dialog/vehicleDialog.component';
 import { VehicleEditDialogComponent } from './dialog/vehicleEditDialog.components';
-import { RateEditDialogComponent } from './dialog/rateEditDialog.component';
 import { TrackerDialogComponent } from './dialog/trackerDialog.component'
 
 import { DriverService } from './rest/driver.Service';
@@ -37,7 +36,6 @@ import { TarievenPageComponent } from "app/tarieven/tarieven.component";
     VehicleDialogComponent,
     VehiclePageComponent,
     VehicleEditDialogComponent,
-    RateEditDialogComponent,
     TrackerDialogComponent
   ],
   imports: [

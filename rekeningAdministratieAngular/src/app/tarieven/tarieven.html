@@ -21,7 +21,8 @@
                             <td>{{t.currency}}</td>
                             <td>{{t.rate}}</td>
                             <td>
-                                <p data-placement="top" data-toggle="tooltip" title="Wijzig"><button class="btn btn-primary btn-xs" (click)="onclickSelectedRate(t)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></p>
+                                <input #tbNieuw type="text" placeholder="nieuw" />
+                                <button class="btn btn-primary btn-xs" (click)="onclickSelectedRate(t, tbNieuw.value)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
                             </td>
                         </tr>
                     </tbody>
@@ -41,7 +42,7 @@
             </div>
         </div>
     </div>
-    <div bsModal #rateEditModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <!--<div bsModal #rateEditModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
@@ -55,5 +56,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
 </div>
