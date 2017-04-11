@@ -15,13 +15,6 @@ export class TrackerService {
 
     }
 
-    onClickNewTracker(tracker: Tracker, vehicle: Vehicle) {
-        this.createNewTracker(tracker);
-        this.vehicleService.getVehicleByLicensePlate(vehicle.licensePlate)
-                            .then(value  => this.vehicle = value);
-        this.vehicleService.updateVehicleAutorisateCode(vehicle);
-    }
-
     createNewTracker(tracker: Tracker): Promise<Tracker> {
         var header = new Headers();
         header.append('Content-Type', 'application/json');
