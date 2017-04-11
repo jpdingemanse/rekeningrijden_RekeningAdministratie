@@ -26,7 +26,6 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name="invoice.getInvoiceByDriver", query="select i from Invoice i where i.driver.id = :id")
 })
-@XmlRootElement
 public class Invoice implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

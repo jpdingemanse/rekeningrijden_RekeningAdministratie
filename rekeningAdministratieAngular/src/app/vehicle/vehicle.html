@@ -57,8 +57,8 @@
                             <tr *ngFor="let v of availableVehicleList">
                                 <td>{{v.licensePlate}}</td>
                                 <td>{{v.autorisatieCode}}</td>
-                                <td>{{v.owner.name}}</td>
-                                <td>{{v.tracker.id}}</td>
+                                <td *ngIf="v.owner != null">{{v.owner.name}}</td>
+                                <td *ngIf="v.tracker != null">{{v.tracker.id}}</td>
                                 <td>
                                     <p data-placement="top" data-toggle="tooltip" title="Wijzig"><button class="btn btn-primary btn-xs" (click)="onclickShowModal()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></p>
                                 </td>

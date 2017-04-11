@@ -8,7 +8,7 @@ import { VehicleService } from './../rest/vehicle.service'
 
 @Injectable()
 export class TrackerService {
-    private url = "http//192.168.24.46/S61D_RekeningAdministratie/api/Driver/";
+    private url = "http://192.168.24.46:8080/S61D_RekeningAdministratie/api/Driver/";
     private localurl = "http://localhost:8085/S61D_RekeningAdministratie/api/Tracker/"
     vehicle: Vehicle;
     constructor(private http: Http, private vehicleService: VehicleService) {
@@ -25,7 +25,7 @@ export class TrackerService {
     createNewTracker(tracker: Tracker): Promise<Tracker> {
         var header = new Headers();
         header.append('Content-Type', 'application/json');
-        return this.http.post(this.localurl + 'CreateTracker/', JSON.stringify(tracker), { headers: header })
+        return this.http.post(this.url + 'CreateTracker/', JSON.stringify(tracker), { headers: header })
             .toPromise()
             .then(this.extractData);
     }
