@@ -13,7 +13,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -23,7 +22,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name="invoicerow.getInvoiceRowByInvoce", query="select ir from InvoiceRow ir where ir.invoice.id = :id")
 })
-@XmlRootElement
 public class InvoiceRow implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

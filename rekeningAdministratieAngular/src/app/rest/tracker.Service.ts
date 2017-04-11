@@ -10,16 +10,10 @@ import { VehicleService } from './../rest/vehicle.service'
 export class TrackerService {
     private url = "http://192.168.24.46:8080/S61D_RekeningAdministratie/api/Driver/";
     private localurl = "http://localhost:8080/S61D_RekeningAdministratie/api/Tracker/"
+
     vehicle: Vehicle;
     constructor(private http: Http, private vehicleService: VehicleService) {
 
-    }
-
-    onClickNewTracker(tracker: Tracker, vehicle: Vehicle) {
-        this.createNewTracker(tracker);
-        this.vehicleService.getVehicleByLicensePlate(vehicle.licensePlate)
-                            .then(value  => this.vehicle = value);
-        this.vehicleService.updateVehicleAutorisateCode(vehicle);
     }
 
     createNewTracker(tracker: Tracker): Promise<Tracker> {

@@ -43,4 +43,8 @@ public class VehicleService {
     public Vehicle updateAutorisatieCode(Vehicle vehicle) {
         return vehicleDAO.updateAuthorisatieCode(vehicle);
     }
+    
+    public Vehicle updateTracker(Vehicle vehicle) {
+        return vehicleDAO.updateTracker(vehicle);
+    }
 }

@@ -9,7 +9,6 @@ import { Driver } from './../domain/driver';
 export class DriverService {
     private url = "http://192.168.24.46:8080/S61D_RekeningAdministratie/api/Driver/";
     private localurl = "http://localhost:8080/S61D_RekeningAdministratie/api/Driver/"
-
     constructor(private http : Http){}
 
     getDriverById(id : any) : Promise<Driver> {

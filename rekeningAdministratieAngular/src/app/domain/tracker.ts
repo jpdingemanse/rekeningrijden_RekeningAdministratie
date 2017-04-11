@@ -6,4 +6,6 @@ export class Tracker {
     public vehicle: Vehicle;
     
     constructor() {}
+
+    
 }
