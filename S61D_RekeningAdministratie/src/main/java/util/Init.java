@@ -10,6 +10,7 @@ import dao.InvoiceDAO;
 import dao.InvoiceRowDAO;
 import dao.RateDAO;
 import dao.TrackerDAO;
+import dao.UserDAO;
 import dao.VehicleDAO;
 import domain.Driver;
 import domain.Invoice;
@@ -17,6 +18,7 @@ import domain.InvoiceRow;
 import domain.Position;
 import domain.Rate;
 import domain.Tracker;
+import domain.User;
 import domain.Vehicle;
 import java.util.ArrayList;
 import java.util.List;
@@ -50,11 +52,15 @@ public class Init {
     
     @Inject 
     InvoiceDAO invoiceDAO;
+    
+    @Inject
+    UserDAO userDAO;
 
     private ArrayList pos;
 
     @PostConstruct
     public void Init() {
+        userDAO.createUser(new User("Administrator", "password"));
         Driver driver = driverDAO.createNewDriver(new Driver("Lino", "NL12345", "Thaencharun", "5611SH", "Eindhoven", "Lino_thaencharun@hotmail.com", "lino1", "p@33word", "10c", "0614387088"));
         pos = new ArrayList<>();
         pos.add(new Position("linksb", 51.5, 5.25));

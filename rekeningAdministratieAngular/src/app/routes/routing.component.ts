@@ -8,7 +8,6 @@ import { TarievenPageComponent } from './../tarieven/tarieven.component';
 import { VehiclePageComponent } from './../vehicle/vehicle.component';
 
 export const router: Routes = [
-    { path: '', redirectTo : 'home', pathMatch: 'full'},
     { path: 'home', component: HomePageComponent},
     { path: 'gebruiker', component: GebruikerPageComponent},
     { path: 'tarieven', component: TarievenPageComponent},

@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { LoginService } from 'app/global/login.Service';
+
 
 @Component({
     selector : 'navbar-Top',
@@ -6,5 +8,18 @@ import { Component } from '@angular/core';
 })
 
 export class NavbarTopComponent {
-    title = "Test"
+    constructor(private loginService : LoginService){
+
+    }  
+
+    login(){
+        this.loginService.loginPage = true;
+        this.loginService.loginStatus = true;
+    }
+
+    logout(){
+        this.loginService.loginPage = false;
+        this.loginService.loginStatus = false;
+    }
+
 }

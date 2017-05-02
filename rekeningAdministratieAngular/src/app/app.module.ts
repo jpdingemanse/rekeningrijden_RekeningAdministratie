@@ -17,12 +17,17 @@ import { VehicleDialogComponent } from './dialog/vehicleDialog.component';
 import { VehicleEditDialogComponent } from './dialog/vehicleEditDialog.components';
 import { RateEditDialogComponent } from './dialog/rateEditDialog.component';
 import { TrackerDialogComponent } from './dialog/trackerDialog.component'
+import { LoginComponent } from './login/login.component';
+import { TarievenPageComponent } from "app/tarieven/tarieven.component";
 
 import { DriverService } from './rest/driver.Service';
 import { VehicleService } from './rest/vehicle.service';
-import {TrackerService} from './rest/tracker.service';
+import { TrackerService} from './rest/tracker.service';
 import { RateService } from './rest/rate.Service';
-import { TarievenPageComponent } from "app/tarieven/tarieven.component";
+import { UserService } from './rest/user.Service';
+
+
+import { LoginService } from './global/login.Service';
 
 
 
@@ -38,7 +43,8 @@ import { TarievenPageComponent } from "app/tarieven/tarieven.component";
     VehiclePageComponent,
     VehicleEditDialogComponent,
     RateEditDialogComponent,
-    TrackerDialogComponent
+    TrackerDialogComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +58,9 @@ import { TarievenPageComponent } from "app/tarieven/tarieven.component";
     DriverService,
     VehicleService,
     TrackerService,
-    RateService
+    RateService,
+    LoginService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

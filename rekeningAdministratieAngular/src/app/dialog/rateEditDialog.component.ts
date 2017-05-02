@@ -17,8 +17,7 @@ export class RateEditDialogComponent {
     constructor(private rateService : RateService){}
     
     onclickSubmit(tbNieuw : string) {
-        this.rate.rate = parseInt(tbNieuw);
+        this.rate.rate = parseFloat(tbNieuw);
         this.rateService.editRate(this.rate);
-        // console.log(this.rate.id, this.rate.rate);
     }
 }
