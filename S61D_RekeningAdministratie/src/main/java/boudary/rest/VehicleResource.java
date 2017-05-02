@@ -55,6 +55,13 @@ public class VehicleResource {
         return vehicleService.updateAutorisatieCode(vehicle);
     }
     
+    @POST
+    @Path("UpdateTracker")
+    @Consumes("application/json")
+    public Vehicle updateTracker(Vehicle vehicle){
+        return vehicleService.updateTracker(vehicle);
+    }
+    
     @GET
     @Path("GetAllVehicle/{id}")
     public List<Vehicle> getAllVehicle(@PathParam("id")int id){

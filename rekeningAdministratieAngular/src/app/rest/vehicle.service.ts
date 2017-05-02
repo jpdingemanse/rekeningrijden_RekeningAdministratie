@@ -32,6 +32,14 @@ export class VehicleService {
             .then(this.extractData);
     }
 
+    updateTracker(value: Vehicle): Promise<Vehicle> {
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        return this.http.post(this.localurl + "UpdateTracker", JSON.stringify(value), { headers: headers })
+            .toPromise()
+            .then(this.extractData);
+    }
+
     addVehicleToDriver(value: Vehicle): Promise<Vehicle> {
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');

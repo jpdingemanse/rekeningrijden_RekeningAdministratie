@@ -15,7 +15,6 @@ import { VehiclePageComponent } from './vehicle/vehicle.component';
 
 import { VehicleDialogComponent } from './dialog/vehicleDialog.component';
 import { VehicleEditDialogComponent } from './dialog/vehicleEditDialog.components';
-import { RateEditDialogComponent } from './dialog/rateEditDialog.component';
 import { TrackerDialogComponent } from './dialog/trackerDialog.component'
 import { LoginComponent } from './login/login.component';
 import { TarievenPageComponent } from "app/tarieven/tarieven.component";
@@ -42,7 +41,6 @@ import { LoginService } from './global/login.Service';
     VehicleDialogComponent,
     VehiclePageComponent,
     VehicleEditDialogComponent,
-    RateEditDialogComponent,
     TrackerDialogComponent,
     LoginComponent
   ],
