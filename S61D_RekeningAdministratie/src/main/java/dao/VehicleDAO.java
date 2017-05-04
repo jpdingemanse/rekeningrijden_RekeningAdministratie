@@ -62,10 +62,18 @@ public class VehicleDAO {
         return em.find(Vehicle.class, vehicle.getLicensePlate());
     }
     
+<<<<<<< HEAD
     public Vehicle updateTracker(Vehicle vehicle){
         Vehicle tempResult = em.find(Vehicle.class, vehicle.getLicensePlate());
         tempResult.setTracker(vehicle.getTracker());
         em.merge(tempResult);
         return em.find(Vehicle.class, vehicle.getLicensePlate());
     }
+=======
+     public List<Vehicle> getAllVehicles(){
+        return em.createQuery("select v from Vehicle").getResultList();
+        
+    }
+    
+>>>>>>> master
 }

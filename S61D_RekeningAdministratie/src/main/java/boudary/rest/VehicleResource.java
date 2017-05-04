@@ -64,13 +64,20 @@ public class VehicleResource {
     
     @GET
     @Path("GetAllVehicle/{id}")
-    public List<Vehicle> getAllVehicle(@PathParam("id")int id){
+    public List<Vehicle> getVehicleById(@PathParam("id")int id){
         return vehicleService.getVehicleByOwner(id);
     }
     
+<<<<<<< HEAD
     @GET
     @Path("GetVehicleByLicensePlate/{licensePlate}")
     public Vehicle getVehicleByLicensePlate(@PathParam("licensePlate")String licensePlate){
         return vehicleService.getVehicleByLicensePlate(licensePlate);
+=======
+     @GET
+    @Path("GetAllVehicle")
+    public List<Vehicle> getAllVehicle(){
+        return vehicleService.getAllVehicles();
+>>>>>>> master
     }
 }
