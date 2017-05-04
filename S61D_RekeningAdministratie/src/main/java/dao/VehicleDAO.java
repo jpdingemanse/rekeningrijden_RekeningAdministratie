@@ -74,9 +74,4 @@ public class VehicleDAO {
         em.merge(tempResult);
         return em.find(Vehicle.class, vehicle.getLicensePlate());
     }
-
-     public List<Vehicle> getAllVehicles(){
-        return em.createQuery("select v from Vehicle").getResultList();
-        
-    }
 }
