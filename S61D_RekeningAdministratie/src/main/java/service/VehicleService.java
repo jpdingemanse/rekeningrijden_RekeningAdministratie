@@ -47,9 +47,11 @@ public class VehicleService {
     public Vehicle updateTracker(Vehicle vehicle) {
         return vehicleDAO.updateTracker(vehicle);
     }
+
     public List<Vehicle> getAllVehicles()
     {
         return vehicleDAO.getAllVehicles();
     }
+
 }
 

@@ -73,6 +73,7 @@ public class VehicleResource {
     public Vehicle getVehicleByLicensePlate(@PathParam("licensePlate")String licensePlate){
         return vehicleService.getVehicleByLicensePlate(licensePlate);
     }
+
      @GET
     @Path("GetAllVehicle")
     public List<Vehicle> getAllVehicle(){
