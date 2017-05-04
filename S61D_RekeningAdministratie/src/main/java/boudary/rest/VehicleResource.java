@@ -68,16 +68,14 @@ public class VehicleResource {
         return vehicleService.getVehicleByOwner(id);
     }
     
-<<<<<<< HEAD
     @GET
     @Path("GetVehicleByLicensePlate/{licensePlate}")
     public Vehicle getVehicleByLicensePlate(@PathParam("licensePlate")String licensePlate){
         return vehicleService.getVehicleByLicensePlate(licensePlate);
-=======
+    }
      @GET
     @Path("GetAllVehicle")
     public List<Vehicle> getAllVehicle(){
         return vehicleService.getAllVehicles();
->>>>>>> master
     }
 }
