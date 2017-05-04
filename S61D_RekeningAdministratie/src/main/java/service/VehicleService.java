@@ -32,6 +32,10 @@ public class VehicleService {
         return vehicleDAO.getVehicleByOwner(id);
     }
     
+    public List<Vehicle> getAllVehicles(){
+        return vehicleDAO.getAllVehicles();
+    }
+    
     public Vehicle addTrackerToVehicle(Vehicle vehicle){
         return vehicleDAO.addTrackerToVehicle(vehicle);
     }

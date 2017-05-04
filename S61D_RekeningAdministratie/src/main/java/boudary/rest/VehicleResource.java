@@ -15,6 +15,8 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 import service.VehicleService;
 
 /**
@@ -66,6 +68,13 @@ public class VehicleResource {
     @Path("GetAllVehicle/{id}")
     public List<Vehicle> getVehicleById(@PathParam("id")int id){
         return vehicleService.getVehicleByOwner(id);
+    }
+    
+    @GET
+    @Path("GetAllVehicles")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Vehicle> getAllVehicles(){
+        return vehicleService.getAllVehicles();
     }
     
     @GET

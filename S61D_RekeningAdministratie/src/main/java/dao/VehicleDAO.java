@@ -49,6 +49,11 @@ public class VehicleDAO {
         Query qeury = em.createNamedQuery("vehicle.getByOwnerId").setParameter("id", id);
         return qeury.getResultList();
     }
+    
+    public List<Vehicle> getAllVehicles(){
+        Query qeury = em.createNamedQuery("vehicle.getAllVehicles");
+        return qeury.getResultList();
+    }
 
     public Vehicle getVehicleByLicensePlate(String licensePlate) {
         Vehicle result = em.find(Vehicle.class, licensePlate);
