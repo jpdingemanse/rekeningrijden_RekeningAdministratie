@@ -9,6 +9,7 @@ import dao.DriverDAO;
 import dao.InvoiceDAO;
 import dao.InvoiceRowDAO;
 import dao.RateDAO;
+import dao.RequestDAO;
 import dao.TrackerDAO;
 import dao.UserDAO;
 import dao.VehicleDAO;
@@ -17,6 +18,7 @@ import domain.Invoice;
 import domain.InvoiceRow;
 import domain.Position;
 import domain.Rate;
+import domain.RequestAddVehicleToDriver;
 import domain.Tracker;
 import domain.User;
 import domain.Vehicle;
@@ -55,6 +57,9 @@ public class Init {
     
     @Inject
     UserDAO userDAO;
+    
+    @Inject
+    RequestDAO requestDAO;
 
     private ArrayList pos;
 
@@ -89,5 +94,8 @@ public class Init {
         
        
        invoiceRowDAO.createNewInvoiceRow(invoiceRow);
+       
+       requestDAO.createNewRequest(new RequestAddVehicleToDriver(1, "test-1", true));
+       requestDAO.createNewRequest(new RequestAddVehicleToDriver(1, "test-2", true));
     }
 }

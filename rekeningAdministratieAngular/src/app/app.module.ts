@@ -24,7 +24,7 @@ import { VehicleService } from './rest/vehicle.service';
 import { TrackerService} from './rest/tracker.service';
 import { RateService } from './rest/rate.Service';
 import { UserService } from './rest/user.Service';
-
+import { RequestService } from './rest/request.Service';
 import { LoginService } from './global/login.Service';
 
 @NgModule({
@@ -55,7 +55,8 @@ import { LoginService } from './global/login.Service';
     TrackerService,
     RateService,
     LoginService,
-    UserService
+    UserService,
+    RequestService
   ],
   bootstrap: [AppComponent]
 })

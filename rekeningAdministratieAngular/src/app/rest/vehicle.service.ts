@@ -12,8 +12,16 @@ export class VehicleService {
 
     constructor(private http: Http) { }
 
+    createVehicle(value : Vehicle) : Promise<Vehicle>{
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        return this.http.post(this.localurl + "CreateVehicle",  JSON.stringify(value), { headers: headers })
+                        .toPromise()
+                        .then(this.extractData);
+
+    }
     getVehicleById(id: any): Promise<Vehicle[]> {
-        return this.http.get(this.url + "GetAllVehicle/" + id)
+        return this.http.get(this.localurl + "GetAllVehicle/" + id)
             .toPromise()
             .then(this.extractData);
     }
