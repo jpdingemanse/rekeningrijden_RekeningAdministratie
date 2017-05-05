@@ -25,10 +25,7 @@ import { TrackerService} from './rest/tracker.service';
 import { RateService } from './rest/rate.Service';
 import { UserService } from './rest/user.Service';
 
-
 import { LoginService } from './global/login.Service';
-
-
 
 @NgModule({
   declarations: [
