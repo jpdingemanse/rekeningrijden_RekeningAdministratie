@@ -7,6 +7,7 @@ package dao;
 
 import domain.Position;
 import java.util.List;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -14,6 +15,7 @@ import javax.persistence.PersistenceContext;
  *
  * @author victo
  */
+@Stateless
 public class PositionDAO {
     @PersistenceContext
     EntityManager em;
