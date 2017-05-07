@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -32,7 +33,7 @@ public class Rate implements Serializable{
     private double rate;
     private String region;
     private String currency;
-    @ManyToMany
+    @OneToMany
     private ArrayList<Position> border;
     
     public Rate(){}

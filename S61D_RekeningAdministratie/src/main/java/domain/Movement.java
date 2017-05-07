@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -22,6 +23,8 @@ public class Movement implements Serializable{
     private int id;
     private String datum; // maand/jaar
     private String ican;
+    @ManyToOne
+    private Position position;
 
     public Movement() {
     }

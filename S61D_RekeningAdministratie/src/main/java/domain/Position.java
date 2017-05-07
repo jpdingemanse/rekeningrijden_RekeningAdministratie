@@ -13,30 +13,39 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 
 /**
  *
  * @author ruthgervandeneikhof
  */
 @Entity
+@NamedQueries({
+    @NamedQuery(name = "Position.getAllPositions", query="Select p from Position p")   
+}
+)
 public class Position implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String position;
+    private int position;
     private double lat;
     private double lon;
-    @ManyToMany(mappedBy = "border")
-    private List<Rate> rates;
+    @ManyToOne()
+    private Rate rate;
+    @OneToMany(mappedBy = "position")
+    private List<Movement> movements;
 
     public Position() {
     }
     
-    public Position(String pos, double lon, double lat){
+    public Position(int pos, double lon, double lat){
         this.position = pos;
         this.lat = lat;
         this.lon = lon;
-        this.rates = new ArrayList<>();
     }
 
     public int getId() {
@@ -47,21 +56,11 @@ public class Position implements Serializable{
         this.id = id;
     }
 
-    public List<Rate> getRates() {
-        return rates;
-    }
-
-    public void setRates(List<Rate> rates) {
-        this.rates = rates;
-    }
-    
-    
-    
-    public String getPosition() {
+    public int getPosition() {
         return position;
     }
 
-    public void setPosition(String position) {
+    public void setPosition(int position) {
         this.position = position;
     }
 
