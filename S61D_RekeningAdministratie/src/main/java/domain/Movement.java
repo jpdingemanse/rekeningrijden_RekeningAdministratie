@@ -25,13 +25,13 @@ import javax.persistence.OneToOne;
 
 @Entity
 @NamedQueries({
-    @NamedQuery(name="movement.getMovementsPerMonth", query="select ir from InvoiceRow ir where ir.invoice.id = :id")
+    @NamedQuery(name="movement.getMovementsPerMonth", query="select m from Movement m where m.vehicle = :vehicle and m.datum = :datum")
 })
 public class Movement implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String datum; // maand/jaar
+    private String datum; // maand jaar
     private String ican;
     @OneToMany
     private List <Position> positions;
@@ -43,10 +43,11 @@ public class Movement implements Serializable{
     public Movement() {
     }
     
-    public Movement(String date, String ican, Rate rate){
+    public Movement(String date, String ican, Rate rate, Vehicle vehicle){
         this.datum = date;
         this.ican = ican;
         this.rate = rate;
+        this.vehicle = vehicle;
         this.positions = new ArrayList<Position>();
     }
 
@@ -84,6 +85,10 @@ public class Movement implements Serializable{
 
     public void setRate(Rate rate) {
         this.rate = rate;
+    }
+
+    public void setPositions(List<Position> positions) {
+        this.positions = positions;
     }
     
 }

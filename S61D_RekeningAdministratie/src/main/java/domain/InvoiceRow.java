@@ -26,7 +26,7 @@ public class InvoiceRow implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private long price;
+    private double price;
     private String description;
     
     @ManyToOne
@@ -55,7 +55,7 @@ public class InvoiceRow implements Serializable {
         this.id = id;
     }
 
-    public long getPrice() {
+    public double getPrice() {
         return price;
     }
 

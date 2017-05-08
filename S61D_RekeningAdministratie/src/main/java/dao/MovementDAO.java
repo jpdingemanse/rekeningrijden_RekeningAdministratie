@@ -6,6 +6,8 @@
 package dao;
 
 import domain.Movement;
+import domain.Vehicle;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -25,5 +27,7 @@ public class MovementDAO {
         return em.find(Movement.class, movement.getIcan());
     }
     
-    
+    public List<Movement> getAllMovements(Vehicle vehicle, String maand){
+        return (List<Movement>) em.createNamedQuery("movement.getMovementsPerMonth");
+    }
 }

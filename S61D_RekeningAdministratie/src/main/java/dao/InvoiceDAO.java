@@ -56,5 +56,9 @@ public class InvoiceDAO {
         return false;
     }
     
+    public Invoice getInvoiceById(int id){
+        return em.find(Invoice.class, id);
+    }
+    
     
 }

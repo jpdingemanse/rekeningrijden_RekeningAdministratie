@@ -6,9 +6,11 @@
 package boudary.rest;
 
 import domain.Movement;
+import domain.Vehicle;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import service.MovementService;
