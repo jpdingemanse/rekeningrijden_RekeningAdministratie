@@ -14,6 +14,7 @@ import dao.TrackerDAO;
 import dao.UserDAO;
 import dao.VehicleDAO;
 import domain.Driver;
+import domain.History;
 import domain.Invoice;
 import domain.InvoiceRow;
 import domain.Position;
@@ -23,6 +24,8 @@ import domain.Tracker;
 import domain.User;
 import domain.Vehicle;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
@@ -83,7 +86,12 @@ public class Init {
         Vehicle vehicle = vehicleDAO.createNewVehicle(new Vehicle("12-kb-345", new Tracker("1", 12, 13)));
         Vehicle vehicle1 = vehicleDAO.createNewVehicle(new Vehicle("11-kb-345", new Tracker("2", 15, 15)));
         Vehicle vehicle2 = vehicleDAO.createNewVehicle(new Vehicle("10-kb-345", new Tracker("3", 20, 20)));
-        vehicle.setOwner(driver);
+        vehicle.setOwner(driver);  
+        History history = new History(vehicle.getOwner(), new Date());
+        history.setId(1);
+        List<History> histories = new ArrayList<>();
+        histories.add(history);
+        vehicle.setHistory(histories);
         vehicleDAO.addVehicleToDriver(vehicle);
         
         
