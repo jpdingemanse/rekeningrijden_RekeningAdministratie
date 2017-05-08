@@ -6,15 +6,12 @@
 package domain;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 /**
@@ -42,7 +39,7 @@ public class Rate implements Serializable{
     private double lonRB;
     private double latRO;
     private double lonRO;
-    @OneToOne
+    @OneToOne(mappedBy = "Rate")
     Movement movement;
     
     public Rate(){}

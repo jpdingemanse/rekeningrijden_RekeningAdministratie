@@ -59,11 +59,9 @@ public class MovementService {
                 continue;
             }
             if(linksboven == true && linksonder == true && rechtsboven == true && rechtsonder == true){
-                
+                movement.setRate(r);
             }
         }
-        
-       
         return movementDAO.createNewMovement(movement);
     }
 }
