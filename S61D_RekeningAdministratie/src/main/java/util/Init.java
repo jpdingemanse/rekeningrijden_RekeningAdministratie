@@ -5,12 +5,12 @@
  */
 package util;
 
+
 import dao.DriverDAO;
 import dao.InvoiceDAO;
 import dao.InvoiceRowDAO;
 import dao.RateDAO;
 import dao.RequestDAO;
-import dao.TrackerDAO;
 import dao.UserDAO;
 import dao.VehicleDAO;
 import domain.Driver;
@@ -19,7 +19,6 @@ import domain.InvoiceRow;
 import domain.Position;
 import domain.Rate;
 import domain.RequestAddVehicleToDriver;
-import domain.Tracker;
 import domain.User;
 import domain.Vehicle;
 import java.util.ArrayList;
@@ -43,9 +42,6 @@ public class Init {
     VehicleDAO vehicleDAO;
 
     @Inject
-    TrackerDAO trackerDao;
-
-    @Inject
     RateDAO rateDao;
     
      @Inject 
@@ -65,7 +61,7 @@ public class Init {
     @PostConstruct
     public void Init() {
         userDAO.createUser(new User("Administrator", "password"));
-        Driver driver = driverDAO.createNewDriver(new Driver("Lino", "NL12345", "Thaencharun", "5611SH", "Eindhoven", "Lino_thaencharun@hotmail.com", "lino1", "p@33word", "10c", "0614387088"));
+        Driver driver = driverDAO.createNewDriver(new Driver("Lino", "Thaencharun", "5611SH", "Eindhoven", "Lino_thaencharun@hotmail.com", "lino1", "p@33word", "10c", "0614387088"));
         pos = new ArrayList<>();
         pos.add(new Position(1, 51.5, 5.56, new Rate(1.50, "Eindhoven", "€"))); //Linksboven
         pos.add(new Position(2, 51.5, 5.25, new Rate(1.50, "Eindhoven", "€"))); //Linksonder
@@ -77,12 +73,10 @@ public class Init {
         rate = rateDao.createNewRate(new Rate(8.99, "Limburg", "€"));
         rate.addPosition(pos);
         rateDao.mergePosition(rate);
-        Tracker tracker = trackerDao.createNewTracker(new Tracker("1", 12, 13));
-        Tracker tracker1 = trackerDao.createNewTracker(new Tracker("2", 15, 15));
-        Tracker tracker2 = trackerDao.createNewTracker(new Tracker("3", 20, 20));
-        Vehicle vehicle = vehicleDAO.createNewVehicle(new Vehicle("12-kb-345", new Tracker("1", 12, 13)));
-        Vehicle vehicle1 = vehicleDAO.createNewVehicle(new Vehicle("11-kb-345", new Tracker("2", 15, 15)));
-        Vehicle vehicle2 = vehicleDAO.createNewVehicle(new Vehicle("10-kb-345", new Tracker("3", 20, 20)));
+        
+        Vehicle vehicle = vehicleDAO.createNewVehicle(new Vehicle("12-kb-345"));
+        Vehicle vehicle1 = vehicleDAO.createNewVehicle(new Vehicle("11-kb-345"));
+        Vehicle vehicle2 = vehicleDAO.createNewVehicle(new Vehicle("10-kb-345"));
         vehicle.setOwner(driver);
         vehicleDAO.addVehicleToDriver(vehicle);
         
