@@ -1,11 +1,10 @@
 import { Driver } from "app/domain/driver";
-import { Tracker } from "app/domain/tracker";
 
 export class Vehicle {
     public licensePlate: string;
     public autorisatieCode: string;
     public owner: Driver;
-    public tracker: Tracker;
+    public iCan: string;
     constructor() { }
 
     setDriver(driver: Driver) {
@@ -17,7 +16,5 @@ export class Vehicle {
     setautorisatieCode(autorisatieCode: string) {
         this.autorisatieCode = autorisatieCode;
     }
-    setTracker(tracker: Tracker) {
-        this.tracker = tracker;
-    }
+
 }

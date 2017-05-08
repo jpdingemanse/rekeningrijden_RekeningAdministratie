@@ -72,12 +72,18 @@ export class HomePageComponent implements OnInit {
     addVehicleClick() {
         this.vehicle = new Vehicle();
         this.vehicle.licensePlate = this.licensePlate;
-        this.vehicleService.createVehicle(this.vehicle)
+        if(this.vehicle.licensePlate != ""){
+            this.vehicleService.createVehicle(this.vehicle)
             .then(value => {
                 this.vehicle = value
                 this.confirmationMessage = "Voertuig is toegevoegd"
                 this.message = "";
             })
+        }else{
+            this.confirmationMessage = "Geen voertuig geselecteerd";
+        }
+
+        
     }
 
     addVehicleToDriverClick() {

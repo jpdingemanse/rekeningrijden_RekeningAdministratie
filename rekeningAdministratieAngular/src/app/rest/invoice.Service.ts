@@ -13,7 +13,7 @@ export class InvoiceService {
     constructor(private http : Http){}
 
     getInvoicesByDriver(name : any) : Promise<Invoice []> {
-        return this.http.get(this.localurl + 'GetInvoices/' + name)
+        return this.http.get(this.url + 'GetInvoices/' + name)
                         .toPromise()
                         .then(this.extractData);
     }
@@ -21,7 +21,7 @@ export class InvoiceService {
     createNewInvoice(invoice : Invoice) : Promise<Invoice> {
         var header = new Headers();
         header.append('Content-Type', 'application/json');
-        return this.http.post(this.localurl + 'CreateInvoice', JSON.stringify(invoice), {headers: header})
+        return this.http.post(this.url + 'CreateInvoice', JSON.stringify(invoice), {headers: header})
                         .toPromise()
                         .then(this.extractData);
     }
