@@ -9,7 +9,7 @@ import { Request } from 'app/domain/request';
 @Injectable()
 export class RequestService {
     private url = "http://192.168.24.46:8080/S61D_RekeningAdministratie/api/Request/";
-    private localurl = "http://localhost:18410/S61D_RekeningAdministratie/api/Request/";
+    private localurl = "http://localhost:58444/S61D_RekeningAdministratie/api/Request/";
 
     constructor(private http: Http) { }
 

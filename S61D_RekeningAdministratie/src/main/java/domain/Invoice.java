@@ -23,7 +23,8 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @NamedQueries({
-    @NamedQuery(name="invoice.getInvoiceByDriver", query="select i from Invoice i where i.driver.id = :id")
+    @NamedQuery(name="invoice.getInvoiceByDriver", query="select i from Invoice i where i.driver.id = :id"),
+    @NamedQuery(name="invoice.getInvoiceByDriverName", query="select i from Invoice i where i.driver.name = :name")
 })
 public class Invoice implements Serializable {
     @Id

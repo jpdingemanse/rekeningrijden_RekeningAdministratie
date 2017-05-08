@@ -2,6 +2,8 @@ import { Component } from '@angular/core'
 
 import { InvoiceService } from './../rest/invoice.Service';
 import { Invoice } from './../domain/invoice';
+import { InvoiceRow } from './../domain/invoiceRow';
+import { InvoiceRowService } from './../rest/invoiceRow.Service';
 
 @Component({
     selector : 'invoice-page',
@@ -12,16 +14,23 @@ import { Invoice } from './../domain/invoice';
 
 export class InvoicePageComponent {
     private invoiceList : Invoice[] = [];
+    private invoiceRowList : InvoiceRow[] = [];
     private invoice : Invoice;
-     constructor(private invoiceService : InvoiceService){}
+     constructor(private invoiceService : InvoiceService, private invoiceRowService : InvoiceRowService){}
 
      
        
-     onClickSelectedInvoice(id : any){
+     onClickSelectedInvoice(name : any){
       
-         console.log(id);
-        this.invoiceService.getInvoicesByDriver(id)
+         console.log(name);
+        this.invoiceService.getInvoicesByDriver(name)
                            .then(value => this.invoiceList = value);
-        console.log(this.invoiceList[0]);
+        //console.log(this.invoiceList[0]);
      }  
+
+     onClickShowInvoiceDetails(id : any){
+         console.log(id);
+         this.invoiceRowService.getInvoiceRowByInvoice(id)
+                            .then(value => this.invoiceRowList = value);
+     }
 }

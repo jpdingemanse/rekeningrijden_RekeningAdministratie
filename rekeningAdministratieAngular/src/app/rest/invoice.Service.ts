@@ -12,8 +12,8 @@ export class InvoiceService {
 
     constructor(private http : Http){}
 
-    getInvoicesByDriver(id : any) : Promise<Invoice []> {
-        return this.http.get(this.localurl + 'GetInvoices/' + id)
+    getInvoicesByDriver(name : any) : Promise<Invoice []> {
+        return this.http.get(this.localurl + 'GetInvoices/' + name)
                         .toPromise()
                         .then(this.extractData);
     }

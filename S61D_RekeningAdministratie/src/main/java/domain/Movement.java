@@ -61,4 +61,21 @@ public class Movement implements Serializable{
     public List<Position> getPositions() {
         return positions;
     }
+
+    public String getDatum() {
+        return datum;
+    }
+
+    public void setDatum(String datum) {
+        this.datum = datum;
+    }
+
+    public Rate getRate() {
+        return rate;
+    }
+
+    public void setRate(Rate rate) {
+        this.rate = rate;
+    }
+    
 }

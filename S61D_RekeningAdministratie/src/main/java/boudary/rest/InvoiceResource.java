@@ -36,8 +36,8 @@ public class InvoiceResource {
     
      @GET
     @Path("GetInvoices/{id}")
-    public List<Invoice> getInvoiceRowByDriver(@PathParam("id")int id){
-        return invoiceService.getInvoiceByDriver(id);
+    public List<Invoice> getInvoiceByDriver(@PathParam("id")String name){
+        return invoiceService.getInvoiceByDriverName(name);
     }
     
     @POST

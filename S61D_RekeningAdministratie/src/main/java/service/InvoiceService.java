@@ -37,6 +37,11 @@ public class InvoiceService {
     {
         return invoiceDAO.getInvoicesByDriver(id);
     }
+    
+    public List<Invoice> getInvoiceByDriverName(String name)
+    {
+        return invoiceDAO.getInvoicesByDriverName(name);
+    }
 
     public boolean updateInvoiceStatus(Invoice invoice) {
         return invoiceDAO.updatePaymentStatus(invoice);
