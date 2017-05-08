@@ -39,6 +39,12 @@ public class InvoiceDAO {
         Query qeury = em.createNamedQuery("invoice.getInvoiceByDriver").setParameter("id", id);
         return qeury.getResultList();
     }
+    
+    public List<Invoice> getInvoicesByDriverName(String name)
+    {
+        Query qeury = em.createNamedQuery("invoice.getInvoiceByDriverName").setParameter("name", name);
+        return qeury.getResultList();
+    }
 
     public boolean updatePaymentStatus(Invoice invoice) {
         Invoice selectedResult = em.find(Invoice.class, invoice.getId());

@@ -29,6 +29,7 @@ import { UserService } from './rest/user.Service';
 import { RequestService } from './rest/request.Service';
 import { LoginService } from './global/login.Service';
 import { InvoiceService } from './rest/invoice.Service';
+import { InvoiceRowService } from './rest/invoiceRow.Service';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { InvoiceService } from './rest/invoice.Service';
     LoginService,
     UserService,
     RequestService,
-    InvoiceService
+    InvoiceService,
+    InvoiceRowService
   ],
   bootstrap: [AppComponent]
 })

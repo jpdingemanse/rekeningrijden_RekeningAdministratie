@@ -43,28 +43,57 @@
                 <div class="table-responsive">
                     <table id="mytable" class="table table-bordred table-striped" [mfData]="data" #mf="mfDataTable">
                         <thead>
+                            <th><mfDefaultSorter by="driver">ID</mfDefaultSorter></th>
                             <th><mfDefaultSorter by="driver">Driver</mfDefaultSorter></th>
                             <th><mfDefaultSorter by="betaald">Betaald</mfDefaultSorter></th>
-                            <th><mfDefaultSorter by="tijd">Tijd aangemaakt</mfDefaultSorter></th>
-                            <th><mfDefaultSorter by="afstand">Totale afstand</mfDefaultSorter></th>
-                            <th><mfDefaultSorter by="prijs">Totale prijs</mfDefaultSorter></th>
+                            <th><mfDefaultSorter by="tijd">Tijd aangemaakt</mfDefaultSorter></th>    
+                            <th><mfDefaultSorter by="tijd">Details</mfDefaultSorter></th>                       
                         </thead>
                         <tbody>
                             <tr *ngFor="let i of invoiceList">
+                                <td>{{i.id}}</td>
                                 <td>{{i.driver.name}}</td>
                                 <td>{{i.paid}}</td>
                                 <td>{{i.timeCreated}}</td>
-                                 <td>{{i.totalDistant}}</td>
-                                 <td>{{i.totalPrice}}</td>
+                                <td>  <button (click)="onClickShowInvoiceDetails(i.id)">Show details</button></td>
+
+                            
                             </tr>
                         </tbody>
-
                     </table>
-
                 </div>
-
             </div>
         </div>
     </div>
-
+</div>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <h1 class="panel-title" style="font-size:30px; text-align: center;">Invoice Details</h1>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table id="mytable" class="table table-bordred table-striped" [mfData]="data" #mf="mfDataTable">
+                        <thead>
+                            <th><mfDefaultSorter by="driver">ID</mfDefaultSorter></th>
+                            <th><mfDefaultSorter by="driver">Prijs</mfDefaultSorter></th>
+                            <th><mfDefaultSorter by="betaald">Beschrijving</mfDefaultSorter></th>
+                            <th><mfDefaultSorter by="tijd">Voertuig</mfDefaultSorter></th>                           
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let i of invoiceRowList">
+                                <td>{{i.id}}</td>
+                                <td>{{i.price}}</td>
+                                <td>{{i.description}}</td>
+                                <td>{{i.vehicle.licensePlate}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

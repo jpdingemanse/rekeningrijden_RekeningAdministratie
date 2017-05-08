@@ -9,7 +9,7 @@ import { VehicleService } from './../rest/vehicle.service'
 @Injectable()
 export class TrackerService {
     private url = "http://192.168.24.46:8080/S61D_RekeningAdministratie/api/Driver/";
-    private localurl = "http://localhost:18410/S61D_RekeningAdministratie/api/Tracker/";
+    private localurl = "http://localhost:58444/S61D_RekeningAdministratie/api/Tracker/";
     vehicle: Vehicle;
     constructor(private http: Http, private vehicleService: VehicleService) {
 
