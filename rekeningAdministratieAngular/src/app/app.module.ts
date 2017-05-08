@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { Routing } from './routes/routing.component';
 import { ModalModule, TabsModule } from 'ng2-bootstrap';
+import { DataTableModule } from 'angular2-datatable';
 
 import { AppComponent } from './app.component';
 import { NavbarTopComponent } from './navbar/navbarTop.component';
@@ -12,6 +13,7 @@ import { NavbarLeftComponent } from './navbar/navbarLeft.component';
 import { HomePageComponent } from './home/home.component';
 import { GebruikerPageComponent } from './gebruiker/gebruiker.component';
 import { VehiclePageComponent } from './vehicle/vehicle.component';
+import { InvoicePageComponent } from './invoice/invoice.component';
 
 import { VehicleDialogComponent } from './dialog/vehicleDialog.component';
 import { VehicleEditDialogComponent } from './dialog/vehicleEditDialog.components';
@@ -26,6 +28,7 @@ import { RateService } from './rest/rate.Service';
 import { UserService } from './rest/user.Service';
 import { RequestService } from './rest/request.Service';
 import { LoginService } from './global/login.Service';
+import { InvoiceService } from './rest/invoice.Service';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,8 @@ import { LoginService } from './global/login.Service';
     VehiclePageComponent,
     VehicleEditDialogComponent,
     TrackerDialogComponent,
-    LoginComponent
+    LoginComponent,
+    InvoicePageComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +51,8 @@ import { LoginService } from './global/login.Service';
     HttpModule,
     Routing,
     ModalModule.forRoot(),
-    TabsModule.forRoot()
+    TabsModule.forRoot(),
+    DataTableModule
   ],
   providers: [
     DriverService,
@@ -56,7 +61,8 @@ import { LoginService } from './global/login.Service';
     RateService,
     LoginService,
     UserService,
-    RequestService
+    RequestService,
+    InvoiceService
   ],
   bootstrap: [AppComponent]
 })

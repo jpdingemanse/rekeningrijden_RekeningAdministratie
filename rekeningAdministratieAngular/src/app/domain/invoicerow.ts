@@ -1,5 +1,5 @@
 import { Vehicle } from './vehicle'
-export class Invoicerow {
+export class InvoiceRow {
     constructor(
         public id: number,
         public price: number,
