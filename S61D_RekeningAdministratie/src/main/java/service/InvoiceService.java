@@ -8,6 +8,7 @@ package service;
 import dao.InvoiceDAO;
 import domain.Driver;
 import domain.Invoice;
+import factory.InvoiceTransmittier;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -21,10 +22,15 @@ public class InvoiceService {
     @Inject
     InvoiceDAO invoiceDAO;
     
+    @Inject
+    InvoiceTransmittier invoiceTransmitter;
+    
     
     public Invoice createInvoice(Invoice invoice)
     {
-       return invoiceDAO.createNewInvoice(invoice);
+       Invoice tmpResult = invoiceDAO.createNewInvoice(invoice);
+       invoiceTransmitter.SendInvoiceToRekeningrijden(invoice);
+       return tmpResult;
     }
     
     public List<Invoice> getInvoiceByDriver(int id)

@@ -18,18 +18,16 @@ import javax.inject.Inject;
  */
 @Stateless
 public class InvoiceRowService {
+
     @Inject
     InvoiceRowDAO invoiceRowDAO;
-    
-    public InvoiceRow createInvoiceRow(InvoiceRow invoiceRow)
-    {
-       return invoiceRowDAO.createNewInvoiceRow(invoiceRow);
+
+    public InvoiceRow createInvoiceRow(InvoiceRow invoiceRow) {
+        return invoiceRowDAO.createNewInvoiceRow(invoiceRow);
     }
-    
-    
-   public List<InvoiceRow> getInvoiceRowsByInvoice(int id)
-   {
-       return invoiceRowDAO.getInvoiceRowsByInvoice(id);
-   }
-    
+
+    public List<InvoiceRow> getInvoiceRowsByInvoice(int id) {
+        return invoiceRowDAO.getInvoiceRowsByInvoice(id);
+    }
+
 }

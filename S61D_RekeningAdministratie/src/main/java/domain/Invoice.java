@@ -40,8 +40,6 @@ public class Invoice implements Serializable {
     public Invoice() {
     }
 
-
-
     public Invoice(long timeCreated, boolean paid, Driver driver) {
         this.timestamp = timeCreated;
         this.paid = paid;
@@ -88,10 +86,5 @@ public class Invoice implements Serializable {
     public void setInvoiceRows(List<InvoiceRow> invoiceRows) {
         this.invoiceRows = invoiceRows;
     }
-
-    
-    
-    
-    
     
 }
