@@ -30,14 +30,25 @@ public class MovementService {
         for (Position p : positions) {
             switch (p.getPosition()) {
                 case 1:
+                    //Linksboven
+                    for(Position position : movement.getPositions()){
+                    
+                }
                     break;
                 case 2:
+                    //Linksonder
+                    
                     break;
                 case 3:
+                    //Rechtsboven
+                    
                     break;
                 case 4:
+                    //Rechtsonder
+                    
                     break; 
                 default:
+                    
                     break;
             }
             }

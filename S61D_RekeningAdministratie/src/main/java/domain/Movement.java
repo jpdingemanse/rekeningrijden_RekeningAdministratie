@@ -6,11 +6,14 @@
 package domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -23,8 +26,8 @@ public class Movement implements Serializable{
     private int id;
     private String datum; // maand/jaar
     private String ican;
-    @ManyToOne
-    private Position position;
+    @OneToMany
+    private List <Position> positions;
 
     public Movement() {
     }
@@ -32,6 +35,7 @@ public class Movement implements Serializable{
     public Movement(String date, String ican){
         this.datum = date;
         this.ican = ican;
+        this.positions = new ArrayList<Position>();
     }
 
     public String getIcan() {
@@ -49,4 +53,8 @@ public class Movement implements Serializable{
     public void setDate(String date) {
         this.datum = date;
     }   
+
+    public List<Position> getPositions() {
+        return positions;
+    }
 }

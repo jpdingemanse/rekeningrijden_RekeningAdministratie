@@ -34,18 +34,17 @@ public class Position implements Serializable{
     private int position;
     private double lat;
     private double lon;
-    @ManyToOne()
+    @ManyToOne
     private Rate rate;
-    @OneToMany(mappedBy = "position")
-    private List<Movement> movements;
 
     public Position() {
     }
     
-    public Position(int pos, double lon, double lat){
+    public Position(int pos, double lon, double lat, Rate rate){
         this.position = pos;
         this.lat = lat;
         this.lon = lon;
+        this.rate = rate;
     }
 
     public int getId() {

@@ -67,10 +67,10 @@ public class Init {
         userDAO.createUser(new User("Administrator", "password"));
         Driver driver = driverDAO.createNewDriver(new Driver("Lino", "NL12345", "Thaencharun", "5611SH", "Eindhoven", "Lino_thaencharun@hotmail.com", "lino1", "p@33word", "10c", "0614387088"));
         pos = new ArrayList<>();
-        pos.add(new Position(1, 51.5, 5.25));
-        pos.add(new Position(2, 51.5, 5.56));
-        pos.add(new Position(3, 51.4, 5.25));
-        pos.add(new Position(4, 51.4, 5.56));
+        pos.add(new Position(1, 51.5, 5.56, new Rate(1.50, "Eindhoven", "€"))); //Linksboven
+        pos.add(new Position(2, 51.5, 5.25, new Rate(1.50, "Eindhoven", "€"))); //Linksonder
+        pos.add(new Position(3, 51.4, 5.56, new Rate(1.50, "Eindhoven", "€"))); //Rechtsboven
+        pos.add(new Position(4, 51.4, 5.25, new Rate(1.50, "Eindhoven", "€"))); //Rechtsonder
         Rate rate = rateDao.createNewRate(new Rate(1.50, "Eindhoven", "€"));
         rate.addPosition(pos);
         rateDao.mergePosition(rate);
