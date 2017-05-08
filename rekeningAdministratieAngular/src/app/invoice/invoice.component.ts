@@ -20,7 +20,7 @@ export class InvoicePageComponent {
 
      
        
-     onClickSelectedInvoice(id : any){
+     onClickSelectedInvoice(name : any){
       
          console.log(name);
         this.invoiceService.getInvoicesByDriver(name)
