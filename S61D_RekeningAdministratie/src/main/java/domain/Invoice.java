@@ -7,7 +7,6 @@ package domain;
 
 import java.io.Serializable;
 import java.util.List;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -31,11 +30,9 @@ public class Invoice implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     
-    private double totalPrice;
-    private int totalDistant;
-    private long timeCreated;
+    private long timestamp;
     private boolean paid;
-    @OneToMany
+    @OneToMany(mappedBy="invoice")
     private List<InvoiceRow> invoiceRows;
     @ManyToOne
     private Driver driver;
@@ -45,16 +42,12 @@ public class Invoice implements Serializable {
 
 
 
-    public Invoice(double totalPrice, int totalDistant, long timeCreated, boolean paid, Driver driver) {
-        this.totalPrice = totalPrice;
-        this.totalDistant = totalDistant;
-        this.timeCreated = timeCreated;
+    public Invoice(long timeCreated, boolean paid, Driver driver) {
+        this.timestamp = timeCreated;
         this.paid = paid;
         this.driver = driver;
     }
     
-    
-
     public int getId() {
         return id;
     }
@@ -63,30 +56,14 @@ public class Invoice implements Serializable {
         this.id = id;
     }
 
-    public double getTotalPrice() {
-        return totalPrice;
+    public long getTimestamp() {
+        return timestamp;
     }
 
-    public void setTotalPrice(double totalPrice) {
-        this.totalPrice = totalPrice;
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
     }
-
-    public int getTotalDistant() {
-        return totalDistant;
-    }
-
-    public void setTotalDistant(int totalDistant) {
-        this.totalDistant = totalDistant;
-    }
-
-    public long getTimeCreated() {
-        return timeCreated;
-    }
-
-    public void setTimeCreated(long timeCreated) {
-        this.timeCreated = timeCreated;
-    }
-
+    
     public Driver getDriver() {
         return driver;
     }

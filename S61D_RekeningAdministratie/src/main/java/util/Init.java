@@ -87,7 +87,7 @@ public class Init {
         vehicleDAO.addVehicleToDriver(vehicle);
         
         
-        Invoice invoice = new Invoice(250 ,22 ,221012 ,false, driver);
+        Invoice invoice = new Invoice(221012 ,false, driver);
         invoice = invoiceDAO.createNewInvoice(invoice);
         InvoiceRow invoiceRow = new InvoiceRow(20 ,"Test Test", invoice, vehicle);
         

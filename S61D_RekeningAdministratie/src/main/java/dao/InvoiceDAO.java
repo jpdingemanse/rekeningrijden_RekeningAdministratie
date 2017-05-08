@@ -43,8 +43,9 @@ public class InvoiceDAO {
     public boolean updatePaymentStatus(Invoice invoice) {
         Invoice selectedResult = em.find(Invoice.class, invoice.getId());
         if(selectedResult != null){
-            selectedResult.setPaid(invoice.isPaid());
+            selectedResult.setPaid(true);
             em.merge(selectedResult);
+            return true;
         }
         return false;
     }

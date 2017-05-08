@@ -5,11 +5,11 @@
  */
 package domain;
 
+import static domain.InvoiceRow_.vehicle;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 
 /**
  *
@@ -24,8 +24,7 @@ public class Tracker implements Serializable {
     double latitude;
     @Column(name = "Longitude", columnDefinition = "Double default '0'")
     double longitude;
-    @OneToOne
-    private Vehicle vehicle;
+    
 
     public Tracker(String id, double Latitude, double longitude) {
         this.id = id;
@@ -60,12 +59,6 @@ public class Tracker implements Serializable {
         this.longitude = longitude;
     }
 
-    public Vehicle getVehicle() {
-        return vehicle;
-    }
-
-    public void setVehicle(Vehicle vehicle) {
-        this.vehicle = vehicle;
-    }
+    
 
 }

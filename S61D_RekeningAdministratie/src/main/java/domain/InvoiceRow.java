@@ -35,7 +35,6 @@ public class InvoiceRow implements Serializable {
     @ManyToOne
     private Vehicle vehicle;
     
-    
     public InvoiceRow(){
         
     }

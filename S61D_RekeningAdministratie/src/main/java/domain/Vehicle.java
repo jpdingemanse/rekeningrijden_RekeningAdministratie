@@ -32,7 +32,7 @@ public class Vehicle implements Serializable{
     @ManyToOne
     private Driver owner;
     @OneToOne
-    @JoinColumn(name = "trackerId")
+    @JoinColumn(name = "TrackerId")
     private Tracker tracker;
 
     public Vehicle() {
