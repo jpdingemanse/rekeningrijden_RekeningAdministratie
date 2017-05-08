@@ -56,6 +56,14 @@ public class VehicleResource {
     public Vehicle updateAuthorisatieCode(Vehicle vehicle){
         return vehicleService.updateAutorisatieCode(vehicle);
     }
+    
+    @POST
+    @Path("UpdateIcan")
+    @Consumes("application/json")
+    public Vehicle updateIcan(Vehicle vehicle){
+        return vehicleService.updateIcan(vehicle);
+    }
+    
     @GET
     @Path("GetAllVehicle/{id}")
     public List<Vehicle> getVehicleById(@PathParam("id")int id){

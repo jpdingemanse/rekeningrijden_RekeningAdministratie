@@ -69,9 +69,7 @@ public class Init {
     @PostConstruct
     public void Init() {
         userDAO.createUser(new User("Administrator", "password"));
-
         Driver driver = driverDAO.createNewDriver(new Driver("Lino", "Thaencharun", "5611SH", "Eindhoven", "Lino_thaencharun@hotmail.com", "lino1", "p@33word", "10c", "0614387088"));
-        
         
         Vehicle vehicle = vehicleDAO.createNewVehicle(new Vehicle("12-kb-345"));
         Vehicle vehicle1 = vehicleDAO.createNewVehicle(new Vehicle("11-kb-345"));
@@ -80,6 +78,12 @@ public class Init {
         rate = rateDao.createNewRate(new Rate(8.99, "Limburg", "€", 51.3, 5.55, 50.0, 5.50, 51.39, 5.24, 51.0, 5.10));
         
         vehicle.setOwner(driver);
+        
+        History history = new History(vehicle.getOwner(), new Date());
+        history.setId(1);
+        List<History> histories = new ArrayList<>();
+        histories.add(history);
+        vehicle.setHistory(histories);
         vehicleDAO.addVehicleToDriver(vehicle);
         
         

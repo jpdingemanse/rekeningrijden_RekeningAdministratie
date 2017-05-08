@@ -27,21 +27,22 @@ public class VehicleService {
     VehicleDAO vehicleDAO;
     @Inject
     HistoryDao historyDao;
-    
     @Inject
     VehicleTransmitter vehicleTransmitter;
     
     public Vehicle createNewVehicle(Vehicle vehicle){
-        History history = new History(vehicle.getOwner(),Date.from(Instant.now()));
-        List<History> historyList = new ArrayList();
-        historyList.add(historyDao.createNewHistory(history));
-        vehicle.setHistory(historyList);
-        return vehicleDAO.createNewVehicle(vehicle);
+        Vehicle result = vehicleDAO.createNewVehicle(vehicle);
+       vehicleTransmitter.SendVehicleToRekeningRijder(result);
+        return result;
     }
 
     public Vehicle addVehicleToDriver(Vehicle vehicle) {
         Vehicle result = vehicleDAO.addVehicleToDriver(vehicle);
-        vehicleTransmitter.SendVehicleToRekeningRijder(result);
+        History history = new History(vehicle.getOwner(),Date.from(Instant.now()));
+        List<History> historyList = new ArrayList();
+        historyList.add(historyDao.createNewHistory(history));
+        vehicle.setHistory(historyList);
+        vehicleTransmitter.SendAddVehicleToDriverRekeningRijder(result);
         return result;
     }
     
@@ -63,6 +64,10 @@ public class VehicleService {
 
     public Vehicle updateAutorisatieCode(Vehicle vehicle) {
         return vehicleDAO.updateAuthorisatieCode(vehicle);
+    }
+
+    public Vehicle updateIcan(Vehicle vehicle) {
+        return vehicleDAO.updateIcan(vehicle);
     }
     
     

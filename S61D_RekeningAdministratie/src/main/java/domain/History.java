@@ -54,5 +54,11 @@ public class History implements Serializable{
     public void setOverschrijfDatum(Date overschrijfDatum) {
         this.overschrijfDatum = overschrijfDatum;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    
     
 }

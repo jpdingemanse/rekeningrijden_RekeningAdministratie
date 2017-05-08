@@ -9,12 +9,12 @@ import { Request } from 'app/domain/request';
 @Injectable()
 export class RequestService {
     private url = "http://192.168.24.46:8080/S61D_RekeningAdministratie/api/Request/";
-    private localurl = "http://localhost:58444/S61D_RekeningAdministratie/api/Request/";
+    private localurl = "http://localhost:18410/S61D_RekeningAdministratie/api/Request/";
 
     constructor(private http: Http) { }
 
     getAllRequestInProgress(){
-         return this.http.get(this.localurl + "GetRequestInProgress")
+         return this.http.get(this.url + "GetRequestInProgress")
             .toPromise()
             .then(this.extractData);
     }
@@ -22,7 +22,7 @@ export class RequestService {
     updateRequestStatus(request : Request) : Promise<boolean>{
         var header = new Headers();
         header.append('Content-Type', 'application/json');
-        return this.http.post(this.localurl + "UpdateRequestStatus", JSON.stringify(request), {headers: header})
+        return this.http.post(this.url + "UpdateRequestStatus", JSON.stringify(request), {headers: header})
                     .toPromise()
                     .then(this.extractData);
     }

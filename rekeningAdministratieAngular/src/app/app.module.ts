@@ -17,13 +17,11 @@ import { InvoicePageComponent } from './invoice/invoice.component';
 
 import { VehicleDialogComponent } from './dialog/vehicleDialog.component';
 import { VehicleEditDialogComponent } from './dialog/vehicleEditDialog.components';
-import { TrackerDialogComponent } from './dialog/trackerDialog.component'
 import { LoginComponent } from './login/login.component';
 import { TarievenPageComponent } from "app/tarieven/tarieven.component";
 
 import { DriverService } from './rest/driver.Service';
 import { VehicleService } from './rest/vehicle.service';
-import { TrackerService} from './rest/tracker.service';
 import { RateService } from './rest/rate.Service';
 import { UserService } from './rest/user.Service';
 import { RequestService } from './rest/request.Service';
@@ -42,7 +40,6 @@ import { InvoiceRowService } from './rest/invoiceRow.Service';
     VehicleDialogComponent,
     VehiclePageComponent,
     VehicleEditDialogComponent,
-    TrackerDialogComponent,
     LoginComponent,
     InvoicePageComponent
   ],
@@ -58,7 +55,6 @@ import { InvoiceRowService } from './rest/invoiceRow.Service';
   providers: [
     DriverService,
     VehicleService,
-    TrackerService,
     RateService,
     LoginService,
     UserService,

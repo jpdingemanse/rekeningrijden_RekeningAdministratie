@@ -66,12 +66,11 @@ public class VehicleDAO {
         em.merge(tempResult);
         return em.find(Vehicle.class, vehicle.getLicensePlate());
     }
-    
 
-//    public Vehicle updateTracker(Vehicle vehicle){
-//        Vehicle tempResult = em.find(Vehicle.class, vehicle.getLicensePlate());
-//        tempResult.setTracker(vehicle.getTracker());
-//        em.merge(tempResult);
-//        return em.find(Vehicle.class, vehicle.getLicensePlate());
-//    }
+    public Vehicle updateIcan(Vehicle vehicle) {
+        Vehicle tempResult = em.find(Vehicle.class, vehicle.getLicensePlate());
+        tempResult.setiCan(vehicle.getiCan());
+        em.merge(tempResult);
+        return em.find(Vehicle.class, vehicle.getLicensePlate());
+    }
 }

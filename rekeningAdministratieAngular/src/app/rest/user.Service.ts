@@ -6,12 +6,12 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class UserService {
     private url = "http://192.168.24.46:8080/S61D_RekeningAdministratie/api/User/";
-    private localurl = "http://localhost:58444/S61D_RekeningAdministratie/api/User/"
+    private localurl = "http://localhost:18410/S61D_RekeningAdministratie/api/User/"
 
     constructor(private http : Http){}
 
     getUserByUsernameAndPassword(username: String, password: String){
-         return this.http.get(this.localurl + 'GetUserByUsernameAndPassword/' + username +'/'+ password)
+         return this.http.get(this.url + 'GetUserByUsernameAndPassword/' + username +'/'+ password)
                         .toPromise()
                         .then(this.extractData);
     }

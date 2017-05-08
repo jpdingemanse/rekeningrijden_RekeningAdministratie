@@ -6,9 +6,7 @@
 package boudary.rest;
 
 
-import domain.Invoice;
 import domain.InvoiceRow;
-import domain.Vehicle;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -18,7 +16,6 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import service.InvoiceRowService;
-import service.VehicleService;
 
 /**
  *
