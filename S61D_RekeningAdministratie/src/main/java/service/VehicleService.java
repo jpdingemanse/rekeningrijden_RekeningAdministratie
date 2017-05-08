@@ -5,9 +5,14 @@
  */
 package service;
 
+import dao.HistoryDao;
 import dao.VehicleDAO;
+import domain.History;
 import domain.Vehicle;
 import factory.VehicleTransmitter;
+import java.time.Instant;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -20,11 +25,17 @@ import javax.inject.Inject;
 public class VehicleService {
     @Inject
     VehicleDAO vehicleDAO;
+    @Inject
+    HistoryDao historyDao;
     
     @Inject
     VehicleTransmitter vehicleTransmitter;
     
     public Vehicle createNewVehicle(Vehicle vehicle){
+        History history = new History(vehicle.getOwner(),Date.from(Instant.now()));
+        List<History> historyList = new ArrayList();
+        historyList.add(historyDao.createNewHistory(history));
+        vehicle.setHistory(historyList);
         return vehicleDAO.createNewVehicle(vehicle);
     }
 

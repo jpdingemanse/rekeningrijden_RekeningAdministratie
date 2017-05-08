@@ -14,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 /**
@@ -34,13 +35,16 @@ public class Vehicle implements Serializable{
     @OneToOne
     @JoinColumn(name = "TrackerId")
     private Tracker tracker;
-
+    @OneToMany
+    private List<History> history;
+    
     public Vehicle() {
     }
 
     public Vehicle(String licensePlate, Tracker tracker) {
         this.licensePlate = licensePlate;
         this.tracker = tracker;
+        this.history = new ArrayList();
     }
 
     public String getAutorisatieCode() {
@@ -75,4 +79,14 @@ public class Vehicle implements Serializable{
     public void setTracker(Tracker tracker) {
         this.tracker = tracker;
     }
+
+    public List<History> getHistory() {
+        return history;
+    }
+
+    public void setHistory(List<History> history) {
+        this.history = history;
+    }
+    
+    
 }
