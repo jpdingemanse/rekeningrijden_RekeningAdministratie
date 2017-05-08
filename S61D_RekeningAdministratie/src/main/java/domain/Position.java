@@ -40,11 +40,10 @@ public class Position implements Serializable{
     public Position() {
     }
     
-    public Position(int pos, double lon, double lat, Rate rate){
+    public Position(int pos, double lon, double lat){
         this.position = pos;
         this.lat = lat;
         this.lon = lon;
-        this.rate = rate;
     }
 
     public int getId() {

@@ -7,8 +7,10 @@ package service;
 
 import dao.MovementDAO;
 import dao.PositionDAO;
+import dao.RateDAO;
 import domain.Movement;
 import domain.Position;
+import domain.Rate;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -23,35 +25,45 @@ public class MovementService {
     @Inject
     MovementDAO movementDAO;
     @Inject
-    PositionDAO positionDAO;
+    RateDAO rateDAO;
 
     public Movement createNewMovement(Movement movement) {
-        List<Position> positions = positionDAO.getAllPositions();
-        for (Position p : positions) {
-            switch (p.getPosition()) {
-                case 1:
-                    //Linksboven
-                    for(Position position : movement.getPositions()){
-                    
-                }
-                    break;
-                case 2:
-                    //Linksonder
-                    
-                    break;
-                case 3:
-                    //Rechtsboven
-                    
-                    break;
-                case 4:
-                    //Rechtsonder
-                    
-                    break; 
-                default:
-                    
-                    break;
+        List<Rate> rates = rateDAO.getAllRates();
+        boolean linksboven = false;
+        boolean linksonder = false;
+        boolean rechtsboven = false;
+        boolean rechtsonder = false;
+        for (Rate r : rates) {
+            if(r.getLatLB() > movement.getPositions().get(0).getLat() && r.getLonLB() > movement.getPositions().get(0).getLon()){
+                linksboven = true;
+            } else{
+                linksboven = false;
+                continue;
             }
+            if(r.getLatLO() > movement.getPositions().get(0).getLat() && r.getLonLO() < movement.getPositions().get(0).getLon()){
+                linksonder = true;
+            } else{
+                linksonder = false;
+                continue;
             }
-            return movementDAO.createNewMovement(movement);
+            if(r.getLatRB() < movement.getPositions().get(0).getLat() && r.getLonRB() > movement.getPositions().get(0).getLon()){
+                rechtsboven = true;
+            } else{
+                rechtsboven = false;
+                continue;
+            }
+            if(r.getLatRO() > movement.getPositions().get(0).getLat() && r.getLonRO() < movement.getPositions().get(0).getLon()){
+                rechtsonder = true;
+            } else{
+                rechtsonder = false;
+                continue;
+            }
+            if(linksboven == true && linksonder == true && rechtsboven == true && rechtsonder == true){
+                
+            }
         }
+        
+       
+        return movementDAO.createNewMovement(movement);
     }
+}
