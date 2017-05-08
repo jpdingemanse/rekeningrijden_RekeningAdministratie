@@ -96,11 +96,6 @@ public class Init {
         Vehicle vehicle = vehicleDAO.createNewVehicle(new Vehicle("12-kb-345"));
         Vehicle vehicle1 = vehicleDAO.createNewVehicle(new Vehicle("11-kb-345"));
         Vehicle vehicle2 = vehicleDAO.createNewVehicle(new Vehicle("10-kb-345"));
-        
-        pos.add(new Position(1, 51.5, 5.56)); //Linksboven
-        pos.add(new Position(2, 51.5, 5.25)); //Linksonder
-        pos.add(new Position(3, 51.4, 5.56)); //Rechtsboven
-        pos.add(new Position(4, 51.4, 5.25)); //Rechtsonder
         Rate rate = rateDao.createNewRate(new Rate(1.50, "Eindhoven", "€", 51.5, 5.56, 51.5, 5.25, 51.4, 5.56, 51.4, 5.25));
         rate = rateDao.createNewRate(new Rate(8.99, "Limburg", "€", 51.3, 5.55, 50.0, 5.50, 51.39, 5.24, 51.0, 5.10));
         

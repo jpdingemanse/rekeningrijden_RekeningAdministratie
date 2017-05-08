@@ -13,6 +13,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -20,7 +22,11 @@ import javax.persistence.OneToOne;
  *
  * @author ruthgervandeneikhof
  */
+
 @Entity
+@NamedQueries({
+    @NamedQuery(name="movement.getMovementsPerMonth", query="select ir from InvoiceRow ir where ir.invoice.id = :id")
+})
 public class Movement implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,6 +37,8 @@ public class Movement implements Serializable{
     private List <Position> positions;
     @OneToOne
     private Rate rate;
+    @ManyToOne
+    private Vehicle vehicle;
 
     public Movement() {
     }

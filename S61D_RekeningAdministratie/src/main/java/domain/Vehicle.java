@@ -35,13 +35,15 @@ public class Vehicle implements Serializable{
     private String iCan;
     @OneToMany
     private List<History> history;
-    
+    @OneToMany
+    private List<Movement> movements;
     public Vehicle() {
     }
 
     public Vehicle(String licensePlate) {
         this.licensePlate = licensePlate;
         this.history = new ArrayList();
+        this.movements = new ArrayList();
     }
 
     public String getAutorisatieCode() {
