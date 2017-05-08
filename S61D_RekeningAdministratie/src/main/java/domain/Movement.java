@@ -14,6 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -28,13 +29,16 @@ public class Movement implements Serializable{
     private String ican;
     @OneToMany
     private List <Position> positions;
+    @OneToOne
+    private Rate rate;
 
     public Movement() {
     }
     
-    public Movement(String date, String ican){
+    public Movement(String date, String ican, Rate rate){
         this.datum = date;
         this.ican = ican;
+        this.rate = rate;
         this.positions = new ArrayList<Position>();
     }
 
@@ -57,4 +61,21 @@ public class Movement implements Serializable{
     public List<Position> getPositions() {
         return positions;
     }
+
+    public String getDatum() {
+        return datum;
+    }
+
+    public void setDatum(String datum) {
+        this.datum = datum;
+    }
+
+    public Rate getRate() {
+        return rate;
+    }
+
+    public void setRate(Rate rate) {
+        this.rate = rate;
+    }
+    
 }

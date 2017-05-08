@@ -5,12 +5,12 @@
  */
 package util;
 
+
 import dao.DriverDAO;
 import dao.InvoiceDAO;
 import dao.InvoiceRowDAO;
 import dao.RateDAO;
 import dao.RequestDAO;
-import dao.TrackerDAO;
 import dao.UserDAO;
 import dao.VehicleDAO;
 import domain.Driver;
@@ -20,7 +20,6 @@ import domain.InvoiceRow;
 import domain.Position;
 import domain.Rate;
 import domain.RequestAddVehicleToDriver;
-import domain.Tracker;
 import domain.User;
 import domain.Vehicle;
 import java.util.ArrayList;
@@ -46,9 +45,6 @@ public class Init {
     VehicleDAO vehicleDAO;
 
     @Inject
-    TrackerDAO trackerDao;
-
-    @Inject
     RateDAO rateDao;
     
      @Inject 
@@ -68,6 +64,7 @@ public class Init {
     @PostConstruct
     public void Init() {
         userDAO.createUser(new User("Administrator", "password"));
+<<<<<<< HEAD
         Driver driver = driverDAO.createNewDriver(new Driver("Lino", "NL12345", "Thaencharun", "5611SH", "Eindhoven", "Lino_thaencharun@hotmail.com", "lino1", "p@33word", "10c", "0614387088"));
         pos = new ArrayList<>();
         pos.add(new Position(1, 51.5, 5.56, new Rate(1.50, "Eindhoven", "€"))); //Linksboven
@@ -92,6 +89,23 @@ public class Init {
         List<History> histories = new ArrayList<>();
         histories.add(history);
         vehicle.setHistory(histories);
+=======
+        Driver driver = driverDAO.createNewDriver(new Driver("Lino", "Thaencharun", "5611SH", "Eindhoven", "Lino_thaencharun@hotmail.com", "lino1", "p@33word", "10c", "0614387088"));
+        
+        
+        Vehicle vehicle = vehicleDAO.createNewVehicle(new Vehicle("12-kb-345"));
+        Vehicle vehicle1 = vehicleDAO.createNewVehicle(new Vehicle("11-kb-345"));
+        Vehicle vehicle2 = vehicleDAO.createNewVehicle(new Vehicle("10-kb-345"));
+        
+        pos.add(new Position(1, 51.5, 5.56)); //Linksboven
+        pos.add(new Position(2, 51.5, 5.25)); //Linksonder
+        pos.add(new Position(3, 51.4, 5.56)); //Rechtsboven
+        pos.add(new Position(4, 51.4, 5.25)); //Rechtsonder
+        Rate rate = rateDao.createNewRate(new Rate(1.50, "Eindhoven", "€", 51.5, 5.56, 51.5, 5.25, 51.4, 5.56, 51.4, 5.25));
+        rate = rateDao.createNewRate(new Rate(8.99, "Limburg", "€", 51.3, 5.55, 50.0, 5.50, 51.39, 5.24, 51.0, 5.10));
+        
+        vehicle.setOwner(driver);
+>>>>>>> origin/Feature
         vehicleDAO.addVehicleToDriver(vehicle);
         
         

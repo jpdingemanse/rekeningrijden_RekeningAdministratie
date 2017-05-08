@@ -32,18 +32,15 @@ public class Vehicle implements Serializable{
     private String autorisatieCode;
     @ManyToOne
     private Driver owner;
-    @OneToOne
-    @JoinColumn(name = "TrackerId")
-    private Tracker tracker;
+    private String iCan;
     @OneToMany
     private List<History> history;
     
     public Vehicle() {
     }
 
-    public Vehicle(String licensePlate, Tracker tracker) {
+    public Vehicle(String licensePlate) {
         this.licensePlate = licensePlate;
-        this.tracker = tracker;
         this.history = new ArrayList();
     }
 
@@ -71,15 +68,15 @@ public class Vehicle implements Serializable{
     public void setOwner(Driver owner) {
         this.owner = owner;
     }
+
+    public String getiCan() {
+        return iCan;
+    }
+
+    public void setiCan(String iCan) {
+        this.iCan = iCan;
+    }
     
-    public Tracker getTracker() {
-        return tracker;
-    }
-
-    public void setTracker(Tracker tracker) {
-        this.tracker = tracker;
-    }
-
     public List<History> getHistory() {
         return history;
     }

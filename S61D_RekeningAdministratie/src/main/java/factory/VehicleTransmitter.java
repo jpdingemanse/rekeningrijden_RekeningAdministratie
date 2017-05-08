@@ -5,6 +5,7 @@
  */
 package factory;
 
+
 import com.google.gson.Gson;
 import domain.Vehicle;
 import java.io.IOException;
