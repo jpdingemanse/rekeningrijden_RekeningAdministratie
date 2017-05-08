@@ -23,7 +23,6 @@ import domain.Tracker;
 import domain.User;
 import domain.Vehicle;
 import java.util.ArrayList;
-import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
@@ -88,7 +87,7 @@ public class Init {
         vehicleDAO.addVehicleToDriver(vehicle);
         
         
-        Invoice invoice = new Invoice(250 ,22 ,221012 , driver,false);
+        Invoice invoice = new Invoice(250 ,22 ,221012 ,false, driver);
         invoice = invoiceDAO.createNewInvoice(invoice);
         InvoiceRow invoiceRow = new InvoiceRow(20 ,"Test Test", invoice, vehicle);
         

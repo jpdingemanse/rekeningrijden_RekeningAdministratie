@@ -7,6 +7,7 @@ package domain;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,7 +16,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
-import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
@@ -43,13 +43,17 @@ public class Invoice implements Serializable {
     public Invoice() {
     }
 
-    public Invoice(double totalPrice, int totalDistant, long timeCreated, Driver driver, boolean paid) {
+
+
+    public Invoice(double totalPrice, int totalDistant, long timeCreated, boolean paid, Driver driver) {
         this.totalPrice = totalPrice;
         this.totalDistant = totalDistant;
         this.timeCreated = timeCreated;
-        this.driver = driver;
         this.paid = paid;
+        this.driver = driver;
     }
+    
+    
 
     public int getId() {
         return id;
@@ -107,6 +111,9 @@ public class Invoice implements Serializable {
     public void setInvoiceRows(List<InvoiceRow> invoiceRows) {
         this.invoiceRows = invoiceRows;
     }
+
+    
+    
     
     
     

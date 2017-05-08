@@ -6,7 +6,6 @@
 package dao;
 
 import domain.Driver;
-import domain.Vehicle;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;

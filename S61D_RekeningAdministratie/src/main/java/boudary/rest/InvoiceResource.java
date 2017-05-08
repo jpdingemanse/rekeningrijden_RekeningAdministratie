@@ -39,5 +39,12 @@ public class InvoiceResource {
     public List<Invoice> getInvoiceRowByDriver(@PathParam("id")int id){
         return invoiceService.getInvoiceByDriver(id);
     }
+    
+    @POST
+    @Path("UpdatePayment")
+    @Consumes("application/json")
+    public boolean updateInvoiceStatus(Invoice invoice){
+        return invoiceService.updateInvoiceStatus(invoice);
+    }
    
 }
