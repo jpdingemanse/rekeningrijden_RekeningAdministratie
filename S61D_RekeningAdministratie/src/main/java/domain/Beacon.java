@@ -5,11 +5,19 @@
  */
 package domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  *
  * @author ruthgervandeneikhof
  */
+@Entity
 public class Beacon {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String iCan;
     private double latitude;
@@ -25,6 +33,10 @@ public class Beacon {
 
     }
 
+    public Beacon(){
+        
+    }
+    
     public String getiCan() {
         return iCan;
     }

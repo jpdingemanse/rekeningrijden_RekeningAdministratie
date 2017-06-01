@@ -88,11 +88,6 @@ public class Init {
         vehicle.setHistory(histories);
         vehicleDAO.addVehicleToDriver(vehicle);
 
-        
-        Movement movement = new Movement("23-05-2017", "123456", vehicle);
-        movementService.createNewMovement(movement);
-
-        movementDAO.createNewMovement(movement);
 
         Invoice invoice = new Invoice("Mei 2017", false, driver);
         invoiceDAO.createNewInvoice(invoice);
