@@ -33,4 +33,8 @@ export class InvoicePageComponent {
          this.invoiceRowService.getInvoiceRowByInvoice(id)
                             .then(value => this.invoiceRowList = value);
      }
+
+     onClickSendInvoices(){
+         this.invoiceService.createNewInvoice;
+     }
 }

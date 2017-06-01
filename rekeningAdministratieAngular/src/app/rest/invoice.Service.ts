@@ -18,10 +18,10 @@ export class InvoiceService {
                         .then(this.extractData);
     }
  
-    createNewInvoice(invoice : Invoice) : Promise<Invoice> {
+    createNewInvoice()  {
         var header = new Headers();
         header.append('Content-Type', 'application/json');
-        return this.http.post(this.url + 'CreateInvoice', JSON.stringify(invoice), {headers: header})
+        return this.http.post(this.url + 'CreateInvoice', {headers: header})
                         .toPromise()
                         .then(this.extractData);
     }

@@ -15,14 +15,12 @@ D:\OneDrive\Documenten\GitHub\rekeningrijden_RekeningAdministratie\S61D_Rekening
 D:\OneDrive\Documenten\GitHub\rekeningrijden_RekeningAdministratie\S61D_RekeningAdministratie\src\main\java\boudary\rest\InvoiceResource.java
 D:\OneDrive\Documenten\GitHub\rekeningrijden_RekeningAdministratie\S61D_RekeningAdministratie\src\main\java\dao\HistoryDao.java
 D:\OneDrive\Documenten\GitHub\rekeningrijden_RekeningAdministratie\S61D_RekeningAdministratie\src\main\java\domain\Beacon.java
-D:\OneDrive\Documenten\GitHub\rekeningrijden_RekeningAdministratie\S61D_RekeningAdministratie\src\main\java\dao\PositionDAO.java
 D:\OneDrive\Documenten\GitHub\rekeningrijden_RekeningAdministratie\S61D_RekeningAdministratie\src\main\java\service\MovementService.java
 D:\OneDrive\Documenten\GitHub\rekeningrijden_RekeningAdministratie\S61D_RekeningAdministratie\src\main\java\dao\InvoiceRowDAO.java
 D:\OneDrive\Documenten\GitHub\rekeningrijden_RekeningAdministratie\S61D_RekeningAdministratie\src\main\java\dao\RequestDAO.java
 D:\OneDrive\Documenten\GitHub\rekeningrijden_RekeningAdministratie\S61D_RekeningAdministratie\src\main\java\util\Init.java
 D:\OneDrive\Documenten\GitHub\rekeningrijden_RekeningAdministratie\S61D_RekeningAdministratie\src\main\java\dao\DriverDAO.java
 D:\OneDrive\Documenten\GitHub\rekeningrijden_RekeningAdministratie\S61D_RekeningAdministratie\src\main\java\dao\MovementDAO.java
-D:\OneDrive\Documenten\GitHub\rekeningrijden_RekeningAdministratie\S61D_RekeningAdministratie\src\main\java\domain\Position.java
 D:\OneDrive\Documenten\GitHub\rekeningrijden_RekeningAdministratie\S61D_RekeningAdministratie\src\main\java\boudary\rest\InvoiceRowResource.java
 D:\OneDrive\Documenten\GitHub\rekeningrijden_RekeningAdministratie\S61D_RekeningAdministratie\src\main\java\service\InvoiceService.java
 D:\OneDrive\Documenten\GitHub\rekeningrijden_RekeningAdministratie\S61D_RekeningAdministratie\src\main\java\domain\User.java

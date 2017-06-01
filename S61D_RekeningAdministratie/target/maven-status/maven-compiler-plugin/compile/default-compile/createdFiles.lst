@@ -6,7 +6,6 @@ domain\RequestAddVehicleToDriver_.class
 domain\Vehicle.class
 domain\Rate_.class
 dao\MovementDAO.class
-domain\Position.class
 domain\Driver.class
 dao\UserDAO.class
 service\RequestService.class
@@ -17,7 +16,6 @@ domain\History_.class
 domain\Movement.class
 boudary\rest\UserResource.class
 domain\Movement_.class
-dao\PositionDAO.class
 service\InvoiceRowService.class
 dao\HistoryDao.class
 domain\User.class
@@ -36,7 +34,6 @@ domain\Invoice.class
 service\UserService.class
 dao\InvoiceRowDAO.class
 service\BeaconService.class
-domain\Position_.class
 dao\VehicleDAO.class
 dao\RateDAO.class
 boudary\rest\DriverResource.class
