@@ -22,7 +22,8 @@ import javax.persistence.OneToMany;
  */
 @Entity
 @NamedQueries({
-    @NamedQuery(name = "Driver.getDriverByName", query="Select d from Driver d where d.name = :name and d.lastname = :lastname")
+    @NamedQuery(name = "Driver.getDriverByName", query="Select d from Driver d where d.name = :name and d.lastname = :lastname"),
+    @NamedQuery(name = "Driver.getDrivers", query="Select d from Driver d")
 })
 public class Driver implements Serializable {
     

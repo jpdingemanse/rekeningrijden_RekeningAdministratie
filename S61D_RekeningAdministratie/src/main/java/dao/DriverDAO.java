@@ -41,5 +41,8 @@ public class DriverDAO {
             return query.getResultList();
     }
     
-    
+    public List<Driver> getAllDrivers(){
+        Query query = em.createNamedQuery("Driver.getDrivers");
+        return query.getResultList();
+    }
 }
