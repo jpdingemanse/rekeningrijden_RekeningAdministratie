@@ -23,17 +23,19 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @NamedQueries({
-    @NamedQuery(name="invoice.getInvoiceByDriver", query="select i from Invoice i where i.driver.id = :id"),
-    @NamedQuery(name="invoice.getInvoiceByDriverName", query="select i from Invoice i where i.driver.name = :name")
+    @NamedQuery(name = "invoice.getInvoiceByDriver", query = "select i from Invoice i where i.driver.id = :id")
+    ,
+    @NamedQuery(name = "invoice.getInvoiceByDriverName", query = "select i from Invoice i where i.driver.name = :name")
 })
 public class Invoice implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    
-    private long timestamp;
+
+    private String maand;
     private boolean paid;
-    @OneToMany(mappedBy="invoice")
+    @OneToMany(mappedBy = "invoice")
     private List<InvoiceRow> invoiceRows;
     @ManyToOne
     private Driver driver;
@@ -41,12 +43,12 @@ public class Invoice implements Serializable {
     public Invoice() {
     }
 
-    public Invoice(long timeCreated, boolean paid, Driver driver) {
-        this.timestamp = timeCreated;
+    public Invoice(String maand, boolean paid, Driver driver) {
+        this.maand = maand;
         this.paid = paid;
         this.driver = driver;
     }
-    
+
     public int getId() {
         return id;
     }
@@ -55,14 +57,14 @@ public class Invoice implements Serializable {
         this.id = id;
     }
 
-    public long getTimestamp() {
-        return timestamp;
+    public String getMaand() {
+        return maand;
     }
 
-    public void setTimestamp(long timestamp) {
-        this.timestamp = timestamp;
+    public void setMaand(String maand) {
+        this.maand = maand;
     }
-    
+
     public Driver getDriver() {
         return driver;
     }
@@ -87,5 +89,5 @@ public class Invoice implements Serializable {
     public void setInvoiceRows(List<InvoiceRow> invoiceRows) {
         this.invoiceRows = invoiceRows;
     }
-    
+
 }

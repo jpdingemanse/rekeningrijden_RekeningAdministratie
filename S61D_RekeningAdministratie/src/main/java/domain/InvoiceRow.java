@@ -86,10 +86,4 @@ public class InvoiceRow implements Serializable {
     public void setVehicle(Vehicle vehicle) {
         this.vehicle = vehicle;
     }
-    
-    
-    
-    
-    
-    
 }
