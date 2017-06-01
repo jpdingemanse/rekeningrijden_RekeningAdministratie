@@ -34,8 +34,8 @@ public class InvoiceRowService {
 
     public List<InvoiceRow> getInvoiceRowsByInvoice(int id) {
         List<InvoiceRow> invoicerows = invoiceRowDAO.getInvoiceRowsByInvoice(id);
-        Vehicle vehicle = new Vehicle();
-        for(InvoiceRow i : invoicerows){
+        Vehicle vehicle;
+        for (InvoiceRow i : invoicerows) {
             vehicle = i.getVehicle();
             i.setPrice((long) movementService.getMonthprice(vehicle, "Mei 2017"));
         }

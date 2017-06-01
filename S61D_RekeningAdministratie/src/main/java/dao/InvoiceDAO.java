@@ -20,45 +20,41 @@ import javax.persistence.Query;
  */
 @Stateless
 public class InvoiceDAO {
+
     @PersistenceContext
     EntityManager em;
-    
-    
-    public InvoiceDAO()
-    {
-        
+
+    public InvoiceDAO() {
+
     }
-    
-      public Invoice createNewInvoice(Invoice invoice){
+
+    public Invoice createNewInvoice(Invoice invoice) {
         em.persist(invoice);
         em.flush();
         return em.find(Invoice.class, invoice.getId());
-    }  
-    public List<Invoice> getInvoicesByDriver(int id)
-    {
+    }
+
+    public List<Invoice> getInvoicesByDriver(int id) {
         Query qeury = em.createNamedQuery("invoice.getInvoiceByDriver").setParameter("id", id);
         return qeury.getResultList();
     }
-    
-    public List<Invoice> getInvoicesByDriverName(String name)
-    {
+
+    public List<Invoice> getInvoicesByDriverName(String name) {
         Query qeury = em.createNamedQuery("invoice.getInvoiceByDriverName").setParameter("name", name);
         return qeury.getResultList();
     }
 
     public boolean updatePaymentStatus(Invoice invoice) {
         Invoice selectedResult = em.find(Invoice.class, invoice.getId());
-        if(selectedResult != null){
+        if (selectedResult != null) {
             selectedResult.setPaid(true);
             em.merge(selectedResult);
             return true;
         }
         return false;
     }
-    
-    public Invoice getInvoiceById(int id){
+
+    public Invoice getInvoiceById(int id) {
         return em.find(Invoice.class, id);
     }
-    
-    
 }

@@ -18,16 +18,25 @@ import javax.persistence.PersistenceContext;
  */
 @Stateless
 public class MovementDAO {
+
     @PersistenceContext
     EntityManager em;
-    
+
     public Movement createNewMovement(Movement movement) {
         em.persist(movement);
         em.flush();
-        return em.find(Movement.class, movement.getIcan());
+        return em.find(Movement.class, movement.getId());
     }
-    
-    public List<Movement> getAllMovements(Vehicle vehicle, String maand){
+
+    public Movement addBeaconToMovement(Movement movement) {
+        Movement tempResult = em.find(Movement.class, movement.getId());
+        tempResult.setStartPoint(movement.getStartPoint());
+        tempResult.setEndPoint(movement.getEndPoint());
+        em.merge(tempResult);
+        return em.find(Movement.class, movement.getId());
+    }
+
+    public List<Movement> getAllMovements(Vehicle vehicle, String maand) {
         return (List<Movement>) em.createNamedQuery("movement.getMovementsPerMonth");
     }
 }

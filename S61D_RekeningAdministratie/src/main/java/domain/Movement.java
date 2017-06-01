@@ -22,19 +22,21 @@ import javax.persistence.OneToOne;
  *
  * @author ruthgervandeneikhof
  */
-
 @Entity
 @NamedQueries({
-    @NamedQuery(name="movement.getMovementsPerMonth", query="select m from Movement m where m.vehicle = :vehicle and m.datum = :datum")
+    @NamedQuery(name = "movement.getMovementsPerMonth", query = "select m from Movement m where m.vehicle = :vehicle and m.datum = :datum")
 })
-public class Movement implements Serializable{
+public class Movement implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String datum; // maand jaar
     private String ican;
-    @OneToMany
-    private List <Position> positions;
+    @OneToOne
+    private Beacon startPoint;
+    @OneToOne
+    private Beacon endPoint;
     @OneToOne
     private Rate rate;
     @ManyToOne
@@ -42,13 +44,20 @@ public class Movement implements Serializable{
 
     public Movement() {
     }
-    
-    public Movement(String date, String ican, Rate rate, Vehicle vehicle){
+
+    public Movement(String date, String ican, Rate rate, Vehicle vehicle, Beacon startPoint, Beacon endPoint) {
         this.datum = date;
         this.ican = ican;
         this.rate = rate;
         this.vehicle = vehicle;
-        this.positions = new ArrayList<Position>();
+        this.startPoint = startPoint;
+        this.endPoint = endPoint;
+    }
+
+    public Movement(String date, String ican, Vehicle vehicle) {
+        this.datum = date;
+        this.ican = ican;
+        this.vehicle = vehicle;
     }
 
     public String getIcan() {
@@ -58,18 +67,15 @@ public class Movement implements Serializable{
     public void setIcan(String ican) {
         this.ican = ican;
     }
-    
+
     public String getDate() {
         return datum;
     }
 
     public void setDate(String date) {
         this.datum = date;
-    }   
-
-    public List<Position> getPositions() {
-        return positions;
     }
+
 
     public String getDatum() {
         return datum;
@@ -87,8 +93,24 @@ public class Movement implements Serializable{
         this.rate = rate;
     }
 
-    public void setPositions(List<Position> positions) {
-        this.positions = positions;
+    public int getId() {
+        return id;
     }
-    
+
+    public Beacon getStartPoint() {
+        return startPoint;
+    }
+
+    public void setStartPoint(Beacon startPoint) {
+        this.startPoint = startPoint;
+    }
+
+    public Beacon getEndPoint() {
+        return endPoint;
+    }
+
+    public void setEndPoint(Beacon endPoint) {
+        this.endPoint = endPoint;
+    }
+
 }

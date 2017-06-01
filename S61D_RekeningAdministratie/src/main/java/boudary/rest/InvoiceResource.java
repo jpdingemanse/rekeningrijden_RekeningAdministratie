@@ -24,27 +24,28 @@ import service.InvoiceService;
 @Stateless
 @Path("Invoice")
 public class InvoiceResource {
+
     @Inject
     InvoiceService invoiceService;
-    
+
     @POST
     @Path("CreateInvoice")
     @Consumes("application/json")
-    public Invoice createInvoice(Invoice invoice){
-        return invoiceService.createInvoice(invoice);
+    public void createInvoice() {
+        invoiceService.createInvoice();
     }
-    
-     @GET
+
+    @GET
     @Path("GetInvoices/{id}")
-    public List<Invoice> getInvoiceByDriver(@PathParam("id")String name){
+    public List<Invoice> getInvoiceByDriver(@PathParam("id") String name) {
         return invoiceService.getInvoiceByDriverName(name);
     }
-    
+
     @POST
     @Path("UpdatePayment")
     @Consumes("application/json")
-    public boolean updateInvoiceStatus(Invoice invoice){
+    public boolean updateInvoiceStatus(Invoice invoice) {
         return invoiceService.updateInvoiceStatus(invoice);
     }
-   
+
 }

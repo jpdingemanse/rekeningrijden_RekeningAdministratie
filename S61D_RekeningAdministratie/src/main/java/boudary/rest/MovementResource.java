@@ -26,7 +26,7 @@ public class MovementResource {
     MovementService movementService;
     
     @POST
-    @Path("CreateRate")
+    @Path("CreateMovement")
     @Consumes("application/json")
     public Movement createNewMovement(Movement movement){
         

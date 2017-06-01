@@ -8,4 +8,8 @@ export class InvoiceRow {
     ) {
 
     }
+
+    setPrice(price: number) {
+        this.price = price;
+    }
 }

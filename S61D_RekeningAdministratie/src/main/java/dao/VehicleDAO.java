@@ -12,45 +12,43 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-
-
 /**
  *
  * @author lino_
  */
 @Stateless
 public class VehicleDAO {
-    
+
     @PersistenceContext
     EntityManager em;
 
     public VehicleDAO() {
     }
-    
-    public Vehicle createNewVehicle(Vehicle vehicle){
+
+    public Vehicle createNewVehicle(Vehicle vehicle) {
         em.persist(vehicle);
         em.flush();
         return em.find(Vehicle.class, vehicle.getLicensePlate());
-    }   
-         
-    public Vehicle addTrackerToVehicle(Vehicle vehicle){
+    }
+
+    public Vehicle addTrackerToVehicle(Vehicle vehicle) {
         em.merge(vehicle);
         return em.find(Vehicle.class, vehicle.getLicensePlate());
     }
-    
-    
-    public Vehicle addVehicleToDriver(Vehicle vehicle){
+
+    public Vehicle addVehicleToDriver(Vehicle vehicle) {
         Vehicle tempResult = em.find(Vehicle.class, vehicle.getLicensePlate());
         tempResult = vehicle;
         em.merge(tempResult);
         return em.find(Vehicle.class, vehicle.getLicensePlate());
     }
-    public List<Vehicle> getVehicleByOwner(int id){
+
+    public List<Vehicle> getVehicleByOwner(int id) {
         Query qeury = em.createNamedQuery("vehicle.getByOwnerId").setParameter("id", id);
         return qeury.getResultList();
     }
-    
-    public List<Vehicle> getAllVehicles(){
+
+    public List<Vehicle> getAllVehicles() {
         Query qeury = em.createNamedQuery("vehicle.getAllVehicles");
         return qeury.getResultList();
     }

@@ -23,8 +23,6 @@ public class InvoiceRowDAO {
     @PersistenceContext
     EntityManager em;
     
-   
-    
     public InvoiceRowDAO()
     {
         
@@ -34,16 +32,18 @@ public class InvoiceRowDAO {
         em.persist(invoiceRow);
         em.flush();
         return em.find(InvoiceRow.class, invoiceRow.getId());
-     
     } 
     
     public List<InvoiceRow> getInvoiceRowsByInvoice(int id)
     {
-        Query qeury = em.createNamedQuery("invoicerow.getInvoiceRowByInvoce").setParameter("id", id);
-        return qeury.getResultList();
+        Query query = em.createNamedQuery("invoicerow.getInvoiceRowByInvoce").setParameter("id", id);
+        return query.getResultList();
     }
     
-     
+     public InvoiceRow addPriceToInvoiceRow(InvoiceRow invoiceRow) {
+        em.merge(invoiceRow);
+        return em.find(InvoiceRow.class, invoiceRow.getId());
+    }
     
     
 }

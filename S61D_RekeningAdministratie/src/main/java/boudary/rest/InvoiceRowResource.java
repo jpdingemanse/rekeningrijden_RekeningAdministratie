@@ -5,8 +5,8 @@
  */
 package boudary.rest;
 
-
 import domain.InvoiceRow;
+import domain.Vehicle;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -16,6 +16,7 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import service.InvoiceRowService;
+import service.MovementService;
 
 /**
  *
@@ -24,20 +25,29 @@ import service.InvoiceRowService;
 @Stateless
 @Path("InvoiceRow")
 public class InvoiceRowResource {
+
     @Inject
     InvoiceRowService invoiceRowService;
-    
+
+    @Inject
+    MovementService movementService;
+
     @POST
     @Path("CreateInvoiceRow")
     @Consumes("application/json")
-    public InvoiceRow createInvoiceRow(InvoiceRow invoiceRow){
+    public InvoiceRow createInvoiceRow(InvoiceRow invoiceRow) {
         return invoiceRowService.createInvoiceRow(invoiceRow);
     }
-    
-     @GET
+
+    @GET
     @Path("GetInvoiceRows/{id}")
-    public List<InvoiceRow> getInvoiceRowsByInvoice(@PathParam("id")int id){
+    public List<InvoiceRow> getInvoiceRowsByInvoice(@PathParam("id") int id) {
         return invoiceRowService.getInvoiceRowsByInvoice(id);
     }
-   
+
+    @GET
+    @Path("GetInvoiceRowPrice/{vehicle}/{maand}")
+    public double getInvoiceRowPrice(@PathParam("vehicle") Vehicle vehicle, @PathParam("maand") String maand) {
+        return movementService.getMonthprice(vehicle, maand);
+    }
 }

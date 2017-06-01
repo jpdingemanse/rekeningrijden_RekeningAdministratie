@@ -8,6 +8,13 @@
 </div>
 <div class="panel panel-default">
     <div class="panel-body">
+    <div class="col-lg-1">
+        <button (click)="onClickSelectedInvoice(textbox.value)">Zoek</button>
+    </div>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-body">
         <div class="row">
             <div class="col-lg-7"></div>
             <div class="col-lg-2">
@@ -43,11 +50,21 @@
                 <div class="table-responsive">
                     <table id="mytable" class="table table-bordred table-striped" [mfData]="data" #mf="mfDataTable">
                         <thead>
-                            <th><mfDefaultSorter by="driver">ID</mfDefaultSorter></th>
-                            <th><mfDefaultSorter by="driver">Driver</mfDefaultSorter></th>
-                            <th><mfDefaultSorter by="betaald">Betaald</mfDefaultSorter></th>
-                            <th><mfDefaultSorter by="tijd">Tijd aangemaakt</mfDefaultSorter></th>    
-                            <th><mfDefaultSorter by="tijd">Details</mfDefaultSorter></th>                       
+                            <th>
+                                <mfDefaultSorter by="driver">ID</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="driver">Driver</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="betaald">Betaald</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="tijd">Tijd aangemaakt</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="tijd">Details</mfDefaultSorter>
+                            </th>
                         </thead>
                         <tbody>
                             <tr *ngFor="let i of invoiceList">
@@ -55,9 +72,9 @@
                                 <td>{{i.driver.name}}</td>
                                 <td>{{i.paid}}</td>
                                 <td>{{i.timeCreated}}</td>
-                                <td>  <button (click)="onClickShowInvoiceDetails(i.id)">Show details</button></td>
+                                <td> <button (click)="onClickShowInvoiceDetails(i.id)">Show details</button></td>
 
-                            
+
                             </tr>
                         </tbody>
                     </table>
@@ -78,10 +95,18 @@
                 <div class="table-responsive">
                     <table id="mytable" class="table table-bordred table-striped" [mfData]="data" #mf="mfDataTable">
                         <thead>
-                            <th><mfDefaultSorter by="driver">ID</mfDefaultSorter></th>
-                            <th><mfDefaultSorter by="driver">Prijs</mfDefaultSorter></th>
-                            <th><mfDefaultSorter by="betaald">Beschrijving</mfDefaultSorter></th>
-                            <th><mfDefaultSorter by="tijd">Voertuig</mfDefaultSorter></th>                           
+                            <th>
+                                <mfDefaultSorter by="driver">ID</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="driver">Prijs</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="betaald">Beschrijving</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="tijd">Voertuig</mfDefaultSorter>
+                            </th>
                         </thead>
                         <tbody>
                             <tr *ngFor="let i of invoiceRowList">

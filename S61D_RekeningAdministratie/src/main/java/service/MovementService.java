@@ -5,14 +5,12 @@
  */
 package service;
 
+import dao.InvoiceRowDAO;
 import dao.MovementDAO;
-import dao.PositionDAO;
 import dao.RateDAO;
 import domain.Movement;
-import domain.Position;
 import domain.Rate;
 import domain.Vehicle;
-import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -28,6 +26,8 @@ public class MovementService {
     MovementDAO movementDAO;
     @Inject
     RateDAO rateDAO;
+    @Inject
+    InvoiceRowDAO invoiceRowDAO;
 
     public Movement createNewMovement(Movement movement) {
         List<Rate> rates = rateDAO.getAllRates();
@@ -36,25 +36,25 @@ public class MovementService {
         boolean rechtsboven = false;
         boolean rechtsonder = false;
         for (Rate r : rates) {
-            if (r.getLatLB() > movement.getPositions().get(0).getLat() && r.getLonLB() > movement.getPositions().get(0).getLon()) {
+            if (r.getLatLB() > movement.getStartPoint().getLatitude() && r.getLonLB() > movement.getStartPoint().getLongitude()) {
                 linksboven = true;
             } else {
                 linksboven = false;
                 continue;
             }
-            if (r.getLatLO() > movement.getPositions().get(0).getLat() && r.getLonLO() < movement.getPositions().get(0).getLon()) {
+            if (r.getLatLO() > movement.getStartPoint().getLatitude() && r.getLonLO() < movement.getStartPoint().getLongitude()) {
                 linksonder = true;
             } else {
                 linksonder = false;
                 continue;
             }
-            if (r.getLatRB() < movement.getPositions().get(0).getLat() && r.getLonRB() > movement.getPositions().get(0).getLon()) {
+            if (r.getLatRB() < movement.getStartPoint().getLatitude() && r.getLonRB() > movement.getStartPoint().getLongitude()) {
                 rechtsboven = true;
             } else {
                 rechtsboven = false;
                 continue;
             }
-            if (r.getLatRO() > movement.getPositions().get(0).getLat() && r.getLonRO() < movement.getPositions().get(0).getLon()) {
+            if (r.getLatRO() < movement.getStartPoint().getLatitude() && r.getLonRO() < movement.getStartPoint().getLongitude()) {
                 rechtsonder = true;
             } else {
                 rechtsonder = false;
@@ -62,6 +62,7 @@ public class MovementService {
             }
             if (linksboven == true && linksonder == true && rechtsboven == true && rechtsonder == true) {
                 movement.setRate(r);
+                break;
             }
         }
         return movementDAO.createNewMovement(movement);
@@ -69,14 +70,13 @@ public class MovementService {
 
     public double getMonthprice(Vehicle vehicle, String maand) {
         double totalPrice = 0;
-        double distance = 0;
+        double distance;
         double rate;
         List<Movement> movements = movementDAO.getAllMovements(vehicle, maand);
-        List<Rate> rates = rateDAO.getAllRates();
         for (Movement m : movements) {
             rate = m.getRate().getRate();
-            distance = distance(m.getPositions().get(0).getLat(), m.getPositions().get(1).getLat(), m.getPositions().get(0).getLon(), m.getPositions().get(1).getLon());
-            totalPrice = distance * rate;
+            distance = distance(m.getStartPoint().getLatitude(), m.getEndPoint().getLatitude(), m.getStartPoint().getLongitude(), m.getEndPoint().getLongitude());
+            totalPrice += distance * rate;
         }
         return totalPrice;
     }
