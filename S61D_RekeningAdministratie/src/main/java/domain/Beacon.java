@@ -9,13 +9,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 /**
  *
  * @author ruthgervandeneikhof
  */
 @Entity
+
 public class Beacon {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -33,10 +37,10 @@ public class Beacon {
 
     }
 
-    public Beacon(){
-        
+    public Beacon() {
+
     }
-    
+
     public String getiCan() {
         return iCan;
     }

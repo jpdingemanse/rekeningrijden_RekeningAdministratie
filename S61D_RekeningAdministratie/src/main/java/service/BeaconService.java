@@ -5,12 +5,16 @@
  */
 package service;
 
+import dao.BeaconDAO;
+import domain.Beacon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import static javax.ws.rs.core.HttpHeaders.USER_AGENT;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -23,6 +27,9 @@ import org.apache.http.impl.client.DefaultHttpClient;
  */
 @Stateless
 public class BeaconService {
+
+    @Inject
+    BeaconDAO beaconDAO;
 
     public String getAllBeacons(String ican) {
         StringBuilder result = new StringBuilder();
@@ -53,5 +60,13 @@ public class BeaconService {
             Logger.getLogger(BeaconService.class.getName()).log(Level.SEVERE, null, ex);
         }
         return result.toString();
+    }
+
+    public boolean createNewBeacon(Beacon beacon) {
+        return beaconDAO.createNewBeacon(beacon);
+    }
+
+    public List<Beacon> getBeaconsById(int id) {
+        return beaconDAO.getBeaconsById(id);
     }
 }
