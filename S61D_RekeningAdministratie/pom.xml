@@ -15,12 +15,12 @@
     </properties>
     
     <dependencies>
-<!--        <dependency>
+        <dependency>
             <groupId>com.airhacks</groupId>
             <artifactId>jaxrs-cors</artifactId>
             <version>0.0.1</version>
             <scope>compile</scope>
-        </dependency>-->
+        </dependency>
         <dependency>
             <groupId>org.apache.activemq</groupId>
             <artifactId>activemq-all</artifactId>
