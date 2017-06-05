@@ -5,9 +5,7 @@
  */
 package dao;
 
-import domain.Driver;
 import domain.Invoice;
-import domain.InvoiceRow;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;

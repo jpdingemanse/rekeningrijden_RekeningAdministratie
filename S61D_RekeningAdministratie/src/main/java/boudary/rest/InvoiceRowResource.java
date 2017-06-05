@@ -5,6 +5,7 @@
  */
 package boudary.rest;
 
+import domain.Invoice;
 import domain.InvoiceRow;
 import domain.Vehicle;
 import java.util.List;
@@ -42,7 +43,8 @@ public class InvoiceRowResource {
     @GET
     @Path("GetInvoiceRows/{id}")
     public List<InvoiceRow> getInvoiceRowsByInvoice(@PathParam("id") int id) {
-        return invoiceRowService.getInvoiceRowsByInvoice(id);
+        List<InvoiceRow> i = invoiceRowService.getInvoiceRowsByInvoice(id);
+        return i;
     }
 
     @GET

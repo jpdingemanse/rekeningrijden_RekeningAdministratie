@@ -5,8 +5,6 @@
  */
 package dao;
 
-import domain.Driver;
-import domain.Invoice;
 import domain.InvoiceRow;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -36,8 +34,16 @@ public class InvoiceRowDAO {
     
     public List<InvoiceRow> getInvoiceRowsByInvoice(int id)
     {
-        Query query = em.createNamedQuery("invoicerow.getInvoiceRowByInvoce").setParameter("id", id);
-        return query.getResultList();
+        try{
+           Query query = em.createNamedQuery("invoicerow.getInvoiceRowByInvoce").setParameter("id", id); 
+           return query.getResultList();
+        }catch(Exception e)
+        {
+            return null;
+        }
+        
+        
+        
     }
     
      public InvoiceRow addPriceToInvoiceRow(InvoiceRow invoiceRow) {

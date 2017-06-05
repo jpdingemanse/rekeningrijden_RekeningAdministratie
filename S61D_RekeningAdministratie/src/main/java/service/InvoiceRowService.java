@@ -7,7 +7,6 @@ package service;
 
 import dao.InvoiceDAO;
 import dao.InvoiceRowDAO;
-import domain.Invoice;
 import domain.InvoiceRow;
 import domain.Vehicle;
 import java.util.List;
@@ -34,11 +33,6 @@ public class InvoiceRowService {
 
     public List<InvoiceRow> getInvoiceRowsByInvoice(int id) {
         List<InvoiceRow> invoicerows = invoiceRowDAO.getInvoiceRowsByInvoice(id);
-        Vehicle vehicle;
-        for (InvoiceRow i : invoicerows) {
-            vehicle = i.getVehicle();
-            i.setPrice((long) movementService.getMonthprice(vehicle, "Mei 2017"));
-        }
         return invoicerows;
     }
 

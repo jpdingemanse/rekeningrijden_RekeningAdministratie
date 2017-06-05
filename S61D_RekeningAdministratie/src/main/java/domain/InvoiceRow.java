@@ -39,7 +39,7 @@ public class InvoiceRow implements Serializable {
         
     }
     
-    public InvoiceRow(long price, String description, Invoice invoice, Vehicle vehicle)
+    public InvoiceRow(double price, String description, Invoice invoice, Vehicle vehicle)
     {
         this.description = description;
         this.price = price;

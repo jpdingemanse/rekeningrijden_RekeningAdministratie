@@ -40,7 +40,7 @@
                 </select>
             </div>
             <div class="col-lg-2">
-                <input #textbox type="text" placeholder="Voer gebruikersnummer in" />
+                <input #textbox type="text" placeholder="Voer naam in" />
             </div>
             <div class="col-lg-1">
                 <button (click)="onClickSelectedInvoice(textbox.value)">Zoek</button>
@@ -76,7 +76,7 @@
                                 <td>{{i.id}}</td>
                                 <td>{{i.driver.name}}</td>
                                 <td>{{i.paid}}</td>
-                                <td>{{i.timeCreated}}</td>
+                                <td>{{i.maand}}</td>
                                 <td> <button (click)="onClickShowInvoiceDetails(i.id)">Show details</button></td>
 
 
@@ -114,11 +114,11 @@
                             </th>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let i of invoiceRowList">
-                                <td>{{i.id}}</td>
-                                <td>{{i.price}}</td>
-                                <td>{{i.description}}</td>
-                                <td>{{i.vehicle.licensePlate}}</td>
+                            <tr *ngFor="let ir of invoiceRowList">
+                                <td>{{ir.id}}</td>
+                                <td>{{ir.price}}</td>
+                                <td>{{ir.description}}</td>
+                                <td>{{ir.vehicle.licensePlate}}</td>
                             </tr>
                         </tbody>
                     </table>
