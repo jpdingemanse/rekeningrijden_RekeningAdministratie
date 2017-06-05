@@ -33,9 +33,10 @@ public class BeaconDAO {
         return null;
     }
 
-    public boolean createNewBeacon(Beacon beacon) {
+    public Beacon createNewBeacon(Beacon beacon) {
         em.persist(beacon);
-        return true;
+        em.flush();
+        return em.find(Beacon.class, beacon.getId());
     }
 
     public List<Beacon> getBeaconsById(int id) {

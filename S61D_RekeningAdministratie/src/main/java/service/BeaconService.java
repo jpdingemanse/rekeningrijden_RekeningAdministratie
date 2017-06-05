@@ -89,7 +89,9 @@ public class BeaconService {
             }
         return true;
     }
-
+    public Beacon createBeacon(Beacon beacon){
+        return beaconDAO.createNewBeacon(beacon);
+    }
     public List<Beacon> getBeaconsById(int id) {
         return beaconDAO.getBeaconsById(id);
     }

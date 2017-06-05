@@ -7,8 +7,8 @@ import { Rate } from './../domain/rate';
 
 @Injectable()
 export class RateService {
-    private url = "http://192.168.24.46:8080/S61D_RekeningAdministratie/api/Rate/";
-    private localurl = "http://localhost:18410/S61D_RekeningAdministratie/api/Rate/"
+    // private url = "http://192.168.24.46:8080/S61D_RekeningAdministratie/api/Rate/";
+    private url = "http://localhost:18410/S61D_RekeningAdministratie/api/Rate/"
 
     constructor(private http: Http) { }
 

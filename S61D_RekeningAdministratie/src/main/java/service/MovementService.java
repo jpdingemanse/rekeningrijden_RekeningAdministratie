@@ -5,9 +5,11 @@
  */
 package service;
 
+import dao.BeaconDAO;
 import dao.InvoiceRowDAO;
 import dao.MovementDAO;
 import dao.RateDAO;
+import domain.Beacon;
 import domain.Movement;
 import domain.Rate;
 import domain.Vehicle;
@@ -24,47 +26,50 @@ public class MovementService {
 
     @Inject
     MovementDAO movementDAO;
+    
     @Inject
-    RateDAO rateDAO;
-    @Inject
-    InvoiceRowDAO invoiceRowDAO;
+    BeaconDAO beaconDAO;
 
-    public Movement createNewMovement(Movement movement) {
-        List<Rate> rates = rateDAO.getAllRates();
+    public Movement createNewMovement(Movement movement, List<Rate> rates) {
         boolean linksboven = false;
         boolean linksonder = false;
         boolean rechtsboven = false;
         boolean rechtsonder = false;
+        
+        
+        double mStartLat = movement.getStartPoint().getLatitude();
+        double mStartLon = movement.getStartPoint().getLongitude();
+        
         for (Rate r : rates) {
-            if (r.getLatLB() > movement.getStartPoint().getLatitude() && r.getLonLB() > movement.getStartPoint().getLongitude()) {
+            double rlatLB = r.getLatLB();
+            double rlonLB = r.getLonLB();
+            double rlatLO = r.getLatLO();
+            double rlonLO = r.getLonLO();
+            double rlatRB = r.getLatRB();
+            double rlonRB = r.getLonRB();
+            double rlatRO = r.getLatRO();
+            double rlonRO = r.getLonRO();
+            if(rlatLB > mStartLat &&  rlonLB < mStartLon){
                 linksboven = true;
-            } else {
-                linksboven = false;
-                continue;
             }
-            if (r.getLatLO() > movement.getStartPoint().getLatitude() && r.getLonLO() < movement.getStartPoint().getLongitude()) {
+            if(rlatLO < mStartLat && rlonLO < mStartLon){
                 linksonder = true;
-            } else {
-                linksonder = false;
-                continue;
             }
-            if (r.getLatRB() < movement.getStartPoint().getLatitude() && r.getLonRB() > movement.getStartPoint().getLongitude()) {
+            if(rlatRB > mStartLat && rlonRB > mStartLon){
                 rechtsboven = true;
-            } else {
-                rechtsboven = false;
-                continue;
             }
-            if (r.getLatRO() < movement.getStartPoint().getLatitude() && r.getLonRO() < movement.getStartPoint().getLongitude()) {
+            if(rlatRO < mStartLat && rlonRO > mStartLon){
                 rechtsonder = true;
-            } else {
-                rechtsonder = false;
-                continue;
             }
             if (linksboven == true && linksonder == true && rechtsboven == true && rechtsonder == true) {
                 movement.setRate(r);
                 break;
             }
         }
+        Beacon startBeacon = beaconDAO.createNewBeacon(movement.getStartPoint());
+        Beacon endBeacon = beaconDAO.createNewBeacon(movement.getEndPoint());
+        movement.setStartPoint(startBeacon);
+        movement.setEndPoint(endBeacon);
         return movementDAO.createNewMovement(movement);
     }
 
@@ -72,7 +77,7 @@ public class MovementService {
         double totalPrice = 0;
         double distance;
         double rate;
-        List<Movement> movements = movementDAO.getAllMovements(vehicle, "Mei 2017");
+        List<Movement> movements = movementDAO.getAllMovements(vehicle, maand);
         for (Movement m : movements) {
             rate = m.getRate().getRate();
             distance = distance(m.getStartPoint().getLatitude(), m.getEndPoint().getLatitude(), m.getStartPoint().getLongitude(), m.getEndPoint().getLongitude());
@@ -92,7 +97,7 @@ public class MovementService {
                 + Math.cos(Math.toRadians(lat1)) * Math.cos(Math.toRadians(lat2))
                 * Math.sin(lonDistance / 2) * Math.sin(lonDistance / 2);
         double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-        double distance = R * c * 1000; // convert to meters
+        double distance = R * c; // convert to meters
 
         return Math.sqrt(distance);
     }

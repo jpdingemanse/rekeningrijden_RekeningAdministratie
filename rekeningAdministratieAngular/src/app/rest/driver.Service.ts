@@ -7,8 +7,8 @@ import { Driver } from './../domain/driver';
 
 @Injectable()
 export class DriverService {
-    private url = "http://192.168.24.46:8080/S61D_RekeningAdministratie/api/Driver/";
-    private localurl = "http://localhost:18410/S61D_RekeningAdministratie/api/Driver/"
+    // private url = "http://192.168.24.46:8080/S61D_RekeningAdministratie/api/Driver/";
+    private url = "http://localhost:18410/S61D_RekeningAdministratie/api/Driver/"
 
     constructor(private http : Http){}
 

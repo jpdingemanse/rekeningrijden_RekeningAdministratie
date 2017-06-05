@@ -6,6 +6,7 @@
 package domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -33,7 +34,7 @@ public class Invoice implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private String maand;
+    private String month;
     private boolean paid;
    
     
@@ -46,9 +47,10 @@ public class Invoice implements Serializable {
     }
 
     public Invoice(String maand, boolean paid, Driver driver) {
-        this.maand = maand;
+        this.month = maand;
         this.paid = paid;
         this.driver = driver;
+        this.invoiceRows = new ArrayList<>();
     }
 
     public int getId() {
@@ -59,12 +61,12 @@ public class Invoice implements Serializable {
         this.id = id;
     }
 
-    public String getMaand() {
-        return maand;
+    public String getMonth() {
+        return month;
     }
 
-    public void setMaand(String maand) {
-        this.maand = maand;
+    public void setMonth(String month) {
+        this.month = month;
     }
 
     public Driver getDriver() {
@@ -91,5 +93,7 @@ public class Invoice implements Serializable {
     public void setInvoiceRows(List<InvoiceRow> invoiceRows) {
         this.invoiceRows = invoiceRows;
     }
+    
+ 
 
 }

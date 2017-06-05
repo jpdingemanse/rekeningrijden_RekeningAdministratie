@@ -41,9 +41,15 @@ export class InvoicePageComponent {
     onClickCreateInvoice(name: string, lastname: string){
         console.log(name)
         this.driverService.getDriverByFullName(name, lastname)
-        .then((value => this.drivers = value))
-        .then(() => this.invoiceService.createNewInvoice(this.drivers[0])
-        )
+            .then((value => this.drivers = value))
+            .then(() => {
+                this.invoiceService.createNewInvoice(this.drivers[0])
+                                    .then(value => {
+                                        if(value != null){
+                                            this.invoiceList.push(value)
+                                        }
+                                    })
+            })
             
     }
 }

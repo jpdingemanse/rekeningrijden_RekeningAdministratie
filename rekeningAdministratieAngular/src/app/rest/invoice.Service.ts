@@ -8,8 +8,8 @@ import {Driver} from './../domain/driver';
 
 @Injectable()
 export class InvoiceService {
-    private url = "http://192.168.24.46:8080/S61D_RekeningAdministratie/api/Invoice/";
-    private localurl = "http://localhost:18410/S61D_RekeningAdministratie/api/Invoice/"
+    // private url = "http://192.168.24.46:8080/S61D_RekeningAdministratie/api/Invoice/";
+    private url = "http://localhost:18410/S61D_RekeningAdministratie/api/Invoice/"
 
     constructor(private http : Http){}
 
@@ -19,7 +19,7 @@ export class InvoiceService {
                         .then(this.extractData);
     }
  
-    createNewInvoice(driver : Driver) : Promise<Driver>  {
+    createNewInvoice(driver : Driver) : Promise<Invoice>  {
         var header = new Headers();
         header.append('Content-Type', 'application/json');
         return this.http.post(this.url + 'CreateInvoice',JSON.stringify(driver), {headers: header})
