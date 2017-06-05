@@ -34,17 +34,8 @@ public class BeaconDAO {
     }
 
     public boolean createNewBeacon(Beacon beacon) {
-        try {
-            if (findBeacon(beacon) != null) {
-                return false;
-            } else {
-                em.persist(beacon);
-                return true;
-            }
-
-        } catch (Exception ex) {
-            return false;
-        }
+        em.persist(beacon);
+        return true;
     }
 
     public List<Beacon> getBeaconsById(int id) {

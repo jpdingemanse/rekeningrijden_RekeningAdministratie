@@ -10,7 +10,11 @@
     <div class="panel-body">
     <div class="col-lg-1">
         Rekeningen versturen
-        <button (click)="onClickSendInvoices()">Zoek</button>
+        <div class="col-lg-2">
+                <input #name type="text" placeholder="Voer voornaam in" />
+                <input #lastname type="text" placeholder="Voer achternaam in" />
+            </div>
+        <button (click)="onClickCreateInvoice(name.value, lastname.value)">Verstuur</button>
     </div>
     </div>
 </div>

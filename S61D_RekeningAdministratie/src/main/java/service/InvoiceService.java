@@ -14,11 +14,11 @@ import domain.Invoice;
 import domain.InvoiceRow;
 import domain.Vehicle;
 import factory.InvoiceTransmittier;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import java.util.Calendar;
+import java.text.SimpleDateFormat;
 
 /**
  *
@@ -29,7 +29,7 @@ public class InvoiceService {
 
     @Inject
     InvoiceDAO invoiceDAO;
-    
+
     @Inject
     InvoiceRowDAO invoiceRowDAO;
 
@@ -40,29 +40,28 @@ public class InvoiceService {
     DriverDAO driverDAO;
     @Inject
     VehicleDAO vehicleDAO;
-    @Inject 
+    @Inject
     MovementService movementService;
 
-    public void createInvoice() {
+    public boolean createInvoice(Driver driver) {
         Calendar c = Calendar.getInstance();
+        String month = new SimpleDateFormat("MMMM").format(c.getTime());
         int year = c.get(Calendar.YEAR);
-        int month = c.get(Calendar.MONTH);
-        List<Driver> drivers = driverDAO.getAllDrivers();
         Invoice invoice = new Invoice();
         InvoiceRow invoiceRow = new InvoiceRow();
-        for(Driver d : drivers){
-            invoice.setDriver(d);
-            invoice.setMaand(String.valueOf(month + year));
-            invoiceDAO.createNewInvoice(invoice);
-            
-            List<Vehicle> vehicles = vehicleDAO.getVehicleByOwner(d.getId());
-            for(Vehicle v : vehicles){
-                invoiceRow.setVehicle(v);
-                invoiceRow.setPrice((long) movementService.getMonthprice(v, invoice.getMaand()));
-                invoiceRowDAO.createNewInvoiceRow(invoiceRow);
-            }
-            invoiceTransmitter.SendInvoiceToRekeningrijden(invoice);
+        invoice.setDriver(driver);
+        invoice.setMaand(String.valueOf(month + " " + year));
+        invoiceDAO.createNewInvoice(invoice);
+
+        List<Vehicle> vehicles = vehicleDAO.getVehicleByOwner(driver.getId());
+        for (Vehicle v : vehicles) {
+            invoiceRow.setVehicle(v);
+            long price = (long) movementService.getMonthprice(v, invoice.getMaand());
+            invoiceRow.setPrice(price);
+            invoiceRow.setInvoice(invoice);
+            invoiceRowDAO.createNewInvoiceRow(invoiceRow);
         }
+        return invoiceTransmitter.SendInvoiceToRekeningrijden(invoice);
     }
 
     public List<Invoice> getInvoiceByDriver(int id) {

@@ -31,8 +31,8 @@ public class InvoiceResource {
     @POST
     @Path("CreateInvoice")
     @Consumes("application/json")
-    public void createInvoice() {
-        invoiceService.createInvoice();
+    public boolean createInvoice(Driver driver) {
+        return invoiceService.createInvoice(driver);
     }
 
     @GET

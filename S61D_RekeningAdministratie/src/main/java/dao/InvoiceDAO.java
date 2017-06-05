@@ -29,9 +29,15 @@ public class InvoiceDAO {
     }
 
     public Invoice createNewInvoice(Invoice invoice) {
+        try{
         em.persist(invoice);
         em.flush();
-        return em.find(Invoice.class, invoice.getId());
+        
+        } catch(Exception ex){
+            
+        }
+        Invoice i = em.find(Invoice.class, invoice.getId());
+        return i;
     }
 
     public List<Invoice> getInvoicesByDriver(int id) {

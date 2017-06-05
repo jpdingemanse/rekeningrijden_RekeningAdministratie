@@ -36,7 +36,7 @@ public class MovementDAO {
         return em.find(Movement.class, movement.getId());
     }
 
-    public List<Movement> getAllMovements(Vehicle vehicle, String maand) {
-        return (List<Movement>) em.createNamedQuery("movement.getMovementsPerMonth");
+    public List<Movement> getAllMovements(Vehicle vehicle, String datum) {
+        return (List<Movement>) em.createNamedQuery("movement.getMovementsPerMonth").setParameter("vehicle", vehicle).setParameter("datum", datum).getResultList();
     }
 }
