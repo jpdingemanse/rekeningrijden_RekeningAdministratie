@@ -57,6 +57,14 @@ public class Movement implements Serializable {
         this.vehicle = vehicle;
     }
 
+    public Movement(String datum, String ican, Beacon startPoint, Beacon endPoint, Vehicle vehicle) {
+        this.datum = datum;
+        this.ican = ican;
+        this.startPoint = startPoint;
+        this.endPoint = endPoint;
+        this.vehicle = vehicle;
+    }
+
     public String getIcan() {
         return ican;
     }

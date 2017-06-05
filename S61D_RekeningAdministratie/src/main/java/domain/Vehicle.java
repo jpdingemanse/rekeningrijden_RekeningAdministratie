@@ -22,7 +22,8 @@ import javax.persistence.OneToMany;
 @Entity
 @NamedQueries({
     @NamedQuery(name="vehicle.getByOwnerId", query="select v from Vehicle v where v.owner.id = :id"),
-    @NamedQuery(name="vehicle.getAllVehicles", query="select v from Vehicle v")
+    @NamedQuery(name="vehicle.getAllVehicles", query="select v from Vehicle v"),
+    @NamedQuery(name="vehicle.getVehicleByIcan", query="select v from Vehicle v where v.iCan = :iCan")
 })
 public class Vehicle implements Serializable{
     @Id

@@ -6,10 +6,16 @@
 package service;
 
 import dao.BeaconDAO;
+import dao.MovementDAO;
+import dao.VehicleDAO;
 import domain.Beacon;
+import domain.Movement;
+import domain.Vehicle;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -30,6 +36,10 @@ public class BeaconService {
 
     @Inject
     BeaconDAO beaconDAO;
+    @Inject
+    MovementDAO movementDAO;
+    @Inject
+    VehicleDAO vehicleDAO;
 
     public String getAllBeacons(String ican) {
         StringBuilder result = new StringBuilder();
@@ -62,8 +72,22 @@ public class BeaconService {
         return result.toString();
     }
 
-    public boolean createNewBeacon(Beacon beacon) {
-        return beaconDAO.createNewBeacon(beacon);
+    public boolean createNewBeacon(List<Beacon> beacons) {
+        int size = beacons.size()- 1;
+        Movement movement;
+        Vehicle vehicle = vehicleDAO.getVehicleByIcan(beacons.get(0).getiCan()).get(0);
+        Beacon bs = new Beacon();
+        Calendar c = Calendar.getInstance();
+        String month = new SimpleDateFormat("MMMM").format(c.getTime());
+        int year = c.get(Calendar.YEAR);
+        for (Beacon b : beacons) {
+            beaconDAO.createNewBeacon(b);
+            if(b.getId() == beacons.get(0).getId() || b.getId() == beacons.get(size).getId()){
+                movement = new Movement(String.valueOf(month + " " + year), b.getiCan(), bs, b, vehicle);
+            }
+            bs = b;
+            }
+        return true;
     }
 
     public List<Beacon> getBeaconsById(int id) {

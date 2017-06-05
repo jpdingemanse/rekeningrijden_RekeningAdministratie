@@ -6,6 +6,7 @@
 package boudary.rest;
 
 import domain.Beacon;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -39,8 +40,8 @@ public class BeaconResource {
 
     @POST
     @Consumes("application/json")
-    @Path("CreateBeacon")
-    public boolean createBeacon(Beacon beacon) {
-        return beaconService.createNewBeacon(beacon);
+    @Path("CreateBeacons")
+    public boolean createBeacon(List<Beacon> beacons) {
+        return beaconService.createNewBeacon(beacons);
     }
 }

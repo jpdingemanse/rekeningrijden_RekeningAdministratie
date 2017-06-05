@@ -71,4 +71,9 @@ public class VehicleDAO {
         em.merge(tempResult);
         return em.find(Vehicle.class, vehicle.getLicensePlate());
     }
+    
+    public List<Vehicle> getVehicleByIcan(String iCan) {
+         Query qeury = em.createNamedQuery("vehicle.getVehicleByIcan").setParameter("iCan", iCan);
+        return qeury.getResultList();
+    }
 }
