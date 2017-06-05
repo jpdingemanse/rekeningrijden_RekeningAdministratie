@@ -35,6 +35,7 @@ public class Invoice implements Serializable {
 
     private String maand;
     private boolean paid;
+    
     @OneToMany(mappedBy = "invoice")
     private List<InvoiceRow> invoiceRows;
     @ManyToOne

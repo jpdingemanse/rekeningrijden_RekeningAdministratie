@@ -29,11 +29,12 @@ public class InvoiceRow implements Serializable {
     private double price;
     private String description;
     
-    @ManyToOne
-    private Invoice invoice;
+    
     
     @ManyToOne
     private Vehicle vehicle;
+    @ManyToOne
+    private Invoice invoice;
     
     public InvoiceRow(){
         
