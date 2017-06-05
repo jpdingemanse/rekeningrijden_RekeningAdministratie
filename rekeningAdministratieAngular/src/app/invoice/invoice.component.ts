@@ -34,7 +34,7 @@ export class InvoicePageComponent {
     onClickShowInvoiceDetails(id: any) {
         console.log(id);
         this.invoiceRowService.getInvoiceRowByInvoice(id)
-            // .then(value => this.invoiceRowList = value)
+            .then(value => this.invoiceRowList = value)
             .then(value => console.log(value))
     }
 
