@@ -36,6 +36,7 @@ public class InvoiceRow implements Serializable {
     @ManyToOne
     private Invoice invoice;
     
+    
     public InvoiceRow(){
         
     }

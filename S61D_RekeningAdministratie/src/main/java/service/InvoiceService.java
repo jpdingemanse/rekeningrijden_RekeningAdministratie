@@ -53,10 +53,10 @@ public class InvoiceService {
     
     // URL of the JMS server. DEFAULT_BROKER_URL will just mean
     // that JMS server is on localhost
-    private static String url = "tcp://192.168.24.41:61616";
+    private static final String url = "tcp://192.168.24.41:61616";
     // default broker URL is : tcp://localhost:61616"
 
-    private static String subject = "Admin"; //Queue Name
+    private static final String subject = "Admin"; //Queue Name
     // You can create any/many queue names as per your requirement.
 
     public boolean createInvoice(Driver driver) {
