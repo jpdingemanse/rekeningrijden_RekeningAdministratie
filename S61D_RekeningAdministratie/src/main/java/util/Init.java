@@ -24,6 +24,7 @@ import domain.Rate;
 import domain.RequestAddVehicleToDriver;
 import domain.User;
 import domain.Vehicle;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -117,8 +118,8 @@ public class Init {
         histories.add(history);
         vehicle.setHistory(histories);
         vehicleDAO.addVehicleToDriver(vehicle);
-        
-        Invoice invoice = new Invoice("Mei 2017", false, driver);
+        Timestamp timeStamp = new Timestamp(System.currentTimeMillis());
+        Invoice invoice = new Invoice("Mei 2017", false, driver, timeStamp.getTime());
         invoiceDAO.createNewInvoice(invoice);
         InvoiceRow invoiceRow = new InvoiceRow(20, "Test Test", invoice, vehicle);
 

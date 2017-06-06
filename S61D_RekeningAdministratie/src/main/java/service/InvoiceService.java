@@ -20,6 +20,7 @@ import domain.Rate;
 import domain.Vehicle;
 import factory.BeaconTransmitter;
 import factory.InvoiceTransmittier;
+import java.sql.Timestamp;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -88,6 +89,8 @@ public class InvoiceService {
             InvoiceRow invoiceRow = new InvoiceRow();
             invoice.setDriver(driver);
             invoice.setMonth(String.valueOf(month + " " + year));
+            Timestamp timeStamp = new Timestamp(System.currentTimeMillis());
+            invoice.setTimestamp(timeStamp.getTime());
             invoiceDAO.createNewInvoice(invoice);
 
             List<Rate> rates = rateDAO.getAllRates();
