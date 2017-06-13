@@ -23,7 +23,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
  * @author lino_
  */
 @Stateless
-public class InvoiceTransmittier {
+public class InvoiceTransmitter {
     public boolean SendInvoiceToRekeningrijden(Invoice invoice) {
         Gson gson = new Gson();
         String jsonToString = gson.toJson(invoice);
