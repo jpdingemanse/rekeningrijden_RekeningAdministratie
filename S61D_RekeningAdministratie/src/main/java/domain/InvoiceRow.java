@@ -37,6 +37,7 @@ public class InvoiceRow implements Serializable {
     private Invoice invoice;
     
     
+    
     public InvoiceRow(){
         
     }
