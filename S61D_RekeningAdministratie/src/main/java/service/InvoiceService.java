@@ -20,7 +20,7 @@ import domain.Movement;
 import domain.Rate;
 import domain.Vehicle;
 import factory.BeaconTransmitter;
-import factory.InvoiceTransmittier;
+import factory.InvoiceTransmitter;
 import java.sql.Timestamp;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -56,7 +56,7 @@ public class InvoiceService {
     InvoiceRowDAO invoiceRowDAO;
 
     @Inject
-    InvoiceTransmittier invoiceTransmitter;
+    InvoiceTransmitter invoiceTransmitter;
 
     @Inject
     DriverDAO driverDAO;
