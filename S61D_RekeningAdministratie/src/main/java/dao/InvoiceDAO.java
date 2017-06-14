@@ -37,7 +37,14 @@ public class InvoiceDAO {
         Invoice i = em.find(Invoice.class, invoice.getId());
         return i;
     }
-
+    public boolean checkInvoice(Invoice invoice){
+        Query query = em.createNamedQuery("invoice.checkInvoice").setParameter("month", invoice.getMonth()).setParameter("driverId", invoice.getDriver().getId());
+        List<Invoice> result = query.getResultList();
+        if(!result.isEmpty()){
+            return true;
+        }
+        return false;
+    }
     public List<Invoice> getInvoicesByDriver(int id) {
         Query qeury = em.createNamedQuery("invoice.getInvoiceByDriver").setParameter("id", id);
         return qeury.getResultList();

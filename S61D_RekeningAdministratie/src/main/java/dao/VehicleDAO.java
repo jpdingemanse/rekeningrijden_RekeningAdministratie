@@ -5,6 +5,7 @@
  */
 package dao;
 
+import domain.Driver;
 import domain.Vehicle;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -75,5 +76,16 @@ public class VehicleDAO {
     public List<Vehicle> getVehicleByIcan(String iCan) {
          Query qeury = em.createNamedQuery("vehicle.getVehicleByIcan").setParameter("iCan", iCan);
         return qeury.getResultList();
+    }
+
+    public Driver getDriverByICan(String ican) {
+        Query query = em.createNamedQuery("vehicle.getVehicleByIcan").setParameter("iCan", ican);
+        List<Vehicle> result = query.getResultList();
+        Driver driver;
+        if(!result.isEmpty()){
+            driver = result.get(0).getOwner();
+            return driver;
+        }
+        return null;
     }
 }

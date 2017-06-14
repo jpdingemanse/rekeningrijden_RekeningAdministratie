@@ -5,8 +5,8 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class UserService {
-    // private url = "http://192.168.24.46:8080/S61D_RekeningAdministratie/api/User/";
-    private url = "http://localhost:18410/S61D_RekeningAdministratie/api/User/"
+    private url = "http://192.168.24.46:8080/S61D_RekeningAdministratie/api/User/";
+    // private url = "http://localhost:18410/S61D_RekeningAdministratie/api/User/"
 
     constructor(private http : Http){}
 

@@ -24,22 +24,18 @@ export class InvoicePageComponent {
 
 
     onClickSelectedInvoice(name: any) {
-
-        console.log(name);
         this.invoiceService.getInvoicesByDriver(name)
             .then(value => this.invoiceList = value);
         //console.log(this.invoiceList[0]);
     }
 
     onClickShowInvoiceDetails(id: any) {
-        console.log(id);
         this.invoiceRowService.getInvoiceRowByInvoice(id)
             .then(value => this.invoiceRowList = value)
             .then(value => console.log(value))
     }
 
     onClickCreateInvoice(name: string, lastname: string){
-        console.log(name)
         this.driverService.getDriverByFullName(name, lastname)
             .then((value => this.drivers = value))
             .then(() => {

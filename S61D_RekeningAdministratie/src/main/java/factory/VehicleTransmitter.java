@@ -85,4 +85,34 @@ public class VehicleTransmitter {
 
         }
     }
+    public boolean SendUpdateICanToRekeningrijder(Vehicle vehicle){
+        Gson gson = new Gson();
+        String jsonToString = gson.toJson(vehicle);
+        try {
+            String url = "http://192.168.24.43:8080/S61D_Rekeneningrijden/api/Vehicle/UpdateICan";
+            DefaultHttpClient httpClient = new DefaultHttpClient();
+            HttpPost postRequest = new HttpPost(url);
+
+            StringEntity input = new StringEntity(jsonToString);
+            input.setContentType("application/json");
+            postRequest.setEntity(input);
+
+            HttpResponse response = httpClient.execute(postRequest);
+            int httpCode = response.getStatusLine().getStatusCode();
+
+            if (httpCode != 200) {
+                throw new RuntimeException("Failed : HTTP error code : "
+                        + response.getStatusLine().getStatusCode());
+            }
+            return true;
+            
+        } catch (UnsupportedEncodingException ex) {
+            Logger.getLogger(VehicleTransmitter.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        } catch (IOException ex) {
+            Logger.getLogger(VehicleTransmitter.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+
+        }
+    }
 }

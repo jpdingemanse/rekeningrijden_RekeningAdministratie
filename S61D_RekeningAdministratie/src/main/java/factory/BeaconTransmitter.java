@@ -38,7 +38,7 @@ public class BeaconTransmitter {
         List<Beacon> beacons = new ArrayList<>();
 
         try {
-            String url = "http://192.168.24.42:8080/S61D_VerplaatsingSysteem/api/Beacon/GetMovementPerIcan/" + ican;
+            String url = "http://192.168.24.42:8080/S61D_VerplaatsingSysteem/api/Beacon/getMovementPerMonth/" + ican;
             HttpClient client = new DefaultHttpClient();
             HttpGet request = new HttpGet(url);
 

@@ -13,6 +13,7 @@ import dao.RateDAO;
 import dao.VehicleDAO;
 import domain.Beacon;
 import domain.Driver;
+import domain.History;
 import domain.Invoice;
 import domain.InvoiceRow;
 import domain.Movement;
@@ -75,59 +76,70 @@ public class InvoiceService {
     private static final String url = "tcp://192.168.24.41:61616";
     // default broker URL is : tcp://localhost:61616"
 
-    private static final String subject = "Admin"; //Queue Name
+    private static final String subject = "factuurInternal"; //Queue Name
     // You can create any/many queue names as per your requirement.
 
     public Invoice createInvoice(Driver driver) {
         Invoice invoice = new Invoice();
-        
+
         try {
             Gson gson = new Gson();
             Calendar c = Calendar.getInstance();
             String month = new SimpleDateFormat("MMMM").format(c.getTime());
             int year = c.get(Calendar.YEAR);
+
             InvoiceRow invoiceRow = new InvoiceRow();
             invoice.setDriver(driver);
             invoice.setMonth(String.valueOf(month + " " + year));
             Timestamp timeStamp = new Timestamp(System.currentTimeMillis());
             invoice.setTimestamp(timeStamp.getTime());
-            invoiceDAO.createNewInvoice(invoice);
+            if (!invoiceDAO.checkInvoice(invoice)) {
 
-            List<Rate> rates = rateDAO.getAllRates();
+                invoice = invoiceDAO.createNewInvoice(invoice);
 
-            List<Vehicle> vehicles = vehicleDAO.getVehicleByOwner(driver.getId());
+                List<Rate> rates = rateDAO.getAllRates();
 
-            for (Vehicle v : vehicles) {
-                List<Beacon> beaconList = new ArrayList<>();
-                beaconList = beaconTransmitter.GetAllMovementsPerVehicle(v.getiCan());
-                if (!beaconList.isEmpty()) {
-                    createMovement(beaconList, invoice.getMonth(), v, rates);
-                    invoiceRow.setVehicle(v);
-                    long price = (long) movementService.getMonthprice(v, invoice.getMonth());
-                    invoiceRow.setPrice(price);
-                    invoiceRow.setInvoice(invoice);
-                    invoiceRow = invoiceRowDAO.createNewInvoiceRow(invoiceRow);
-                    sendInvoice(gson.toJson(invoiceRow));
+                List<Vehicle> vehicles = vehicleDAO.getVehicleByOwner(driver.getId());
+                
+                
+                for (Vehicle v : vehicles) {
+                    List<Beacon> beaconList = new ArrayList<>();
+                    beaconList = beaconTransmitter.GetAllMovementsPerVehicle(v.getiCan());
+                    if (!beaconList.isEmpty()) {
+                        createMovement(beaconList, invoice.getMonth(), v, rates);
+                        invoiceRow.setVehicle(v);
+                        long price = (long) movementService.getMonthprice(v, invoice.getMonth());
+                        invoiceRow.setPrice(price);
+                        invoiceRow.setInvoice(invoice);
+                        invoiceRow = invoiceRowDAO.createNewInvoiceRow(invoiceRow);
+                        invoiceRow.getVehicle().setHistory(new ArrayList<>());
+                        invoiceRow.getVehicle().setOwner(null);
+                        
+                        invoice.getDriver().setAllVehicle(new ArrayList<>());
+                        invoiceRow.setInvoice(invoice);
+                        sendInvoice(gson.toJson(invoiceRow));
+                    }
                 }
+                return invoice;
             }
-            
-            return invoice;
+            return null;
         } catch (JSONException ex) {
-            return invoice;
+            return null;
         }
 
-        
+    }
+    
+    public void createForeignInvoice(String iCan){
+        Driver driver = vehicleDAO.getDriverByICan(iCan);
     }
 
     public void createMovement(List<Beacon> beacon, String month, Vehicle vehicle, List<Rate> rates) {
         for (int i = 0; beacon.size() > i; i++) {
-            if(i != 0){
-                if((i % 2) == 0){
-                    Beacon b1 = beacon.get(i - 1);
-                    Beacon b2 = beacon.get(i);
-                    Movement movement = new Movement(month, vehicle.getiCan(), b1, b2, vehicle);
-                    movementService.createNewMovement(movement, rates);
-                }
+            if (i != 0) {
+                Beacon b1 = beacon.get(i - 1);
+                Beacon b2 = beacon.get(i);
+                Movement movement = new Movement(month, vehicle.getiCan(), b1, b2, vehicle);
+                movementService.createNewMovement(movement, rates);
             }
         }
     }
@@ -154,7 +166,9 @@ public class InvoiceService {
             // Here we are sending the message!
             producer.send(message);
             System.out.println("Sending '" + message.getText() + "'");
-
+            
+            producer.close();
+            session.close();
             connection.close();
         } catch (JMSException ex) {
 

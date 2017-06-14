@@ -24,9 +24,10 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @NamedQueries({
-    @NamedQuery(name = "invoice.getInvoiceByDriver", query = "select i from Invoice i where i.driver.id = :id")
-    ,
-    @NamedQuery(name = "invoice.getInvoiceByDriverName", query = "select i from Invoice i where i.driver.name = :name")
+    @NamedQuery(name = "invoice.getInvoiceByDriver", query = "select i from Invoice i where i.driver.id = :id"),
+    @NamedQuery(name = "invoice.getInvoiceByDriverName", query = "select i from Invoice i where i.driver.name = :name"),
+    @NamedQuery(name = "invoice.checkInvoice", query = "select i from Invoice i where i.month = :month and i.driver.id = :driverId")
+    
 })
 public class Invoice implements Serializable {
 
@@ -36,8 +37,7 @@ public class Invoice implements Serializable {
     private long timestamp;
     private String month;
     private boolean paid;
-   
-    
+
     @OneToMany(mappedBy = "invoice")
     private List<InvoiceRow> invoiceRows;
     @ManyToOne

@@ -29,6 +29,8 @@ public class InvoiceRow implements Serializable {
     private double price;
     private String description;
     
+    private String date;
+    
     
     
     @ManyToOne
@@ -87,4 +89,13 @@ public class InvoiceRow implements Serializable {
     public void setVehicle(Vehicle vehicle) {
         this.vehicle = vehicle;
     }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+    
 }
