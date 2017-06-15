@@ -13,7 +13,7 @@ import javax.persistence.Id;
 
 /**
  *
- * @author ruthgervandeneikhof
+ * @author Jean Paul
  */
 @Entity
 public class Beacon implements Serializable {

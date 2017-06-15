@@ -29,7 +29,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 
 /**
  *
- * @author ruthgervandeneikhof
+ * @author Jean Paul
  */
 @Stateless
 public class BeaconService {

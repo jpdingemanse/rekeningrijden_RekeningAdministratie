@@ -17,7 +17,7 @@ import javax.persistence.OneToOne;
 
 /**
  *
- * @author ruthgervandeneikhof
+ * @author Jean Paul
  */
 @Entity
 @NamedQueries({

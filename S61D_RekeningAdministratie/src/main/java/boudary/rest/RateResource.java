@@ -18,7 +18,7 @@ import service.RateService;
 
 /**
  *
- * @author ruthgervandeneikhof
+ * @author Jean Paul
  */
 @Stateless
 @Path("Rate")

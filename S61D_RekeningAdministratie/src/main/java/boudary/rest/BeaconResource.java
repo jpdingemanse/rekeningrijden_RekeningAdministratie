@@ -17,7 +17,7 @@ import service.BeaconService;
 
 /**
  *
- * @author ruthgervandeneikhof
+ * @author Jean Paul
  */
 @Stateless
 @Path("Beacon")

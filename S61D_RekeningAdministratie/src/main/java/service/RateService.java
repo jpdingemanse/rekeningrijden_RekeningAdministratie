@@ -13,7 +13,7 @@ import javax.inject.Inject;
 
 /**
  *
- * @author ruthgervandeneikhof
+ * @author Jean Paul
  */
 @Stateless
 public class RateService {
