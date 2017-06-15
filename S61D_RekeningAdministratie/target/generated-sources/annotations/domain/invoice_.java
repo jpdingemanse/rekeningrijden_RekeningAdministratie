@@ -7,14 +7,15 @@ import javax.persistence.metamodel.ListAttribute;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2017-06-01T16:15:57")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2017-06-15T11:59:04")
 @StaticMetamodel(Invoice.class)
 public class Invoice_ { 
 
+    public static volatile SingularAttribute<Invoice, String> month;
     public static volatile SingularAttribute<Invoice, Driver> driver;
     public static volatile SingularAttribute<Invoice, Boolean> paid;
     public static volatile SingularAttribute<Invoice, Integer> id;
     public static volatile ListAttribute<Invoice, InvoiceRow> invoiceRows;
-    public static volatile SingularAttribute<Invoice, String> maand;
+    public static volatile SingularAttribute<Invoice, Long> timestamp;
 
 }
