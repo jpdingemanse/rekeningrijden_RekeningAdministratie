@@ -37,11 +37,4 @@ public class BeaconResource {
     public String test() {
         return "dit is een test";
     }
-
-    @POST
-    @Consumes("application/json")
-    @Path("CreateBeacons")
-    public boolean createBeacon(List<Beacon> beacons) {
-        return beaconService.createNewBeacon(beacons);
-    }
 }

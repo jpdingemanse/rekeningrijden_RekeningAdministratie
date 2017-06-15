@@ -36,17 +36,14 @@ public class Movement implements Serializable {
     private Beacon endPoint;
     @OneToOne
     private Rate rate;
-    @ManyToOne
-    private Vehicle vehicle;
 
     public Movement() {
     }
 
-    public Movement(String date, String ican, Rate rate, Vehicle vehicle, Beacon startPoint, Beacon endPoint) {
+    public Movement(String date, String ican, Rate rate, Beacon startPoint, Beacon endPoint) {
         this.datum = date;
         this.ican = ican;
         this.rate = rate;
-        this.vehicle = vehicle;
         this.startPoint = startPoint;
         this.endPoint = endPoint;
     }
@@ -54,15 +51,13 @@ public class Movement implements Serializable {
     public Movement(String date, String ican, Vehicle vehicle) {
         this.datum = date;
         this.ican = ican;
-        this.vehicle = vehicle;
     }
 
-    public Movement(String datum, String ican, Beacon startPoint, Beacon endPoint, Vehicle vehicle) {
+    public Movement(String datum, String ican, Beacon startPoint, Beacon endPoint) {
         this.datum = datum;
         this.ican = ican;
         this.startPoint = startPoint;
         this.endPoint = endPoint;
-        this.vehicle = vehicle;
     }
 
     public String getIcan() {

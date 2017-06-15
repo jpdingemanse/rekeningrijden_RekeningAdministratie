@@ -73,11 +73,10 @@ public class MovementService {
         return movementDAO.createNewMovement(movement);
     }
 
-    public double getMonthprice(Vehicle vehicle, String maand) {
+    public double getMonthprice(List<Movement> movements) {
         double totalPrice = 0;
         double distance;
         double rate;
-        List<Movement> movements = movementDAO.getAllMovements(vehicle, maand);
         for (Movement m : movements) {
             rate = m.getRate().getRate();
             distance = distance(m.getStartPoint().getLatitude(), m.getEndPoint().getLatitude(), m.getStartPoint().getLongitude(), m.getEndPoint().getLongitude());
@@ -85,7 +84,7 @@ public class MovementService {
         }
         return totalPrice;
     }
-
+    
     private double distance(double lat1, double lat2, double lon1,
             double lon2) {
 

@@ -5,11 +5,18 @@
  */
 package boundary.bean;
 
+import com.google.gson.Gson;
+import domain.InvoiceJMS;
+import domain.InvoiceRow;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ejb.ActivationConfigProperty;
 import javax.ejb.MessageDriven;
 import javax.inject.Inject;
+import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageListener;
+import javax.jms.TextMessage;
 import service.InvoiceService;
 
 /**
@@ -34,8 +41,18 @@ public class MessageBean implements MessageListener  {
     }
     
     @Override
-    public void onMessage(Message msg) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void onMessage(Message message) {
+        Gson gson = new Gson();
+        System.out.println("Got message (RekeningRijden) " + message);
+        TextMessage msg = (TextMessage) message;
+        try {
+            InvoiceJMS invoiceJMS = gson.fromJson(msg.getText(), InvoiceJMS.class);
+            if(invoiceJMS != null){
+                is.createForeignInvoice(invoiceJMS);
+            }
+        } catch (JMSException ex) {
+            Logger.getLogger(MessageBean.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     

@@ -5,11 +5,21 @@
  */
 package domain;
 
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  *
  * @author Jean Paul
  */
-public class InvoiceJMS {
+@Entity
+public class InvoiceJMS implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String FromCountry;
     private Long Timestamp;
     private Double TotalPrice;

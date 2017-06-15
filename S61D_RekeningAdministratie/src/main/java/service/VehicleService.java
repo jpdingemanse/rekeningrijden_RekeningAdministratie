@@ -32,7 +32,7 @@ public class VehicleService {
     
     public Vehicle createNewVehicle(Vehicle vehicle){
         Vehicle result = vehicleDAO.createNewVehicle(vehicle);
-       vehicleTransmitter.SendVehicleToRekeningRijder(result);
+        vehicleTransmitter.SendVehicleToRekeningRijder(result);
         return result;
     }
 

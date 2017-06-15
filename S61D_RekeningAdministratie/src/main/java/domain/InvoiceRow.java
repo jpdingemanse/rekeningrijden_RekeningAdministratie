@@ -28,10 +28,7 @@ public class InvoiceRow implements Serializable {
     private int id;
     private double price;
     private String description;
-    
-    private String date;
-    
-    
+    private String landCode;
     
     @ManyToOne
     private Vehicle vehicle;
@@ -91,12 +88,13 @@ public class InvoiceRow implements Serializable {
         this.vehicle = vehicle;
     }
 
-    public String getDate() {
-        return date;
+    public String getLandCode() {
+        return landCode;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setLandCode(String landCode) {
+        this.landCode = landCode;
     }
+    
     
 }

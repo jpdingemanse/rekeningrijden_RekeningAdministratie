@@ -47,5 +47,11 @@ public class InvoiceResource {
     public boolean updateInvoiceStatus(Invoice invoice) {
         return invoiceService.updateInvoiceStatus(invoice);
     }
+    
+    @POST
+    @Path("CreateAllInvoice")
+    public void createAllInvoice(){
+         invoiceService.createAllInvoice();
+    }
 
 }
