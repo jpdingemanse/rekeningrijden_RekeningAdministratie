@@ -27,9 +27,14 @@ public class VehicleDAO {
     }
 
     public Vehicle createNewVehicle(Vehicle vehicle) {
-        em.persist(vehicle);
-        em.flush();
-        return em.find(Vehicle.class, vehicle.getLicensePlate());
+        try {
+            em.persist(vehicle);
+            em.flush();
+        } catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        Vehicle v = em.find(Vehicle.class, vehicle.getLicensePlate());
+        return v;
     }
 
     public Vehicle addTrackerToVehicle(Vehicle vehicle) {

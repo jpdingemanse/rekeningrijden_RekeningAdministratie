@@ -6,12 +6,15 @@ domain\RequestAddVehicleToDriver_.class
 domain\Vehicle.class
 domain\Rate_.class
 dao\MovementDAO.class
+factory\DriverTransmitter.class
 domain\Driver.class
 dao\UserDAO.class
 service\RequestService.class
 domain\Invoice_.class
 boudary\rest\InvoiceResource.class
 domain\History_.class
+factory\BeaconTransmitter.class
+boundary\bean\MessageBean.class
 domain\Movement.class
 boudary\rest\UserResource.class
 domain\Movement_.class
@@ -19,6 +22,7 @@ service\InvoiceRowService.class
 dao\HistoryDao.class
 domain\User.class
 domain\InvoiceRow.class
+factory\InvoiceTransmitter.class
 factory\VehicleTransmitter.class
 service\DriverService.class
 dao\RequestDAO.class
@@ -32,10 +36,12 @@ domain\Beacon.class
 domain\Invoice.class
 service\UserService.class
 dao\InvoiceRowDAO.class
+domain\InvoiceJMS.class
 service\BeaconService.class
 dao\VehicleDAO.class
 dao\RateDAO.class
 boudary\rest\DriverResource.class
+dao\BeaconDAO.class
 domain\History.class
 dao\DriverDAO.class
 domain\InvoiceRow_.class
@@ -46,3 +52,4 @@ service\InvoiceService.class
 service\RateService.class
 boudary\rest\JARSconfig.class
 domain\Vehicle_.class
+domain\Beacon_.class

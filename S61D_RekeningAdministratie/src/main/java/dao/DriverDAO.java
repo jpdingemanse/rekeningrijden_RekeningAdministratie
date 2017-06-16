@@ -18,17 +18,19 @@ import javax.persistence.Query;
  */
 @Stateless
 public class DriverDAO {
+
     @PersistenceContext
     EntityManager em;
-    
-    public DriverDAO(){
-        
+
+    public DriverDAO() {
+
     }
-    
-    public Driver createNewDriver(Driver driver){
+
+    public Driver createNewDriver(Driver driver) {
         em.persist(driver);
         em.flush();
-        return em.find(Driver.class, driver.getId());
+        Driver d = em.find(Driver.class, driver.getId());
+        return d;
     }
 
     public Driver getDriver(int id) {
@@ -37,11 +39,11 @@ public class DriverDAO {
     }
 
     public List<Driver> getDriverByName(String name, String lastName) {
-            Query query = em.createNamedQuery("Driver.getDriverByName").setParameter("name", name).setParameter("lastname", lastName);
-            return query.getResultList();
+        Query query = em.createNamedQuery("Driver.getDriverByName").setParameter("name", name).setParameter("lastname", lastName);
+        return query.getResultList();
     }
-    
-    public List<Driver> getAllDrivers(){
+
+    public List<Driver> getAllDrivers() {
         Query query = em.createNamedQuery("Driver.getDrivers");
         return query.getResultList();
     }

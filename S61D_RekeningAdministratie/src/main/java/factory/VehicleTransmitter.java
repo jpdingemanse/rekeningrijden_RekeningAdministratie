@@ -28,6 +28,7 @@ public class VehicleTransmitter {
     public boolean SendVehicleToRekeningRijder(Vehicle vehicle) {
         Gson gson = new Gson();
         String jsonToString = gson.toJson(vehicle);
+        System.out.println(jsonToString);
         try {
             String url = "http://192.168.24.43:8080/S61D_Rekeneningrijden/api/Vehicle/CreateVehicle";
             DefaultHttpClient httpClient = new DefaultHttpClient();
@@ -58,6 +59,7 @@ public class VehicleTransmitter {
     public boolean SendAddVehicleToDriverRekeningRijder(Vehicle vehicle){
         Gson gson = new Gson();
         String jsonToString = gson.toJson(vehicle);
+        System.out.println(jsonToString);
         try {
             String url = "http://192.168.24.43:8080/S61D_Rekeneningrijden/api/Vehicle/AddVehicleToDriver";
             DefaultHttpClient httpClient = new DefaultHttpClient();

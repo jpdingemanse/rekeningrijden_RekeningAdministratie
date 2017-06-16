@@ -51,6 +51,14 @@ public class Vehicle implements Serializable{
         this.history = new ArrayList();
         this.movements = new ArrayList();
     }
+    
+     public Vehicle(String licensePlate, String iCan, Driver owner) {
+        this.licensePlate = licensePlate;
+        this.iCan = iCan;
+        this.history = new ArrayList();
+        this.movements = new ArrayList();
+        this.owner = owner;
+    }
 
     public String getAutorisatieCode() {
         return autorisatieCode;

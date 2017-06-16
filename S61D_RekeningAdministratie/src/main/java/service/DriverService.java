@@ -22,9 +22,17 @@ public class DriverService {
     @Inject
     DriverDAO driverDao;
     DriverTransmitter ds = new DriverTransmitter();
+    
     public Driver createNewDriver(Driver driver){
-        Driver d = driverDao.createNewDriver(driver);
-         ds.SendDriverToRekeningRijder(d);
+        Driver d = null;
+        try{
+            d = driverDao.createNewDriver(driver);
+            ds.SendDriverToRekeningRijder(d);
+        } catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        
+        
          
          return d;
     }

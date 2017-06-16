@@ -86,77 +86,77 @@ public class Init {
         userDAO.createUser(new User("Administrator", "password"));
         Driver driver = driverService.createNewDriver(new Driver("Lino", "Thaencharun", "5611SH", "Eindhoven", "Lino_thaencharun@hotmail.com", "lino1", "p@33word", "10c", "0614387088"));
 
-        Driver driver2 = driverService.createNewDriver(new Driver("Jan", "Jansen", "5611SH", "Eindhoven", "Lino_thaencharun@hotmail.com", "lino1", "p@33word", "10c", "0614387088"));
+        Driver driver2 = driverService.createNewDriver(new Driver("Jan", "Jansen", "5611SH", "Eindhoven", "Lino_thaencharun@hotmail.com", "Jan", "p@33word", "10c", "0614387088"));
 
-        Driver driver3 = driverService.createNewDriver(new Driver("Ruther", "Eik", "5611SH", "Eindhoven", "Lino_thaencharun@hotmail.com", "lino1", "p@33word", "10c", "0614387088"));
-        Driver driver4 = driverService.createNewDriver(new Driver("Victor", " Kessel", "5611SH", "Eindhoven", "Lino_thaencharun@hotmail.com", "lino1", "p@33word", "10c", "0614387088"));
-        Driver driver5 = driverService.createNewDriver(new Driver("Sergio", "Reist ver", "5611SH", "Eindhoven", "Lino_thaencharun@hotmail.com", "lino1", "p@33word", "10c", "0614387088"));
-        Driver driver6 = driverService.createNewDriver(new Driver("Jean", "Ding", "5611SH", "Eindhoven", "Lino_thaencharun@hotmail.com", "lino1", "p@33word", "10c", "0614387088"));
-        Driver driver7 = driverService.createNewDriver(new Driver("Paul", "Manse", "5611SH", "Eindhoven", "Lino_thaencharun@hotmail.com", "lino1", "p@33word", "10c", "0614387088"));
+        Driver driver3 = driverService.createNewDriver(new Driver("Ruther", "Eik", "5611SH", "Eindhoven", "Lino_thaencharun@hotmail.com", "Ruther", "p@33word", "10c", "0614387088"));
+        Driver driver4 = driverService.createNewDriver(new Driver("Victor", " Kessel", "5611SH", "Eindhoven", "Lino_thaencharun@hotmail.com", "Victor", "p@33word", "10c", "0614387088"));
+        Driver driver5 = driverService.createNewDriver(new Driver("Sergio", "Reist ver", "5611SH", "Eindhoven", "Lino_thaencharun@hotmail.com", "Sergio", "p@33word", "10c", "0614387088"));
+        Driver driver6 = driverService.createNewDriver(new Driver("Jean", "Ding", "5611SH", "Eindhoven", "Lino_thaencharun@hotmail.com", "Jean", "p@33word", "10c", "0614387088"));
+        Driver driver7 = driverService.createNewDriver(new Driver("Paul", "Manse", "5611SH", "Eindhoven", "Lino_thaencharun@hotmail.com", "Paul", "p@33word", "10c", "0614387088"));
 
-        Driver driver8 = driverService.createNewDriver(new Driver("Klaas", "klant", "5611SH", "Eindhoven", "Lino_thaencharun@hotmail.com", "lino1", "p@33word", "10c", "0614387088"));
+        Driver driver8 = driverService.createNewDriver(new Driver("Klaas", "klant", "5611SH", "Eindhoven", "Lino_thaencharun@hotmail.com", "Klaas", "p@33word", "10c", "0614387088"));
 
-        Driver driver9 = driverService.createNewDriver(new Driver("Piet", "aster", "5611SH", "Eindhoven", "Lino_thaencharun@hotmail.com", "lino1", "p@33word", "10c", "0614387088"));
+        Driver driver9 = driverService.createNewDriver(new Driver("Piet", "aster", "5611SH", "Eindhoven", "Lino_thaencharun@hotmail.com", "Piet", "p@33word", "10c", "0614387088"));
 
-        Driver driver10 = driverService.createNewDriver(new Driver("Peter", "Charun", "5611SH", "Eindhoven", "Lino_thaencharun@hotmail.com", "lino1", "p@33word", "10c", "0614387088"));
+        Driver driver10 = driverService.createNewDriver(new Driver("Peter", "Charun", "5611SH", "Eindhoven", "Lino_thaencharun@hotmail.com", "Peter", "p@33word", "10c", "0614387088"));
 
-        Driver driver11 = driverService.createNewDriver(new Driver("Eric", "Theaters", "5611SH", "Eindhoven", "Lino_thaencharun@hotmail.com", "lino1", "p@33word", "10c", "0614387088"));
+        Driver driver11 = driverService.createNewDriver(new Driver("Eric", "Theaters", "5611SH", "Eindhoven", "Lino_thaencharun@hotmail.com", "Eric", "p@33word", "10c", "0614387088"));
 
-        Driver driver12 = driverService.createNewDriver(new Driver("Juul", "Bulgie", "5611SH", "Eindhoven", "Lino_thaencharun@hotmail.com", "lino1", "p@33word", "10c", "0614387088"));
-        Driver driver13 = driverService.createNewDriver(new Driver("Kurkie", "Tanas", "5611SH", "Eindhoven", "Lino_thaencharun@hotmail.com", "lino1", "p@33word", "10c", "0614387088"));
+        Driver driver12 = driverService.createNewDriver(new Driver("Juul", "Bulgie", "5611SH", "Eindhoven", "Lino_thaencharun@hotmail.com", "Juul", "p@33word", "10c", "0614387088"));
+        Driver driver13 = driverService.createNewDriver(new Driver("Kurkie", "Tanas", "5611SH", "Eindhoven", "Lino_thaencharun@hotmail.com", "Kurkie", "p@33word", "10c", "0614387088"));
 
-        Driver driver14 = driverService.createNewDriver(new Driver("Kirity", "Thantecharun", "5611SH", "Eindhoven", "Lino_thaencharun@hotmail.com", "lino1", "p@33word", "10c", "0614387088"));
+        Driver driver14 = driverService.createNewDriver(new Driver("Kirity", "Thantecharun", "5611SH", "Eindhoven", "Lino_thaencharun@hotmail.com", "Kirity", "p@33word", "10c", "0614387088"));
 
-        Driver driver15 = driverService.createNewDriver(new Driver("Don", "Doner", "5611SH", "Eindhoven", "Lino_thaencharun@hotmail.com", "lino1", "p@33word", "10c", "0614387088"));
+        Driver driver15 = driverService.createNewDriver(new Driver("Don", "Doner", "5611SH", "Eindhoven", "Lino_thaencharun@hotmail.com", "Don", "p@33word", "10c", "0614387088"));
 
-        Driver driver16 = driverService.createNewDriver(new Driver("Lam", "Lammers", "5611SH", "Eindhoven", "Lino_thaencharun@hotmail.com", "lino1", "p@33word", "10c", "0614387088"));
+        Driver driver16 = driverService.createNewDriver(new Driver("Lam", "Lammers", "5611SH", "Eindhoven", "Lino_thaencharun@hotmail.com", "Lam", "p@33word", "10c", "0614387088"));
 
-        Driver driver17 = driverService.createNewDriver(new Driver("Koe", "Koekenbakker", "5611SH", "Eindhoven", "Lino_thaencharun@hotmail.com", "lino1", "p@33word", "10c", "0614387088"));
-        Driver driver18 = driverService.createNewDriver(new Driver("Paard", "Haar", "5611SH", "Eindhoven", "Lino_thaencharun@hotmail.com", "lino1", "p@33word", "10c", "0614387088"));
+        Driver driver17 = driverService.createNewDriver(new Driver("Koe", "Koekenbakker", "5611SH", "Eindhoven", "Lino_thaencharun@hotmail.com", "Koe", "p@33word", "10c", "0614387088"));
+        Driver driver18 = driverService.createNewDriver(new Driver("Paard", "Haar", "5611SH", "Eindhoven", "Lino_thaencharun@hotmail.com", "Paard", "p@33word", "10c", "0614387088"));
 
-        Driver driver19 = driverService.createNewDriver(new Driver("Kip", "Spies", "5611SH", "Eindhoven", "Lino_thaencharun@hotmail.com", "lino1", "p@33word", "10c", "0614387088"));
+        Driver driver19 = driverService.createNewDriver(new Driver("Kip", "Spies", "5611SH", "Eindhoven", "Lino_thaencharun@hotmail.com", "Kip", "p@33word", "10c", "0614387088"));
 
-        Driver driver20 = driverService.createNewDriver(new Driver("Ice", "The", "5611SH", "Eindhoven", "Lino_thaencharun@hotmail.com", "lino1", "p@33word", "10c", "0614387088"));
+        Driver driver20 = driverService.createNewDriver(new Driver("Ice", "The", "5611SH", "Eindhoven", "Lino_thaencharun@hotmail.com", "Ice", "p@33word", "10c", "0614387088"));
 
-        Vehicle vehicleBuitenland1 = vehicleService.createNewVehicle(new Vehicle("10-kb-311", "NL 200 000 000 000 000 001"));
+        Vehicle vehicleBuitenland1 = vehicleService.createNewVehicle(new Vehicle("10-kb-311", "NL 200 000 000 000 000 001", driver));
 
-        Vehicle vehicleBuitenland2 = vehicleService.createNewVehicle(new Vehicle("10-kb-346", "NL 200 000 000 000 000 002"));
+        Vehicle vehicleBuitenland2 = vehicleService.createNewVehicle(new Vehicle("10-kb-346", "NL 200 000 000 000 000 002", driver2));
 
-        Vehicle vehicleBuitenland3 = vehicleService.createNewVehicle(new Vehicle("10-kb-347", "NL 200 000 000 000 000 003"));
+        Vehicle vehicleBuitenland3 = vehicleService.createNewVehicle(new Vehicle("10-kb-347", "NL 200 000 000 000 000 003",driver3));
 
-        Vehicle vehicleBuitenland4 = vehicleService.createNewVehicle(new Vehicle("10-kb-348", "NL 200 000 000 000 000 004"));
+        Vehicle vehicleBuitenland4 = vehicleService.createNewVehicle(new Vehicle("10-kb-348", "NL 200 000 000 000 000 004",driver4));
 
-        Vehicle vehicleBuitenland5 = vehicleService.createNewVehicle(new Vehicle("10-kb-349", "NL 200 000 000 000 000 005"));
+        Vehicle vehicleBuitenland5 = vehicleService.createNewVehicle(new Vehicle("10-kb-349", "NL 200 000 000 000 000 005", driver5));
 
-        Vehicle vehicleBuitenland6 = vehicleService.createNewVehicle(new Vehicle("10-kb-310", "NL 200 000 000 000 000 006"));
+        Vehicle vehicleBuitenland6 = vehicleService.createNewVehicle(new Vehicle("10-kb-310", "NL 200 000 000 000 000 006", driver6));
 
-        Vehicle vehicleBuitenland7 = vehicleService.createNewVehicle(new Vehicle("10-kb-312", "NL 200 000 000 000 000 007"));
+        Vehicle vehicleBuitenland7 = vehicleService.createNewVehicle(new Vehicle("10-kb-312", "NL 200 000 000 000 000 007", driver7));
 
-        Vehicle vehicleBuitenland8 = vehicleService.createNewVehicle(new Vehicle("10-kb-313", "NL 200 000 000 000 000 008"));
+        Vehicle vehicleBuitenland8 = vehicleService.createNewVehicle(new Vehicle("10-kb-313", "NL 200 000 000 000 000 008", driver8));
 
-        Vehicle vehicleBuitenland9 = vehicleService.createNewVehicle(new Vehicle("10-kb-314", "NL 200 000 000 000 000 009"));
+        Vehicle vehicleBuitenland9 = vehicleService.createNewVehicle(new Vehicle("10-kb-314", "NL 200 000 000 000 000 009", driver9));
 
-        Vehicle vehicleBuitenland10 = vehicleService.createNewVehicle(new Vehicle("10-kb-315", "NL 200 000 000 000 000 010"));
+        Vehicle vehicleBuitenland10 = vehicleService.createNewVehicle(new Vehicle("10-kb-315", "NL 200 000 000 000 000 010", driver10));
 
-        Vehicle vehicleBuitenland11 = vehicleService.createNewVehicle(new Vehicle("10-kb-316", "NL 200 000 000 000 000 011"));
+        Vehicle vehicleBuitenland11 = vehicleService.createNewVehicle(new Vehicle("10-kb-316", "NL 200 000 000 000 000 011", driver11));
 
-        Vehicle vehicleBuitenland12 = vehicleService.createNewVehicle(new Vehicle("10-kb-317", "NL 200 000 000 000 000 012"));
+        Vehicle vehicleBuitenland12 = vehicleService.createNewVehicle(new Vehicle("10-kb-317", "NL 200 000 000 000 000 012", driver12));
 
-        Vehicle vehicleBuitenland13 = vehicleService.createNewVehicle(new Vehicle("10-kb-318", "NL 200 000 000 000 000 013"));
+        Vehicle vehicleBuitenland13 = vehicleService.createNewVehicle(new Vehicle("10-kb-318", "NL 200 000 000 000 000 013", driver13));
 
-        Vehicle vehicleBuitenland14 = vehicleService.createNewVehicle(new Vehicle("10-kb-319", "NL 200 000 000 000 000 014"));
+        Vehicle vehicleBuitenland14 = vehicleService.createNewVehicle(new Vehicle("10-kb-319", "NL 200 000 000 000 000 014", driver14));
 
-        Vehicle vehicleBuitenland15 = vehicleService.createNewVehicle(new Vehicle("10-kb-320", "NL 200 000 000 000 000 015"));
+        Vehicle vehicleBuitenland15 = vehicleService.createNewVehicle(new Vehicle("10-kb-320", "NL 200 000 000 000 000 015", driver15));
 
-        Vehicle vehicleBuitenland16 = vehicleService.createNewVehicle(new Vehicle("10-kb-321", "NL 200 000 000 000 000 016"));
+        Vehicle vehicleBuitenland16 = vehicleService.createNewVehicle(new Vehicle("10-kb-321", "NL 200 000 000 000 000 016", driver16));
 
-        Vehicle vehicleBuitenland17 = vehicleService.createNewVehicle(new Vehicle("10-kb-322", "NL 200 000 000 000 000 017"));
+        Vehicle vehicleBuitenland17 = vehicleService.createNewVehicle(new Vehicle("10-kb-322", "NL 200 000 000 000 000 017", driver17));
 
-        Vehicle vehicleBuitenland18 = vehicleService.createNewVehicle(new Vehicle("10-kb-323", "NL 200 000 000 000 000 018"));
+        Vehicle vehicleBuitenland18 = vehicleService.createNewVehicle(new Vehicle("10-kb-323", "NL 200 000 000 000 000 018", driver18));
 
-        Vehicle vehicleBuitenland19 = vehicleService.createNewVehicle(new Vehicle("10-kb-324", "NL 200 000 000 000 000 019"));
+        Vehicle vehicleBuitenland19 = vehicleService.createNewVehicle(new Vehicle("10-kb-324", "NL 200 000 000 000 000 019", driver19));
 
-        Vehicle vehicleBuitenland20 = vehicleService.createNewVehicle(new Vehicle("10-kb-325", "NL 200 000 000 000 000 020"));
+        Vehicle vehicleBuitenland20 = vehicleService.createNewVehicle(new Vehicle("10-kb-325", "NL 200 000 000 000 000 020", driver20));
 
         Double zone1LbLat = 53.34316126;
         Double zone1LbLn = 4.56616834;
@@ -185,26 +185,26 @@ public class Init {
         Rate rate1 = rateDao.createNewRate(new Rate(1.50, "Zone 1", "€", zone1LbLat, zone1LbLn, zone1LoLat, zone1L0Ln, zone1rbLat, zone1rbLn, zone1roLat, zone1rbLon));
         Rate rate2 = rateDao.createNewRate(new Rate(8.99, "Zone 2", "€", zone2LbLat, zone2LbLn, zone2LoLat, zone2L0Ln, zone2rbLat, zone2rbLn, zone2roLat, zone2rbLon));
 
-        vehicleBuitenland1.setOwner(driver);
-        vehicleBuitenland2.setOwner(driver10);
-        vehicleBuitenland3.setOwner(driver11);
-        vehicleBuitenland4.setOwner(driver12);
-        vehicleBuitenland5.setOwner(driver13);
-        vehicleBuitenland6.setOwner(driver14);
-        vehicleBuitenland7.setOwner(driver15);
-        vehicleBuitenland8.setOwner(driver16);
-        vehicleBuitenland9.setOwner(driver17);
-        vehicleBuitenland10.setOwner(driver18);
-        vehicleBuitenland11.setOwner(driver19);
-        vehicleBuitenland12.setOwner(driver20);
-        vehicleBuitenland13.setOwner(driver2);
-        vehicleBuitenland14.setOwner(driver3);
-        vehicleBuitenland15.setOwner(driver4);
-        vehicleBuitenland16.setOwner(driver5);
-        vehicleBuitenland17.setOwner(driver6);
-        vehicleBuitenland18.setOwner(driver7);
-        vehicleBuitenland19.setOwner(driver8);
-        vehicleBuitenland20.setOwner(driver9);
+//        vehicleBuitenland1.setOwner(driver);
+//        vehicleBuitenland2.setOwner(driver10);
+//        vehicleBuitenland3.setOwner(driver11);
+//        vehicleBuitenland4.setOwner(driver12);
+//        vehicleBuitenland5.setOwner(driver13);
+//        vehicleBuitenland6.setOwner(driver14);
+//        vehicleBuitenland7.setOwner(driver15);
+//        vehicleBuitenland8.setOwner(driver16);
+//        vehicleBuitenland9.setOwner(driver17);
+//        vehicleBuitenland10.setOwner(driver18);
+//        vehicleBuitenland11.setOwner(driver19);
+//        vehicleBuitenland12.setOwner(driver20);
+//        vehicleBuitenland13.setOwner(driver2);
+//        vehicleBuitenland14.setOwner(driver3);
+//        vehicleBuitenland15.setOwner(driver4);
+//        vehicleBuitenland16.setOwner(driver5);
+//        vehicleBuitenland17.setOwner(driver6);
+//        vehicleBuitenland18.setOwner(driver7);
+//        vehicleBuitenland19.setOwner(driver8);
+//        vehicleBuitenland20.setOwner(driver9);
 
         History history = new History(vehicleBuitenland1.getOwner(), new Date());
         history.setId(1);
