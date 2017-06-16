@@ -33,7 +33,10 @@ public class Vehicle implements Serializable{
     private Driver owner;
     private String iCan;
     @OneToMany
+    private List<Movement> movements;
+    @OneToMany
     private List<History> history;
+    
     public Vehicle() {
     }
 
