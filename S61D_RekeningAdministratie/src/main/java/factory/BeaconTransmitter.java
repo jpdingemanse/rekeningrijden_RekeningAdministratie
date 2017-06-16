@@ -64,7 +64,54 @@ public class BeaconTransmitter {
                         String tempican = temp.getString("ICAN");
                         Double templat = temp.getDouble("latitude");
                         Double templon = temp.getDouble("longitude");
-                        Long tempdatetime = temp.getLong("dateTime");
+                        Long tempdatetime = temp.getLong("timestamp");
+                        tempBeacon = new Beacon(tempican, templat, templon, tempdatetime);
+                        beacons.add(tempBeacon);
+                    }
+                }
+            }
+
+        } catch (IOException ex) {
+            Logger.getLogger(Vehicle.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (JSONException ex) {
+            Logger.getLogger(VehicleTransmitter.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return beacons;
+    }
+    
+    public List<Beacon> getAllBeaconPerPeriode() throws JSONException {
+        StringBuilder result = new StringBuilder();
+        Beacon tempBeacon = null;
+        List<Beacon> beacons = new ArrayList<>();
+
+        try {
+            String url = "http://192.168.24.42:8080/S61D_VerplaatsingSysteem/api/Beacon/GetAllBeaconPerPeriod/";
+            HttpClient client = new DefaultHttpClient();
+            HttpGet request = new HttpGet(url);
+
+            // add request header
+            request.addHeader("User-Agent", USER_AGENT);
+
+            HttpResponse response = client.execute(request);
+            int responceCode = response.getStatusLine().getStatusCode();
+            if (responceCode == 200) {
+                BufferedReader rd = new BufferedReader(
+                        new InputStreamReader(response.getEntity().getContent()));
+
+                Gson gson = new Gson();
+                String line = "";
+                while ((line = rd.readLine()) != null) {
+                    result.append(line);
+                }
+                System.out.println(result + "  test");
+                if (!result.toString().isEmpty()) {
+                    JSONArray json = new JSONArray(result.toString());
+                    for (int i = 0; i < json.length(); i++) {
+                        JSONObject temp = json.getJSONObject(i);
+                        String tempican = temp.getString("ICAN");
+                        Double templat = temp.getDouble("latitude");
+                        Double templon = temp.getDouble("longitude");
+                        Long tempdatetime = temp.getLong("timestamp");
                         tempBeacon = new Beacon(tempican, templat, templon, tempdatetime);
                         beacons.add(tempBeacon);
                     }

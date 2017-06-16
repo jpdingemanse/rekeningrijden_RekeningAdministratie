@@ -72,23 +72,7 @@ public class BeaconService {
         return result.toString();
     }
 
-    public boolean createNewBeacon(List<Beacon> beacons) {
-        int size = beacons.size()- 1;
-        Movement movement;
-        Vehicle vehicle = vehicleDAO.getVehicleByIcan(beacons.get(0).getiCan()).get(0);
-        Beacon bs = new Beacon();
-        Calendar c = Calendar.getInstance();
-        String month = new SimpleDateFormat("MMMM").format(c.getTime());
-        int year = c.get(Calendar.YEAR);
-        for (Beacon b : beacons) {
-            beaconDAO.createNewBeacon(b);
-            if(b.getId() == beacons.get(0).getId() || b.getId() == beacons.get(size).getId()){
-                movement = new Movement(String.valueOf(month + " " + year), b.getiCan(), bs, b, vehicle);
-            }
-            bs = b;
-            }
-        return true;
-    }
+    
     public Beacon createBeacon(Beacon beacon){
         return beaconDAO.createNewBeacon(beacon);
     }

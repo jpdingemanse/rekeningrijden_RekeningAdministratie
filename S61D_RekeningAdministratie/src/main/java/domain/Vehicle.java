@@ -34,22 +34,18 @@ public class Vehicle implements Serializable{
     private String iCan;
     @OneToMany
     private List<History> history;
-    @OneToMany
-    private List<Movement> movements;
     public Vehicle() {
     }
 
     public Vehicle(String licensePlate) {
         this.licensePlate = licensePlate;
         this.history = new ArrayList();
-        this.movements = new ArrayList();
     }
 
     public Vehicle(String licensePlate, String iCan) {
         this.licensePlate = licensePlate;
         this.iCan = iCan;
         this.history = new ArrayList();
-        this.movements = new ArrayList();
     }
     
      public Vehicle(String licensePlate, String iCan, Driver owner) {

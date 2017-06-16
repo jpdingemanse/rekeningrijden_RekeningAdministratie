@@ -47,9 +47,9 @@ public class InvoiceRowResource {
         return i;
     }
 
-    @GET
-    @Path("GetInvoiceRowPrice/{vehicle}/{maand}")
-    public double getInvoiceRowPrice(@PathParam("vehicle") Vehicle vehicle, @PathParam("maand") String maand) {
-        return movementService.getMonthprice(vehicle, maand);
-    }
+//    @GET
+//    @Path("GetInvoiceRowPrice/{vehicle}/{maand}")
+//    public double getInvoiceRowPrice(@PathParam("vehicle") Vehicle vehicle, @PathParam("maand") String maand) {
+//        return movementService.getInvoiceRowPrice(vehicle, maand);
+//    }
 }

@@ -45,6 +45,11 @@ public class InvoiceDAO {
         }
         return false;
     }
+    public Invoice getInvoiceByDriverAndMonth(Invoice invoice){
+        Query query = em.createNamedQuery("invoice.checkInvoice").setParameter("month", invoice.getMonth()).setParameter("driverId", invoice.getDriver().getId());
+        List<Invoice> result = query.getResultList();
+        return result.get(0);
+    }
     public List<Invoice> getInvoicesByDriver(int id) {
         Query qeury = em.createNamedQuery("invoice.getInvoiceByDriver").setParameter("id", id);
         return qeury.getResultList();
