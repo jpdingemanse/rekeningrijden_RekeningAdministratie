@@ -28,7 +28,7 @@ public class DriverTransmitter {
         String jsonToString = gson.toJson(driver);
          System.out.println(jsonToString);
         try {
-            String url = "http://192.168.24.43:8080/S61D_Rekeneningrijden/api/Driver/CreateDriver";
+            String url = "http://192.168.24.43:8080/S61D_Rekeneningrijden/api/Driver/CreateDriverFromAdministratie";
             DefaultHttpClient httpClient = new DefaultHttpClient();
             HttpPost postRequest = new HttpPost(url);
 
