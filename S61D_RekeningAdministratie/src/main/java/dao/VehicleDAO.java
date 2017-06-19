@@ -5,6 +5,7 @@
  */
 package dao;
 
+import domain.Driver;
 import domain.Vehicle;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -12,41 +13,84 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-
-
 /**
  *
  * @author lino_
  */
 @Stateless
 public class VehicleDAO {
-    
+
     @PersistenceContext
     EntityManager em;
 
     public VehicleDAO() {
     }
-    
-    public Vehicle createNewVehicle(Vehicle vehicle){
-        em.persist(vehicle);
-        em.flush();
+
+    public Vehicle createNewVehicle(Vehicle vehicle) {
+        try {
+            em.persist(vehicle);
+            em.flush();
+        } catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        Vehicle v = em.find(Vehicle.class, vehicle.getLicensePlate());
+        return v;
+    }
+
+    public Vehicle addTrackerToVehicle(Vehicle vehicle) {
+        em.merge(vehicle);
         return em.find(Vehicle.class, vehicle.getLicensePlate());
-    }   
-    
-    
-    public Vehicle addVehicleToDriver(Vehicle vehicle){
+    }
+
+    public Vehicle addVehicleToDriver(Vehicle vehicle) {
         Vehicle tempResult = em.find(Vehicle.class, vehicle.getLicensePlate());
         tempResult = vehicle;
         em.merge(tempResult);
         return em.find(Vehicle.class, vehicle.getLicensePlate());
     }
-    public List<Vehicle> getVehicleByOwner(int id){
-        return em.createQuery("select v from Vehicle v where v.owner.id = :id").setParameter("id", id).getResultList();
+
+    public List<Vehicle> getVehicleByOwner(int id) {
+        Query qeury = em.createNamedQuery("vehicle.getByOwnerId").setParameter("id", id);
+        return qeury.getResultList();
+    }
+
+    public List<Vehicle> getAllVehicles() {
+        Query qeury = em.createNamedQuery("vehicle.getAllVehicles");
+        return qeury.getResultList();
+    }
+
+    public Vehicle getVehicleByLicensePlate(String licensePlate) {
+        Vehicle result = em.find(Vehicle.class, licensePlate);
+        return result;
+    }
+
+    public Vehicle updateAuthorisatieCode(Vehicle vehicle) {
+        Vehicle tempResult = em.find(Vehicle.class, vehicle.getLicensePlate());
+        tempResult.setAutorisatieCode(vehicle.getAutorisatieCode());
+        em.merge(tempResult);
+        return em.find(Vehicle.class, vehicle.getLicensePlate());
+    }
+
+    public Vehicle updateIcan(Vehicle vehicle) {
+        Vehicle tempResult = em.find(Vehicle.class, vehicle.getLicensePlate());
+        tempResult.setiCan(vehicle.getiCan());
+        em.merge(tempResult);
+        return em.find(Vehicle.class, vehicle.getLicensePlate());
     }
     
-     public List<Vehicle> getAllVehicles(){
-        return em.createQuery("select v from Vehicle").getResultList();
-        
+    public List<Vehicle> getVehicleByIcan(String iCan) {
+         Query qeury = em.createNamedQuery("vehicle.getVehicleByIcan").setParameter("iCan", iCan);
+        return qeury.getResultList();
     }
-    
+
+    public Driver getDriverByICan(String ican) {
+        Query query = em.createNamedQuery("vehicle.getVehicleByIcan").setParameter("iCan", ican);
+        List<Vehicle> result = query.getResultList();
+        Driver driver;
+        if(!result.isEmpty()){
+            driver = result.get(0).getOwner();
+            return driver;
+        }
+        return null;
+    }
 }

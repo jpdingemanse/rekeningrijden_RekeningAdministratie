@@ -15,6 +15,8 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 import service.VehicleService;
 
 /**
@@ -35,10 +37,31 @@ public class VehicleResource {
     }
     
     @POST
+    @Path("AddTrackerToVehicle")
+    @Consumes("application/json")
+    public Vehicle addTrackerToVehicle(Vehicle vehicle){
+        return vehicleService.addTrackerToVehicle(vehicle);
+    }
+    
+    @POST
     @Path("AddVehicleToDriver")
     @Consumes("application/json")
     public Vehicle addVehicleToDriver(Vehicle vehicle){
         return vehicleService.addVehicleToDriver(vehicle);
+    }
+    
+    @POST
+    @Path("UpdateAuthorisatieCode")
+    @Consumes("application/json")
+    public Vehicle updateAuthorisatieCode(Vehicle vehicle){
+        return vehicleService.updateAutorisatieCode(vehicle);
+    }
+    
+    @POST
+    @Path("UpdateIcan")
+    @Consumes("application/json")
+    public Vehicle updateIcan(Vehicle vehicle){
+        return vehicleService.updateIcan(vehicle);
     }
     
     @GET
@@ -47,9 +70,24 @@ public class VehicleResource {
         return vehicleService.getVehicleByOwner(id);
     }
     
-     @GET
+    @GET
+    @Path("GetAllVehicles")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Vehicle> getAllVehicles(){
+        return vehicleService.getAllVehicles();
+    }
+    
+    @GET
+    @Path("GetVehicleByLicensePlate/{licensePlate}")
+    public Vehicle getVehicleByLicensePlate(@PathParam("licensePlate")String licensePlate){
+        return vehicleService.getVehicleByLicensePlate(licensePlate);
+    }
+
+    @GET
     @Path("GetAllVehicle")
     public List<Vehicle> getAllVehicle(){
         return vehicleService.getAllVehicles();
     }
+    
+    
 }

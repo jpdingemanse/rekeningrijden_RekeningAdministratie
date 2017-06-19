@@ -1,0 +1,60 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+        <h1 class="panel-title pull-left" style="font-size:30px;">Kilometer Tarieven</h1>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table id="mytable" class="table table-bordred table-striped">
+                    <thead>
+                        <th>Regio</th>
+                        <th>Valuta</th>
+                        <th>Currency</th>
+                        <th>Wijzig</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let t of rateList">
+                            <td>{{t.region}}</td>
+                            <td>{{t.currency}}</td>
+                            <td>{{t.rate}}</td>
+                            <td>
+                                <input #tbNieuw type="text" placeholder="nieuw" />
+                                <button class="btn btn-primary btn-xs" (click)="onclickSelectedRate(t, tbNieuw.value)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+                <div class="clearfix"></div>
+                <ul class="pagination pull-right">
+                    <li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div bsModal #rateEditModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title pull-left">Tareief aanpassen</h4>
+                    <button type="button" class="close pull-right" (click)="rateEditModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+                </div>
+                <div class="modal-body">
+                    <rate-edit-dialog [value]="selectedRate"></rate-edit-dialog>
+                </div>
+            </div>
+        </div>
+    </div>-->
+</div>

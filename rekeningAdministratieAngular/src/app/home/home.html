@@ -1,0 +1,106 @@
+<div class="row">
+    <div class="col-lg-4">
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h1 class="panel-title" style="font-size:30px; text-align: center">Aanvraag in behandeling</h1>
+            </div>
+        </div>
+        <div class="panel panel-default" *ngFor="let r of allRequestInProgress">
+            <div class="panel-body" style="background-color: beige">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <h6 class="panel-title" style="font-size:20px; ">Kenteken : {{r.licensePlate}}</h6>
+                    </div>
+                    <div class="col-lg-4">
+                        <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true" (click)="editClick(r)"></i>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8">
+                        <h6 class="panel-title" style="font-size:20px;">Bestuurder : {{r.driverId}}</h6>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-8">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h1 class="panel-title" style="font-size:20px; text-align: center; margin-bottom: 10px;">Voertuig</h1>
+                <div class="form-group">
+                    <label class="">
+                        <font color="red">{{message}}</font>
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label class="">
+                        <font color="green">{{confirmationMessage}}</font>
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="email">Kenteken:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" disabled value="{{licensePlate}}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+
+                    </div>
+                    <div class="col-lg-2">
+                        <button class="btn btn-primary" style="margin-top: 20px;" (click)="addVehicleClick()">Voertuig toe</button>
+                    </div>
+                    <div class="col-lg-4">
+                        <button class="btn btn-success" style="margin-top: 20px;" (click)="addVehicleToDriverClick()">Koppel voertuig en bestuurder</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default" *ngIf="driver != null">
+            <div class="panel-body">
+                <h1 class="panel-title" style="font-size:20px; text-align: center; margin-bottom: 10px;">Bestuurder</h1>
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="email">Naam:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" disabled value="{{driver.name}}  {{driver.lastname}}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="email">Email:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" disabled value="{{driver.email}}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="email">Telefoon nummer:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" disabled value="{{driver.phoneNumber}}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="email">Postcode:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" disabled value="{{driver.postalCode}}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="email">Huisnummer:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" disabled value="{{driver.houseNumber}}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="email">Stad:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" disabled value="{{driver.city}}">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,1 +1,4 @@
 /S61D_RekeningAdministratie/target/
+*.war
+/rekeningAdministratieAngular/nbproject/private/
+*.class

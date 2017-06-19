@@ -1,0 +1,65 @@
+<div class="panel panel-default">
+    <h2>Voertuig in bezit</h2>
+    <div class="row">
+        <div class="col-lg-10">
+
+        </div>
+        <div class="col-lg-1">
+            <button (click)="onclickGetAllVehicle()"><i class="fa fa-refresh" aria-hidden="true"></i></button>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table id="mytable" class="table table-bordred table-striped" style="height: 20px; overflow-y: scroll;">
+            <thead>
+                <th>Kenteken</th>
+                <th>Autorisatie Code</th>
+                <th>Tracker</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let v of vehicleList ">
+                    <td>{{v.licensePlate}}</td>
+                    <td>{{v.autorisatieCode}}</td>
+                    <td>{{v.tracker.id}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="panel panel-default">
+    <h2>Nieuw voertuig toevoegen</h2>
+    <div class="row">
+        <div class="col-lg-8">
+
+        </div>
+        <div class="col-lg-3">
+            <input #textbox type="text" placeholder="Kenteken nummer" />
+        </div>
+        <div class="col-lg-1">
+            <button (click)="onclickSearch(textbox.value)">Zoek</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <table class="table table-bordred table-striped" style="height: 20px; overflow-y: scroll;">
+                <thead>
+                    <th>Kenteken</th>
+                    <th>Autorisatie Code</th>
+                    <th>Tracker</th>
+                    <th>Toevoegen</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let v of availableVehicleList">
+                        <td>{{v.licensePlate}}</td>
+                        <td>{{v.autorisatieCode}}</td>
+                        <td>{{v.tracker.id}}</td>
+                        <td>
+                            <p data-placement="top" data-toggle="tooltip" title="Invoegen"><button class="btn btn-success btn-xs" (click)="onclickAddDriverToVehicle(v)"><i class="fa fa-plus" aria-hidden="true"></i></button></p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+</div>

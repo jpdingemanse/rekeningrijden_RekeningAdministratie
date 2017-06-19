@@ -12,13 +12,20 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 /**
  *
  * @author lino_
  */
 @Entity
+@NamedQueries({
+    @NamedQuery(name = "Driver.getDriverByName", query="Select d from Driver d where d.name = :name and d.lastname = :lastname"),
+    @NamedQuery(name = "Driver.getDrivers", query="Select d from Driver d")
+})
 public class Driver implements Serializable {
     
     @Id
@@ -37,11 +44,17 @@ public class Driver implements Serializable {
     
     @OneToMany(mappedBy = "owner")
     private List<Vehicle> allVehicle;
+    
+    @OneToMany(mappedBy = "driver")
+    private List<Invoice> invoice;
+    
+    @OneToMany(mappedBy = "bestuurder")
+    private List<History> historys;
 
     public Driver() {
     }
 
-    public Driver(String name, String lastname, String postalCode, String city, String email, String username, String password, String houseNumber, String phoneNumber) {
+    public Driver(String name,String lastname, String postalCode, String city, String email, String username, String password, String houseNumber, String phoneNumber) {
         this.name = name;
         this.lastname = lastname;
         this.postalCode = postalCode;
@@ -51,6 +64,9 @@ public class Driver implements Serializable {
         this.password = password;
         this.houseNumber = houseNumber;
         this.phoneNumber = phoneNumber;
+        this.invoice = new ArrayList<>();
+        this.allVehicle = new ArrayList<>();
+        this.historys = new ArrayList<>();
     }
 
     public int getId() {
@@ -60,7 +76,7 @@ public class Driver implements Serializable {
     public void setId(int id) {
         this.id = id;
     }
-
+    
     public String getName() {
         return name;
     }
@@ -133,7 +149,27 @@ public class Driver implements Serializable {
         this.phoneNumber = phoneNumber;
     }
 
-    
-    
-    
+    public List<Vehicle> getAllVehicle() {
+        return allVehicle;
+    }
+
+    public void setAllVehicle(List<Vehicle> allVehicle) {
+        this.allVehicle = allVehicle;
+    }
+
+    public List<Invoice> getInvoice() {
+        return invoice;
+    }
+
+    public void setInvoice(List<Invoice> invoice) {
+        this.invoice = invoice;
+    }
+
+    public List<History> getHistorys() {
+        return historys;
+    }
+
+    public void setHistorys(List<History> historys) {
+        this.historys = historys;
+    }
 }

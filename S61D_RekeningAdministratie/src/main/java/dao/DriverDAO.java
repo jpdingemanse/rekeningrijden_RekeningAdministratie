@@ -6,11 +6,14 @@
 package dao;
 
 import domain.Driver;
-import domain.Vehicle;
 import java.util.List;
+import javax.ejb.ApplicationException;
 import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+import javax.transaction.Transactional;
 
 /**
  *
@@ -18,23 +21,42 @@ import javax.persistence.PersistenceContext;
  */
 @Stateless
 public class DriverDAO {
+   
+    
     @PersistenceContext
     EntityManager em;
-    
-    public DriverDAO(){
-        
+
+    public DriverDAO() {
+
     }
-    
-    public Driver createNewDriver(Driver driver){
-        em.persist(driver);
-        em.flush();
-        return em.find(Driver.class, driver.getId());
+   
+    public Driver createNewDriver(Driver driver) {
+        Driver d = null;
+        try {
+            em.persist(driver);
+            em.flush();
+
+            d = em.find(Driver.class, driver.getId());
+        
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        System.out.println(d);
+        return d;
     }
 
     public Driver getDriver(int id) {
         Driver result = em.find(Driver.class, id);
         return result;
     }
-    
-    
+
+    public List<Driver> getDriverByName(String name, String lastName) {
+        Query query = em.createNamedQuery("Driver.getDriverByName").setParameter("name", name).setParameter("lastname", lastName);
+        return query.getResultList();
+    }
+
+    public List<Driver> getAllDrivers() {
+        Query query = em.createNamedQuery("Driver.getDrivers");
+        return query.getResultList();
+    }
 }

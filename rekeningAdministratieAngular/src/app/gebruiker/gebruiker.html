@@ -1,0 +1,123 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        <h1 class="panel-title pull-left" style="font-size:30px;">Gebruiker</h1>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-lg-7"></div>
+            <div class="col-lg-2">
+                <h6>Bestuurder invoegen</h6>
+            </div>
+            <div class="col-lg-2">
+                <h6>Zoek optie</h6>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-7"></div>
+            <div class="col-lg-2">
+                <button>Voeg toe</button>
+            </div>
+            <div class="col-lg-2">
+                <input #textbox type="text" placeholder="naam  achternaam" />
+            </div>
+            <div class="col-lg-1">
+                <button (click)="onclickSearch(textbox.value)">Zoek</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="row">
+    <div class="col-md-12">
+        <div class="table-responsive">
+            <table id="mytable" class="table table-bordred table-striped">
+                <thead>
+                    <th>Naam</th>
+                    <th>Ican</th>
+                    <th>Acthernaam</th>
+                    <th>Postcode</th>
+                    <th>Huisnummer</th>
+                    <th>Telefoonnummer</th>
+                    <th>Stad</th>
+                    <th>Email</th>
+                    <th>Gebruikernaam</th>
+
+
+                    <th>Wijzig</th>
+                </thead>
+                <tbody >
+                    <tr *ngFor="let d of driverList">
+                        <td>{{d.name}}</td>
+                        <td>{{d.ican}}</td>
+                        <td>{{d.lastname}}</td>
+                        <td>{{d.postalCode}}</td>
+                        <td>{{d.housernumber}}</td>
+                        <td>{{d.phoneNumber}}</td>
+                        <td>{{d.city}}</td>
+                        <td>{{d.email}}</td>
+                        <td>{{d.username}}</td>
+                        <td>
+                            <p data-placement="top" data-toggle="tooltip" title="Wijzig"><button class="btn btn-primary btn-xs" (click)="editModal.show()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></p>
+                        </td>
+                        <td>
+                            <p data-placement="top" data-toggle="tooltip" title="Invoegen"><button class="btn btn-success btn-xs" (click)="onclickSelectDriver(d)"><i class="fa fa-car" aria-hidden="true"></i></button></p>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+            <div class="clearfix"></div>
+            <ul class="pagination pull-right">
+                <li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
+                <li class="active"><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
+            </ul>
+
+        </div>
+
+    </div>
+</div>
+
+ 
+<div bsModal #editModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Large modal</h4>
+        <button type="button" class="close pull-right" (click)="editModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+    </div>
+  </div>
+</div>
+<!--Edit dialog-->
+<div bsModal #carModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Voertuigen</h4>
+        <button type="button" class="close pull-right" (click)="carModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <car-dialog [value]="selectedDriver"></car-dialog>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
