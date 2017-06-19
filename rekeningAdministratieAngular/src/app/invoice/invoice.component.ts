@@ -32,7 +32,7 @@ export class InvoicePageComponent {
     onClickShowInvoiceDetails(id: any) {
         this.invoiceRowService.getInvoiceRowByInvoice(id)
             .then(value => this.invoiceRowList = value)
-            .then(value => console.log(value))
+            
     }
 
     onClickCreateInvoice(name: string, lastname: string){
