@@ -1,9 +1,11 @@
 boudary\rest\RateResource.class
 domain\User_.class
 domain\Driver_.class
+dao\InvoiceJMSDAO.class
 util\Init.class
 domain\RequestAddVehicleToDriver_.class
 domain\Vehicle.class
+factory\JMSSender.class
 domain\Rate_.class
 dao\MovementDAO.class
 factory\DriverTransmitter.class
@@ -17,7 +19,6 @@ factory\BeaconTransmitter.class
 boundary\bean\MessageBean.class
 domain\Movement.class
 boudary\rest\UserResource.class
-domain\Movement_.class
 service\InvoiceRowService.class
 dao\HistoryDao.class
 domain\User.class
@@ -28,7 +29,6 @@ service\DriverService.class
 dao\RequestDAO.class
 boudary\rest\VehicleResource.class
 boudary\rest\RequestResource.class
-boudary\rest\BeaconResource.class
 boudary\rest\InvoiceRowResource.class
 service\VehicleService.class
 dao\InvoiceDAO.class
@@ -37,7 +37,6 @@ domain\Invoice.class
 service\UserService.class
 dao\InvoiceRowDAO.class
 domain\InvoiceJMS.class
-service\BeaconService.class
 dao\VehicleDAO.class
 dao\RateDAO.class
 boudary\rest\DriverResource.class
@@ -46,10 +45,10 @@ domain\History.class
 dao\DriverDAO.class
 domain\InvoiceRow_.class
 domain\Rate.class
+domain\InvoiceJMS_.class
 domain\RequestAddVehicleToDriver.class
 service\MovementService.class
 service\InvoiceService.class
 service\RateService.class
 boudary\rest\JARSconfig.class
 domain\Vehicle_.class
-domain\Beacon_.class
