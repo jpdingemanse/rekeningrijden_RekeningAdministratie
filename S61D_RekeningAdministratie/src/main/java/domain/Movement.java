@@ -6,32 +6,19 @@
 package domain;
 
 import java.io.Serializable;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToOne;
 
 /**
  *
  * @author Jean Paul
  */
-@Entity
 public class Movement implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    
     private int id;
     private String datum; // maand jaar
     private String ican;
-    @OneToOne
     private Beacon startPoint;
-    @OneToOne
     private Beacon endPoint;
-    @OneToOne
     private Rate rate;
 
     public Movement() {

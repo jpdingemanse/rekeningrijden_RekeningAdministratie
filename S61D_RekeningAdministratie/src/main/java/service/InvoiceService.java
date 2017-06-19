@@ -242,7 +242,10 @@ public class InvoiceService {
                 Beacon b1 = beacon.get(i - 1);
                 Beacon b2 = beacon.get(i);
                 Movement movement = new Movement(month, iCan, b1, b2);
-                result.add(movement);
+                movement = movementService.createNewMovement(movement, rates);
+                if(movement != null){
+                    result.add(movement);
+                }
             }
         }
         return result;

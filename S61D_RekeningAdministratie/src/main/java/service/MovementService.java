@@ -6,13 +6,10 @@
 package service;
 
 import dao.BeaconDAO;
-import dao.InvoiceRowDAO;
 import dao.MovementDAO;
-import dao.RateDAO;
 import domain.Beacon;
 import domain.Movement;
 import domain.Rate;
-import domain.Vehicle;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -23,12 +20,6 @@ import javax.inject.Inject;
  */
 @Stateless
 public class MovementService {
-
-    @Inject
-    MovementDAO movementDAO;
-    
-    @Inject
-    BeaconDAO beaconDAO;
 
     public Movement createNewMovement(Movement movement, List<Rate> rates) {
         boolean linksboven = false;
@@ -63,14 +54,11 @@ public class MovementService {
             }
             if (linksboven == true && linksonder == true && rechtsboven == true && rechtsonder == true) {
                 movement.setRate(r);
-                break;
+                return movement;
             }
         }
-        Beacon startBeacon = beaconDAO.createNewBeacon(movement.getStartPoint());
-        Beacon endBeacon = beaconDAO.createNewBeacon(movement.getEndPoint());
-        movement.setStartPoint(startBeacon);
-        movement.setEndPoint(endBeacon);
-        return movementDAO.createNewMovement(movement);
+        return null;
+        
     }
 
     public double getMonthprice(List<Movement> movements) {

@@ -15,11 +15,9 @@ import javax.persistence.Id;
  *
  * @author Jean Paul
  */
-@Entity
 public class Beacon implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    
     private int id;
     private String iCan;
     private double latitude;
