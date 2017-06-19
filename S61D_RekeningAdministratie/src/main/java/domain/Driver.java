@@ -46,6 +46,8 @@ public class Driver implements Serializable {
     
     @OneToMany(mappedBy = "driver")
     private List<Invoice> invoice;
+    @OneToMany(mappedBy = "bestuurder")
+    private List<History> historys;
 
     public Driver() {
     }
@@ -62,6 +64,7 @@ public class Driver implements Serializable {
         this.phoneNumber = phoneNumber;
         this.invoice = new ArrayList<>();
         this.allVehicle = new ArrayList<>();
+        this.historys = new ArrayList<>();
     }
 
     public int getId() {
@@ -159,8 +162,12 @@ public class Driver implements Serializable {
     public void setInvoice(List<Invoice> invoice) {
         this.invoice = invoice;
     }
-    
-    
-    
-    
+
+    public List<History> getHistorys() {
+        return historys;
+    }
+
+    public void setHistorys(List<History> historys) {
+        this.historys = historys;
+    }
 }

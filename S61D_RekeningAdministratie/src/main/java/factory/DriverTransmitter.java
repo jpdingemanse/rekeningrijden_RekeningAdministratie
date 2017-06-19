@@ -40,8 +40,7 @@ public class DriverTransmitter {
             int httpCode = response.getStatusLine().getStatusCode();
 
             if (httpCode != 200) {
-                throw new RuntimeException("Failed : HTTP error code : "
-                        + response.getStatusLine().getStatusCode());
+                return false;
             }
             return true;
             

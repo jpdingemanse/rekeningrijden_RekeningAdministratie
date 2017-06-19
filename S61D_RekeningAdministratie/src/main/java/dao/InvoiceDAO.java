@@ -27,14 +27,16 @@ public class InvoiceDAO {
     }
 
     public Invoice createNewInvoice(Invoice invoice) {
+        Invoice i = null;
         try{
-        em.persist(invoice);
-        em.flush();
+            em.persist(invoice);
+            em.flush();
+            i = em.find(Invoice.class, invoice.getId());
         
         } catch(Exception ex){
             
         }
-        Invoice i = em.find(Invoice.class, invoice.getId());
+        
         return i;
     }
     public boolean checkInvoice(Invoice invoice){

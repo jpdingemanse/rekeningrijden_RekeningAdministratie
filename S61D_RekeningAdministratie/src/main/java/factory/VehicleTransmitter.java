@@ -42,8 +42,7 @@ public class VehicleTransmitter {
             int httpCode = response.getStatusLine().getStatusCode();
 
             if (httpCode != 200) {
-                throw new RuntimeException("Failed : HTTP error code : "
-                        + response.getStatusLine().getStatusCode());
+                return false;
             }
             return true;
             
@@ -73,8 +72,7 @@ public class VehicleTransmitter {
             int httpCode = response.getStatusLine().getStatusCode();
 
             if (httpCode != 200) {
-                throw new RuntimeException("Failed : HTTP error code : "
-                        + response.getStatusLine().getStatusCode());
+                return false;
             }
             return true;
             
@@ -103,8 +101,7 @@ public class VehicleTransmitter {
             int httpCode = response.getStatusLine().getStatusCode();
 
             if (httpCode != 200) {
-                throw new RuntimeException("Failed : HTTP error code : "
-                        + response.getStatusLine().getStatusCode());
+                return false;
             }
             return true;
             

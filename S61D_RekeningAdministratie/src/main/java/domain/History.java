@@ -23,6 +23,8 @@ public class History implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
+    
+    
     @ManyToOne
     Driver bestuurder;
     @Temporal(javax.persistence.TemporalType.DATE)

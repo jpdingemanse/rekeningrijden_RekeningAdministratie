@@ -118,45 +118,45 @@ public class Init {
 
         Driver driver20 = driverService.createNewDriver(new Driver("Ice", "The", "5611SH", "Eindhoven", "Lino_thaencharun@hotmail.com", "Ice", "p@33word", "10c", "0614387088"));
 
-        Vehicle vehicleBuitenland1 = vehicleService.createNewVehicle(new Vehicle("10-kb-311", "NL 200 000 000 000 000 001", driver));
+        Vehicle vehicleBuitenland1 = vehicleService.createNewVehicle(new Vehicle("10-kb-311", "NL 200 000 000 000 001", driver));
 
-        Vehicle vehicleBuitenland2 = vehicleService.createNewVehicle(new Vehicle("10-kb-346", "NL 200 000 000 000 000 002", driver2));
+        Vehicle vehicleBuitenland2 = vehicleService.createNewVehicle(new Vehicle("10-kb-346", "NL 200 000 000 000 002", driver2));
 
-        Vehicle vehicleBuitenland3 = vehicleService.createNewVehicle(new Vehicle("10-kb-347", "NL 200 000 000 000 000 003",driver3));
+        Vehicle vehicleBuitenland3 = vehicleService.createNewVehicle(new Vehicle("10-kb-347", "NL 200 000 000 000 003",driver3));
 
-        Vehicle vehicleBuitenland4 = vehicleService.createNewVehicle(new Vehicle("10-kb-348", "NL 200 000 000 000 000 004",driver4));
+        Vehicle vehicleBuitenland4 = vehicleService.createNewVehicle(new Vehicle("10-kb-348", "NL 200 000 000 000 004",driver4));
 
-        Vehicle vehicleBuitenland5 = vehicleService.createNewVehicle(new Vehicle("10-kb-349", "NL 200 000 000 000 000 005", driver5));
+        Vehicle vehicleBuitenland5 = vehicleService.createNewVehicle(new Vehicle("10-kb-349", "NL 200 000 000 000 005", driver5));
 
-        Vehicle vehicleBuitenland6 = vehicleService.createNewVehicle(new Vehicle("10-kb-310", "NL 200 000 000 000 000 006", driver6));
+        Vehicle vehicleBuitenland6 = vehicleService.createNewVehicle(new Vehicle("10-kb-310", "NL 200 000 000 000 006", driver6));
 
-        Vehicle vehicleBuitenland7 = vehicleService.createNewVehicle(new Vehicle("10-kb-312", "NL 200 000 000 000 000 007", driver7));
+        Vehicle vehicleBuitenland7 = vehicleService.createNewVehicle(new Vehicle("10-kb-312", "NL 200 000 000 000 007", driver7));
 
-        Vehicle vehicleBuitenland8 = vehicleService.createNewVehicle(new Vehicle("10-kb-313", "NL 200 000 000 000 000 008", driver8));
+        Vehicle vehicleBuitenland8 = vehicleService.createNewVehicle(new Vehicle("10-kb-313", "NL 200 000 000 000 008", driver8));
 
-        Vehicle vehicleBuitenland9 = vehicleService.createNewVehicle(new Vehicle("10-kb-314", "NL 200 000 000 000 000 009", driver9));
+        Vehicle vehicleBuitenland9 = vehicleService.createNewVehicle(new Vehicle("10-kb-314", "NL 200 000 000 000 009", driver9));
 
-        Vehicle vehicleBuitenland10 = vehicleService.createNewVehicle(new Vehicle("10-kb-315", "NL 200 000 000 000 000 010", driver10));
+        Vehicle vehicleBuitenland10 = vehicleService.createNewVehicle(new Vehicle("10-kb-315", "NL 200 000 000 000 010", driver10));
 
-        Vehicle vehicleBuitenland11 = vehicleService.createNewVehicle(new Vehicle("10-kb-316", "NL 200 000 000 000 000 011", driver11));
+        Vehicle vehicleBuitenland11 = vehicleService.createNewVehicle(new Vehicle("10-kb-316", "NL 200 000 000 000 011", driver11));
 
-        Vehicle vehicleBuitenland12 = vehicleService.createNewVehicle(new Vehicle("10-kb-317", "NL 200 000 000 000 000 012", driver12));
+        Vehicle vehicleBuitenland12 = vehicleService.createNewVehicle(new Vehicle("10-kb-317", "NL 200 000 000 000 012", driver12));
 
-        Vehicle vehicleBuitenland13 = vehicleService.createNewVehicle(new Vehicle("10-kb-318", "NL 200 000 000 000 000 013", driver13));
+        Vehicle vehicleBuitenland13 = vehicleService.createNewVehicle(new Vehicle("10-kb-318", "NL 200 000 000 000 013", driver13));
 
-        Vehicle vehicleBuitenland14 = vehicleService.createNewVehicle(new Vehicle("10-kb-319", "NL 200 000 000 000 000 014", driver14));
+        Vehicle vehicleBuitenland14 = vehicleService.createNewVehicle(new Vehicle("10-kb-319", "NL 200 000 000 000 014", driver14));
 
-        Vehicle vehicleBuitenland15 = vehicleService.createNewVehicle(new Vehicle("10-kb-320", "NL 200 000 000 000 000 015", driver15));
+        Vehicle vehicleBuitenland15 = vehicleService.createNewVehicle(new Vehicle("10-kb-320", "NL 200 000 000 000 015", driver15));
 
-        Vehicle vehicleBuitenland16 = vehicleService.createNewVehicle(new Vehicle("10-kb-321", "NL 200 000 000 000 000 016", driver16));
+        Vehicle vehicleBuitenland16 = vehicleService.createNewVehicle(new Vehicle("10-kb-321", "NL 200 000 000 000 016", driver16));
 
-        Vehicle vehicleBuitenland17 = vehicleService.createNewVehicle(new Vehicle("10-kb-322", "NL 200 000 000 000 000 017", driver17));
+        Vehicle vehicleBuitenland17 = vehicleService.createNewVehicle(new Vehicle("10-kb-322", "NL 200 000 000 000 017", driver17));
 
-        Vehicle vehicleBuitenland18 = vehicleService.createNewVehicle(new Vehicle("10-kb-323", "NL 200 000 000 000 000 018", driver18));
+        Vehicle vehicleBuitenland18 = vehicleService.createNewVehicle(new Vehicle("10-kb-323", "NL 200 000 000 000 018", driver18));
 
-        Vehicle vehicleBuitenland19 = vehicleService.createNewVehicle(new Vehicle("10-kb-324", "NL 200 000 000 000 000 019", driver19));
+        Vehicle vehicleBuitenland19 = vehicleService.createNewVehicle(new Vehicle("10-kb-324", "NL 200 000 000 000 019", driver19));
 
-        Vehicle vehicleBuitenland20 = vehicleService.createNewVehicle(new Vehicle("10-kb-325", "NL 200 000 000 000 000 020", driver20));
+        Vehicle vehicleBuitenland20 = vehicleService.createNewVehicle(new Vehicle("10-kb-325", "NL 200 000 000 000 020", driver20));
 
         Double zone1LbLat = 53.34316126;
         Double zone1LbLn = 4.56616834;
@@ -185,61 +185,42 @@ public class Init {
         Rate rate1 = rateDao.createNewRate(new Rate(1.50, "Zone 1", "€", zone1LbLat, zone1LbLn, zone1LoLat, zone1L0Ln, zone1rbLat, zone1rbLn, zone1roLat, zone1rbLon));
         Rate rate2 = rateDao.createNewRate(new Rate(8.99, "Zone 2", "€", zone2LbLat, zone2LbLn, zone2LoLat, zone2L0Ln, zone2rbLat, zone2rbLn, zone2roLat, zone2rbLon));
 
-//        vehicleBuitenland1.setOwner(driver);
-//        vehicleBuitenland2.setOwner(driver10);
-//        vehicleBuitenland3.setOwner(driver11);
-//        vehicleBuitenland4.setOwner(driver12);
-//        vehicleBuitenland5.setOwner(driver13);
-//        vehicleBuitenland6.setOwner(driver14);
-//        vehicleBuitenland7.setOwner(driver15);
-//        vehicleBuitenland8.setOwner(driver16);
-//        vehicleBuitenland9.setOwner(driver17);
-//        vehicleBuitenland10.setOwner(driver18);
-//        vehicleBuitenland11.setOwner(driver19);
-//        vehicleBuitenland12.setOwner(driver20);
-//        vehicleBuitenland13.setOwner(driver2);
-//        vehicleBuitenland14.setOwner(driver3);
-//        vehicleBuitenland15.setOwner(driver4);
-//        vehicleBuitenland16.setOwner(driver5);
-//        vehicleBuitenland17.setOwner(driver6);
-//        vehicleBuitenland18.setOwner(driver7);
-//        vehicleBuitenland19.setOwner(driver8);
-//        vehicleBuitenland20.setOwner(driver9);
+//       vehicleService.addVehicleToDriver(vehicleBuitenland1);
+//        vehicleService.addVehicleToDriver(vehicleBuitenland2);
+//        vehicleService.addVehicleToDriver(vehicleBuitenland3);
+//        vehicleService.addVehicleToDriver(vehicleBuitenland4);
+//        vehicleService.addVehicleToDriver(vehicleBuitenland5);
+//        vehicleService.addVehicleToDriver(vehicleBuitenland6);
+//        vehicleService.addVehicleToDriver(vehicleBuitenland7);
+//        vehicleService.addVehicleToDriver(vehicleBuitenland8);
+//        vehicleService.addVehicleToDriver(vehicleBuitenland9);
+//        vehicleService.addVehicleToDriver(vehicleBuitenland10);
+//        vehicleService.addVehicleToDriver(vehicleBuitenland11);
+//        vehicleService.addVehicleToDriver(vehicleBuitenland12);
+//        vehicleService.addVehicleToDriver(vehicleBuitenland13);
+//        vehicleService.addVehicleToDriver(vehicleBuitenland14);
+//        vehicleService.addVehicleToDriver(vehicleBuitenland15);
+//        vehicleService.addVehicleToDriver(vehicleBuitenland16);
+//        vehicleService.addVehicleToDriver(vehicleBuitenland17);
+//        vehicleService.addVehicleToDriver(vehicleBuitenland18);
+//        vehicleService.addVehicleToDriver(vehicleBuitenland19);
+//        vehicleService.addVehicleToDriver(vehicleBuitenland20);
 
-        History history = new History(vehicleBuitenland1.getOwner(), new Date());
-        history.setId(1);
-        List<History> histories = new ArrayList<>();
-        histories.add(history);
-        vehicleBuitenland1.setHistory(histories);
-        vehicleService.addVehicleToDriver(vehicleBuitenland1);
-        vehicleService.addVehicleToDriver(vehicleBuitenland2);
-        vehicleService.addVehicleToDriver(vehicleBuitenland3);
-        vehicleService.addVehicleToDriver(vehicleBuitenland4);
-        vehicleService.addVehicleToDriver(vehicleBuitenland5);
-        vehicleService.addVehicleToDriver(vehicleBuitenland6);
-        vehicleService.addVehicleToDriver(vehicleBuitenland7);
-        vehicleService.addVehicleToDriver(vehicleBuitenland8);
-        vehicleService.addVehicleToDriver(vehicleBuitenland9);
-        vehicleService.addVehicleToDriver(vehicleBuitenland10);
-        vehicleService.addVehicleToDriver(vehicleBuitenland11);
-        vehicleService.addVehicleToDriver(vehicleBuitenland12);
-        vehicleService.addVehicleToDriver(vehicleBuitenland13);
-        vehicleService.addVehicleToDriver(vehicleBuitenland14);
-        vehicleService.addVehicleToDriver(vehicleBuitenland15);
-        vehicleService.addVehicleToDriver(vehicleBuitenland16);
-        vehicleService.addVehicleToDriver(vehicleBuitenland17);
-        vehicleService.addVehicleToDriver(vehicleBuitenland18);
-        vehicleService.addVehicleToDriver(vehicleBuitenland19);
-        vehicleService.addVehicleToDriver(vehicleBuitenland20);
+//        History history = new History(vehicleBuitenland1.getOwner(), new Date());
+//        history.setId(1);
+//        List<History> histories = new ArrayList<>();
+//        histories.add(history);
+//        vehicleBuitenland1.setHistory(histories);
+        
 
-        Timestamp timeStamp = new Timestamp(System.currentTimeMillis());
-        Invoice invoice = new Invoice("Mei 2017", false, driver, timeStamp.getTime());
-        invoiceDAO.createNewInvoice(invoice);
-        InvoiceRow invoiceRow = new InvoiceRow(20, "Test Test", invoice, vehicleBuitenland1);
+//        Timestamp timeStamp = new Timestamp(System.currentTimeMillis());
+//        Invoice invoice = new Invoice("Mei 2017", false, driver, timeStamp.getTime());
+//        invoice = invoiceDAO.createNewInvoice(invoice);
+//        InvoiceRow invoiceRow = new InvoiceRow(20, "Test Test", invoice, vehicleBuitenland1);
+//
+//        invoiceRow = invoiceRowDAO.createNewInvoiceRow(invoiceRow);
 
-        invoiceRowDAO.createNewInvoiceRow(invoiceRow);
-
-        requestDAO.createNewRequest(new RequestAddVehicleToDriver(1, "test-1", true));
-        requestDAO.createNewRequest(new RequestAddVehicleToDriver(1, "test-2", true));
+//        requestDAO.createNewRequest(new RequestAddVehicleToDriver(1, "test-1", true));
+//        requestDAO.createNewRequest(new RequestAddVehicleToDriver(1, "test-2", true));
     }
 }

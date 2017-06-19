@@ -32,7 +32,7 @@ public class DriverService {
             System.out.println(ex.getMessage());
         }
         if(driver != null){
-//            ds.SendDriverToRekeningRijder(d);
+            ds.SendDriverToRekeningRijder(d);
         }
          return d;
     }

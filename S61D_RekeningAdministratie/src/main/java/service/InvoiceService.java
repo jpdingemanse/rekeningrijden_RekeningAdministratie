@@ -65,7 +65,7 @@ public class InvoiceService {
 
     @Inject
     RateDAO rateDAO;
-    
+
     @Inject
     InvoiceJMSDAO invoiceJMSDAO;
 
@@ -106,7 +106,7 @@ public class InvoiceService {
                     List<Beacon> beaconList = new ArrayList<>();
                     beaconList = beaconTransmitter.GetAllMovementsPerVehicle(v.getiCan());
                     if (!beaconList.isEmpty()) {
-                        List<Movement> movements = createTempMovement(beaconList, invoice.getMonth(),v.getiCan(), rates);
+                        List<Movement> movements = createTempMovement(beaconList, invoice.getMonth(), v.getiCan(), rates);
                         invoiceRow.setVehicle(v);
                         double price = (long) movementService.getMonthprice(movements);
                         invoiceRow.setPrice(price);
@@ -167,6 +167,8 @@ public class InvoiceService {
             Calendar c = Calendar.getInstance();
             String month = new SimpleDateFormat("MMMM").format(c.getTime());
             int year = c.get(Calendar.YEAR);
+            Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+            List<Movement> movement = new ArrayList<>();
 
             for (Beacon b : beaconList) {
                 String key = b.getiCan();
@@ -186,21 +188,23 @@ public class InvoiceService {
                     Driver driver = vehicleDAO.getDriverByICan(s);
                     List<Vehicle> vehicle = vehicleDAO.getVehicleByIcan(s);
 
-                    if (vehicle.get(0) != null && driver != null) {
+                    if (!vehicle.isEmpty() && driver != null) {
 
                         InvoiceRow invoiceRow = new InvoiceRow();
                         Invoice invoice = new Invoice();
 
                         invoice.setDriver(driver);
                         invoice.setMonth(String.valueOf(month + " " + year));
+                        invoice.setTimestamp(timestamp.getTime());
                         if (!invoiceDAO.checkInvoice(invoice)) {
                             invoice = invoiceDAO.createNewInvoice(invoice);
                         } else {
                             invoice = invoiceDAO.getInvoiceByDriverAndMonth(invoice);
                         }
-                        List<Movement> movement = createTempMovement(beaconList, invoice.getMonth(),s, rates);
-                        double price =  movementService.getMonthprice(movement);
-                        
+                        movement.clear();
+                        movement = createTempMovement(beaconList, invoice.getMonth(), s, rates);
+                        double price = movementService.getMonthprice(movement);
+
                         invoiceRow.setVehicle(vehicle.get(0));
                         invoiceRow.setPrice(price);
                         invoiceRow.setInvoice(invoice);
@@ -214,20 +218,24 @@ public class InvoiceService {
                     }
 
                 } else {
-                    List<Movement> movement = createTempMovement(beaconList,month,s, rates);
-                    double price = movementService.getMonthprice(movement);
-                    InvoiceJMS invoiceJMS = new InvoiceJMS("NL", new Timestamp(System.currentTimeMillis()).getTime(), price, s);
-                    invoiceJMSDAO.createNewJMS(invoiceJMSDAO);
-                    String message = gson.toJson(invoiceJMS);
-                    if(s.contains("DE")){
-                        JMSSender.sendInvoiceInternal(message, deUrl, subjectForeign);
+                    movement.clear();
+                    movement = createTempMovement(beaconList, String.valueOf(month + " " + year), s, rates);
+                    if(!movement.isEmpty()){
+                        double price = movementService.getMonthprice(movement);
+                        InvoiceJMS invoiceJMS = new InvoiceJMS("NL", new Timestamp(System.currentTimeMillis()).getTime(), price, s);
+                        invoiceJMSDAO.createNewJMS(invoiceJMSDAO);
+                        String message = gson.toJson(invoiceJMS);
+                        if (s.contains("DE")) {
+                            JMSSender.sendInvoiceInternal(message, deUrl, subjectForeign);
+                        }
+                        if (s.contains("BG")) {
+                            JMSSender.sendInvoiceInternal(message, bgUrl, subjectForeign);
+                        }
+                        if (s.contains("CH")) {
+                            JMSSender.sendInvoiceInternal(message, chUrl, subjectForeign);
+                        }
                     }
-                    if(s.contains("BG")){
-                        JMSSender.sendInvoiceInternal(message, bgUrl, subjectForeign);
-                    }
-                    if(s.contains("CH")){
-                        JMSSender.sendInvoiceInternal(message, chUrl, subjectForeign);
-                    }
+                    
                 }
             }
         } catch (JSONException ex) {
@@ -237,18 +245,22 @@ public class InvoiceService {
 
     public List<Movement> createTempMovement(List<Beacon> beacon, String month, String iCan, List<Rate> rates) {
         List<Movement> result = new ArrayList<>();
-        for (int i = 0; beacon.size() > i; i++) {
-            if (i != 0) {
-                Beacon b1 = beacon.get(i - 1);
-                Beacon b2 = beacon.get(i);
-                Movement movement = new Movement(month, iCan, b1, b2);
-                movement = movementService.createNewMovement(movement, rates);
-                if(movement != null){
-                    result.add(movement);
+        try {
+            for (int i = 0; beacon.size() > i; i++) {
+                if (i != 0) {
+                    Beacon b1 = beacon.get(i - 1);
+                    Beacon b2 = beacon.get(i);
+                    Movement movement = new Movement(month, iCan, b1, b2);
+                    movement = movementService.createNewMovement(movement, rates);
+                    if (movement != null) {
+                        result.add(movement);
+                    }
                 }
             }
+            return result;
+        } catch (Exception e) {
+            return null;
         }
-        return result;
     }
 
     public List<Invoice> getInvoiceByDriver(int id) {
