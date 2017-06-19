@@ -32,7 +32,7 @@ public class VehicleService {
     
     public Vehicle createNewVehicle(Vehicle vehicle){
         Vehicle result = vehicleDAO.createNewVehicle(vehicle);
-        vehicleTransmitter.SendVehicleToRekeningRijder(result);
+       // vehicleTransmitter.SendVehicleToRekeningRijder(result);
 
         return result;
     }
@@ -43,7 +43,7 @@ public class VehicleService {
         List<History> historyList = new ArrayList();
         historyList.add(historyDao.createNewHistory(history));
         vehicle.setHistory(historyList);
-        vehicleTransmitter.SendAddVehicleToDriverRekeningRijder(result);
+        //vehicleTransmitter.SendAddVehicleToDriverRekeningRijder(result);
         return result;
     }
     
