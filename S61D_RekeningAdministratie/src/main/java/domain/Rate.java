@@ -39,10 +39,7 @@ public class Rate implements Serializable{
     private double lonRB;
     private double latRO;
     private double lonRO;
-<<<<<<< HEAD
- 
-=======
->>>>>>> 4d6a9e0777832862b138166cf5cee3460354e74d
+
     
     public Rate(){}
 
