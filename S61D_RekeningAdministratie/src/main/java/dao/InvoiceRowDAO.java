@@ -29,7 +29,8 @@ public class InvoiceRowDAO {
     public InvoiceRow createNewInvoiceRow(InvoiceRow invoiceRow){
         em.persist(invoiceRow);
         em.flush();
-        return em.find(InvoiceRow.class, invoiceRow.getId());
+        InvoiceRow result = em.find(InvoiceRow.class, invoiceRow.getId());
+        return result;
     } 
     
     public List<InvoiceRow> getInvoiceRowsByInvoice(int id)

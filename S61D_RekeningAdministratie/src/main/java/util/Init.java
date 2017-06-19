@@ -9,31 +9,20 @@ import dao.BeaconDAO;
 import dao.DriverDAO;
 import dao.InvoiceDAO;
 import dao.InvoiceRowDAO;
-import dao.MovementDAO;
 import dao.RateDAO;
 import dao.RequestDAO;
 import dao.UserDAO;
 import dao.VehicleDAO;
-import domain.Beacon;
 import domain.Driver;
-import domain.History;
-import domain.Invoice;
-import domain.InvoiceRow;
-import domain.Movement;
 import domain.Rate;
-import domain.RequestAddVehicleToDriver;
 import domain.User;
 import domain.Vehicle;
-import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
 import javax.inject.Inject;
 import service.DriverService;
-import service.MovementService;
 import service.VehicleService;
 
 /**
@@ -69,12 +58,6 @@ public class Init {
 
     @Inject
     RequestDAO requestDAO;
-
-    @Inject
-    MovementDAO movementDAO;
-
-    @Inject
-    MovementService movementService;
 
     @Inject
     BeaconDAO beaconDAO;
@@ -184,6 +167,8 @@ public class Init {
 
         Rate rate1 = rateDao.createNewRate(new Rate(1.50, "Zone 1", "€", zone1LbLat, zone1LbLn, zone1LoLat, zone1L0Ln, zone1rbLat, zone1rbLn, zone1roLat, zone1rbLon));
         Rate rate2 = rateDao.createNewRate(new Rate(8.99, "Zone 2", "€", zone2LbLat, zone2LbLn, zone2LoLat, zone2L0Ln, zone2rbLat, zone2rbLn, zone2roLat, zone2rbLon));
+        
+        userDAO.createUser(new User("Admin", "Admin"));
 
 //       vehicleService.addVehicleToDriver(vehicleBuitenland1);
 //        vehicleService.addVehicleToDriver(vehicleBuitenland2);

@@ -8,15 +8,17 @@ package service;
 import domain.Movement;
 import domain.Rate;
 import java.util.List;
-import javax.ejb.Stateless;
 
 /**
  *
  * @author victo
  */
-@Stateless
-public class MovementService {
 
+public class MovementService {
+    
+    public MovementService(){
+        
+    }
     public Movement createNewMovement(Movement movement, List<Rate> rates) {
         boolean linksboven = false;
         boolean linksonder = false;

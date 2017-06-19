@@ -15,6 +15,7 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 /**
  *
@@ -46,6 +47,7 @@ public class Driver implements Serializable {
     
     @OneToMany(mappedBy = "driver")
     private List<Invoice> invoice;
+    
     @OneToMany(mappedBy = "bestuurder")
     private List<History> historys;
 

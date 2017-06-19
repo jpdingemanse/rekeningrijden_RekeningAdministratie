@@ -24,8 +24,6 @@ public class InvoiceRowService {
     InvoiceRowDAO invoiceRowDAO;
     @Inject
     InvoiceDAO invoiceDAO;
-    @Inject
-    MovementService movementService;
 
     public InvoiceRow createInvoiceRow(InvoiceRow invoiceRow) {
         return invoiceRowDAO.createNewInvoiceRow(invoiceRow);

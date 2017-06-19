@@ -57,8 +57,7 @@ public class InvoiceService {
     DriverDAO driverDAO;
     @Inject
     VehicleDAO vehicleDAO;
-    @Inject
-    MovementService movementService;
+    MovementService movementService = new MovementService();
 
     @Inject
     BeaconTransmitter beaconTransmitter;
@@ -85,6 +84,7 @@ public class InvoiceService {
         Invoice invoice = new Invoice();
 
         try {
+            
             Calendar c = Calendar.getInstance();
             String month = new SimpleDateFormat("MMMM").format(c.getTime());
             int year = c.get(Calendar.YEAR);
@@ -113,7 +113,6 @@ public class InvoiceService {
                         invoiceRow.setInvoice(invoice);
                         invoiceRow = invoiceRowDAO.createNewInvoiceRow(invoiceRow);
                         invoiceRow.getVehicle().setHistory(new ArrayList<>());
-                        invoiceRow.getVehicle().setOwner(null);
 
                         invoice.getDriver().setAllVehicle(new ArrayList<>());
                         invoiceRow.setInvoice(invoice);
@@ -134,22 +133,39 @@ public class InvoiceService {
         Driver driver = vehicleDAO.getDriverByICan(invoiceJMS.getICan());
         if (driver != null) {
             Vehicle vehicle = vehicleDAO.getVehicleByIcan(invoiceJMS.getICan()).get(0);
-            Calendar c = Calendar.getInstance();
-            Date d = new Date(invoiceJMS.getTimestamp());
-            c.setTime(d);
-            String month = new SimpleDateFormat("MMMM").format(c.getTime());
-            int year = c.get(Calendar.YEAR);
-            String monthWithYear = month + " " + year;
-            Invoice invoice = new Invoice(monthWithYear, false, driver, invoiceJMS.getTimestamp());
+            Invoice invoice = null;
+            
+            if(invoiceJMS.getTimestamp() != 0){
+                Date date = new Date(invoiceJMS.getTimestamp() * 1000L);
+                Calendar c = Calendar.getInstance();
+                c.setTime(date);
+                String month = new SimpleDateFormat("MMMM").format(c.getTime());
+                int year = c.get(Calendar.YEAR);
+            
+                
+                String monthWithYear = month + " " + year;
+                invoice = new Invoice(monthWithYear, false, driver, invoiceJMS.getTimestamp());
+            }
+            else{
+                Calendar c = Calendar.getInstance();
+                Timestamp ts = new Timestamp(System.currentTimeMillis());
+                Date date = new Date(ts.getTime() * 1000L);
+                c.setTime(date);
+                String month = new SimpleDateFormat("yyyy/MM/dd").format(c.getTime());
+                int year = c.get(Calendar.YEAR);
+                String monthWithYear = month + " " + year;
+                
+                invoice = new Invoice(monthWithYear, false, driver, ts.getTime());
+            }
             if (!invoiceDAO.checkInvoice(invoice)) {
                 invoice = invoiceDAO.createNewInvoice(invoice);
             } else {
                 invoice = invoiceDAO.getInvoiceByDriverAndMonth(invoice);
             }
             invoiceRow = new InvoiceRow(invoiceJMS.getTotalPrice(), "Foreign invoice", invoice, vehicle);
+            invoiceRow.setLandCode(invoiceJMS.getFromCountry());
             invoiceRow = invoiceRowDAO.createNewInvoiceRow(invoiceRow);
             invoiceRow.getVehicle().setHistory(new ArrayList<>());
-            invoiceRow.getVehicle().setOwner(null);
 
             invoice.getDriver().setAllVehicle(new ArrayList<>());
             invoiceRow.setInvoice(invoice);
@@ -210,7 +226,6 @@ public class InvoiceService {
                         invoiceRow.setInvoice(invoice);
                         invoiceRow = invoiceRowDAO.createNewInvoiceRow(invoiceRow);
                         invoiceRow.getVehicle().setHistory(new ArrayList<>());
-                        invoiceRow.getVehicle().setOwner(null);
 
                         invoice.getDriver().setAllVehicle(new ArrayList<>());
                         invoiceRow.setInvoice(invoice);
@@ -223,7 +238,7 @@ public class InvoiceService {
                     if(!movement.isEmpty()){
                         double price = movementService.getMonthprice(movement);
                         InvoiceJMS invoiceJMS = new InvoiceJMS("NL", new Timestamp(System.currentTimeMillis()).getTime(), price, s);
-                        invoiceJMSDAO.createNewJMS(invoiceJMSDAO);
+                        invoiceJMSDAO.createNewJMS(invoiceJMS);
                         String message = gson.toJson(invoiceJMS);
                         if (s.contains("DE")) {
                             JMSSender.sendInvoiceInternal(message, deUrl, subjectForeign);

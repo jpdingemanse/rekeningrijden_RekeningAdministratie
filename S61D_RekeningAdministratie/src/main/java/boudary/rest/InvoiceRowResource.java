@@ -5,9 +5,7 @@
  */
 package boudary.rest;
 
-import domain.Invoice;
 import domain.InvoiceRow;
-import domain.Vehicle;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -29,9 +27,6 @@ public class InvoiceRowResource {
 
     @Inject
     InvoiceRowService invoiceRowService;
-
-    @Inject
-    MovementService movementService;
 
     @POST
     @Path("CreateInvoiceRow")

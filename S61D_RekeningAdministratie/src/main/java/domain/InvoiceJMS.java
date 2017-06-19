@@ -35,6 +35,13 @@ public class InvoiceJMS implements Serializable {
         this.ICan = ICan;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     public String getFromCountry() {
         return FromCountry;
     }
