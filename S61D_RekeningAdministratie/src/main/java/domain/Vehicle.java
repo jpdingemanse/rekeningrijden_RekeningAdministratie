@@ -33,8 +33,6 @@ public class Vehicle implements Serializable{
     private Driver owner;
     private String iCan;
     @OneToMany
-    private List<Movement> movements;
-    @OneToMany
     private List<History> history;
     
     public Vehicle() {
@@ -55,7 +53,6 @@ public class Vehicle implements Serializable{
         this.licensePlate = licensePlate;
         this.iCan = iCan;
         this.history = new ArrayList();
-        this.movements = new ArrayList();
         this.owner = owner;
     }
 

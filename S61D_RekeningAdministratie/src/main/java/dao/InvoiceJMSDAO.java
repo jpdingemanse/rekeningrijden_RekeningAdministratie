@@ -6,8 +6,8 @@
 package dao;
 
 import javax.ejb.Stateless;
-import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 /**
  *
@@ -15,7 +15,7 @@ import javax.persistence.EntityManager;
  */
 @Stateless
 public class InvoiceJMSDAO {
-    @Inject
+    @PersistenceContext
     EntityManager em;
     
     public void createNewJMS(InvoiceJMSDAO invoiceJMS){

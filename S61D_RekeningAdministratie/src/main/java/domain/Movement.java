@@ -20,9 +20,6 @@ import javax.persistence.OneToOne;
  * @author Jean Paul
  */
 @Entity
-@NamedQueries({
-    @NamedQuery(name = "movement.getMovementsPerMonth", query = "select m from Movement m where m.vehicle = :vehicle and m.datum = :datum")
-})
 public class Movement implements Serializable {
 
     @Id
