@@ -39,8 +39,7 @@ public class Rate implements Serializable{
     private double lonRB;
     private double latRO;
     private double lonRO;
-    @OneToOne(mappedBy = "Rate")
-    Movement movement;
+ 
     
     public Rate(){}
 
