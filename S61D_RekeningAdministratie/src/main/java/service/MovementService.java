@@ -5,14 +5,10 @@
  */
 package service;
 
-import dao.BeaconDAO;
-import dao.MovementDAO;
-import domain.Beacon;
 import domain.Movement;
 import domain.Rate;
 import java.util.List;
 import javax.ejb.Stateless;
-import javax.inject.Inject;
 
 /**
  *
