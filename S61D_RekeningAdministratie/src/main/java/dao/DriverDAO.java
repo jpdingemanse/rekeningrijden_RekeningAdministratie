@@ -36,13 +36,13 @@ public class DriverDAO {
             em.persist(driver);
             em.flush();
 
-            //d = em.find(Driver.class, driver.getId());
+            d = em.find(Driver.class, driver.getId());
         
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
-        //System.out.println(d);
-        return driver;
+        System.out.println(d);
+        return d;
     }
 
     public Driver getDriver(int id) {
