@@ -27,9 +27,12 @@ public class DriverService {
         Driver d = null;
         try{
             d = driverDao.createNewDriver(driver);
-            ds.SendDriverToRekeningRijder(d);
+            
         } catch (Exception ex){
             System.out.println(ex.getMessage());
+        }
+        if(driver != null){
+//            ds.SendDriverToRekeningRijder(d);
         }
          return d;
     }
