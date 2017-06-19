@@ -32,8 +32,10 @@ public class VehicleService {
     
     public Vehicle createNewVehicle(Vehicle vehicle){
         Vehicle result = vehicleDAO.createNewVehicle(vehicle);
-       // vehicleTransmitter.SendVehicleToRekeningRijder(result);
 
+        if(result != null){
+//            vehicleTransmitter.SendVehicleToRekeningRijder(result);
+        }
         return result;
     }
 
